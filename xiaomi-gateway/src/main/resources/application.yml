@@ -1,0 +1,62 @@
+server:
+  port: 20001
+
+spring:
+  application:
+    name: xiaomi-gateway
+  cloud:
+    gateway: # 基础的路由转发配置
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOriginPattern: "*"
+#            allowedMethods: "*"
+#            allowedHeaders: "*"
+#            allowCredentials: true
+      routes:  # 查看配置源码
+        - id: xiaomi-es
+          uri: lb://xiaomi-es
+          predicates:
+            - Path=/xiaomi-es/**
+          filters:
+            - StripPrefix=1
+        - id: xiaomi-cart
+          uri: lb://xiaomi-cart
+          predicates:
+            - Path=/xiaomi-cart/**
+          filters:
+            - StripPrefix=1
+        - id: xiaomi-security
+          uri: lb://xiaomi-security
+          predicates:
+            - Path=/xiaomi-security/**
+          filters:
+            - StripPrefix=1
+        - id: xiaomi-img
+          uri: lb://xiaomi-img
+          predicates:
+            - Path=/xiaomi-img/**
+          filters:
+            - StripPrefix=1
+        - id: xiaomi-web
+          uri: lb://xiaomi-web
+          predicates:
+            - Path=/xiaomi-web/**
+          filters:
+            - StripPrefix=1  #剪切   Prefix前缀    localhost:20001/bbs-web/index.html   替换成=> localhost:7777/index
+
+
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 暴露gateway端点，* 是暴露全部端点
+  endpoint:
+    gateway:
+      enabled: true # default value

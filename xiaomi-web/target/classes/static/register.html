@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米帐号 -注册</title>
+    <link rel="stylesheet" href="css/login.css">
+<!--    <script src='js/require.js' async=true defer data-main='js/main2.js'></script>-->
+</head>
+
+<body style="padding-top: 20px;">
+    <div class="wrap" id="app">
+        <div class="layout_panel">
+            <div class="layout" id="layout">
+                <div id="main-content">
+                    <!--表单输入登录-->
+                    <div class="mainbox form-panel" id="login-main" style="display: block;">
+                        <div id="custom_display_2">
+                        </div> <!-- header s -->
+                        <div class="lgnheader">
+                            <div class="header_tit t_c">
+                                <em id="custom_display_1" class="milogo">
+                                    <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="48" height="48" rx="3" ry="3" style="fill:#ff6700"></rect>
+                                        <rect x="10" y="15" width="4.2" height="18" style="fill:#FFFFFF"></rect>
+                                        <rect x="33.75" y="15" width="4.2" height="18" style="fill:#FFFFFF"></rect>
+                                        <rect x="11.25" y="15" width="15" height="4.1" style="fill:#FFFFFF"></rect>
+                                        <rect x="26.2" y="20.55" width="4.2" height="12.5" style="fill:#FFFFFF"></rect>
+                                        <rect x="20.6" y="15" width="9.8" height="9.8" rx="4.4" ry="4.4"
+                                            style="fill:#FFFFFF"></rect>
+                                        <rect x="20.2" y="19" width="6" height="6" rx="2" ry="2" style="fill:#ff6700">
+                                        </rect>
+                                        <rect x="18" y="19.1" width="4" height="2.2" style="fill:#ff6700"></rect>
+                                        <rect x="24.2" y="23" width="1.94" height="10" style="fill:#ff6700"></rect>
+                                        <rect x="18.1" y="22.8" width="4.2" height="10.2" style="fill:#FFFFFF"></rect>
+                                    </svg>
+                                </em>
+                                <h4 class="header_tit_txt" id="login-title">小米帐号注册</h4>
+                                <div class="site_info"></div>
+                            </div>
+                        </div>
+                        <!-- header e -->
+                        <!-- tab s -->
+                        <div class="nav_tabs_panel">
+                            <div id="nav-tabs" class="nav_tabs">
+                                <a class="navtab-link now" href="javascript:void(0);" data-tab="pwd">帐号登录</a>
+                                <span class="line"></span>
+                                <a class="navtab-link" href="javascript:void(0);" data-tab="qr">扫码登录</a>
+                            </div>
+                        </div> <!-- tab e -->
+                        <!-- tab con s -->
+                        <div class="tabs-con tabs_con now" data-con="pwd" style="display: block;">
+                            <div>
+                                <div class="login_area" id="login-main-form">
+                                    <div class="loginbox c_b">
+                                        <!-- 输入框 -->
+                                        <div class="lgn_inputbg c_b login-panel pwdLogin">
+                                            <!--验证用户名-->
+                                            <div class="single_imgarea" id="account-info">
+                                                <div class="na-img-area" id="account-avator" style="display:none">
+                                                    <div class="na-img-bg-area" id="account-avator-con"></div>
+                                                </div>
+                                                <p class="us_name tac" id="account-displayname"></p>
+                                                <p class="us_id tac"></p>
+                                            </div>
+
+                                            <label id="region-code" class="labelbox login_user c_b" >
+                                                <input class="item_account" autocomplete="off" type="text" name="user"
+                                                    id="username" v-model="id"  @blur="checkId" placeholder="小米ID">
+                                            </label>
+                                            <div class="tips" id="showId"><input style="color: red; font-weight: 400" v-model="idCk" ></div>
+
+                                            <label  class="labelbox login_user c_b" >
+                                                <input class="item_account" autocomplete="off" type="text" name="user"
+                                                       id="email" v-model="email"  @blur="checkEmail" placeholder="邮箱">
+                                            </label>
+                                            <div class="tips" id="showEmail"  ><input style="color: red; font-weight: 400" v-model="emailCk" ></div>
+
+                                            <label class="labelbox login_user c_b" >
+                                                <input class="item_account" autocomplete="off" type="text" name="user"
+                                                       id="tel" v-model="tel" @blur="checkTel" placeholder="电话">
+                                            </label>
+                                            <div class="tips" id="showTel" ><input style="color: red; font-weight: 400" v-model="telCk" ></div>
+
+                                            <label class="labelbox pwd_panel c_b">
+                                                <input class="item_account" type="password" placeholder="密码"
+                                                    autocomplete="off" id="pwd" v-model="pwd" @blur="checkPwd" name="password">
+                                            </label>
+                                            <div class="tips" id="showPwd" ><input style="color: red; font-weight: 400" v-model="pwdCk" ></div>
+
+                                            <label class="labelbox pwd_panel c_b">
+                                                <input class="item_account" type="password" placeholder="确认密码"
+                                                    autocomplete="off" id="pwd2" v-model="pwd2" @blur="checkPwd2" name="repassword">
+                                            </label>
+                                            <div class="tips" id="shoPwd2" ><input style="color: red; font-weight: 400" v-model="pwdCk2" ></div>
+
+                                            <input type="text" placeholder="请输入邮箱验证码" autocomplete="off" id="code" v-model="code" style="border: 1px solid lightgray; height: 50px; border-top: -50px;"/>
+                                            <div style="float: right; ">
+                                               <button type="button" @click="sendCode" style="width: 130px;height: 50px">发送邮箱验证码</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- 错误信息 -->
+                                        <div class="err_tip">
+                                            <div><em class="icon_error"></em><span class="error-con">11</span></div>
+                                        </div>
+                                        <div class="btns_bg">
+                                            <input class="btnadpt" id="register-button" type="button" value="注册" @click="register()">
+                                            <span id="custom_display_8"
+                                                class="sns-default-container sns_default_container"
+                                                style="display: none;">
+                                            </span>
+                                        </div>
+
+                                        <div class="other_panel clearfix">
+                                            <div class="reverse" id="extra-links">
+                                                <div class="n_links_area reg_forget_links reg-forget-links"
+                                                    id="custom_display_64">
+                                                    <a class="outer-link" href="./login.html">立即登陆</a><span>|</span>
+                                                    <a class="outer-link"
+                                                        href="./forgetPwd.html">忘记密码？</a>
+                                                </div>
+                                                <div class="n_links_area sms_unavaliable_links sms-unavaliable-links"><a
+                                                        target="_blank"
+                                                        href="https://static.account.xiaomi.com/html/faq/faqSMSerror.html">收不到验证码？</a>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- 其他登录方式 e -->
+                                            <p class="acq_tips" style="display: none;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='custom_display_4' class='n-footer'>
+        <div class="nf-link-area clearfix">
+            <ul class="lang-select-list">
+                <li><a href="javascript:void(0)" data-lang="zh_CN" class="lang-select-li current">简体</a>|</li>
+                <li><a href="?callback=https%3A%2F%2Forder.mi.com%2Flogin%2Fcallback%3Ffollowup%3Dhttps%253A%252F%252Fwww.mi.com%252F%26sign%3DNzY3MDk1YzczNmUwMGM4ODAxOWE0NjRiNTU5ZGQyMzFhYjFmOGU0Nw%2C%2C&amp;sid=mi_eshop&amp;_bannerBiz=mistore&amp;_qrsize=180&amp;_locale=zh_TW"
+                        data-lang="zh_TW" class="lang-select-li">繁体</a>|</li>
+                <li><a href="?callback=https%3A%2F%2Forder.mi.com%2Flogin%2Fcallback%3Ffollowup%3Dhttps%253A%252F%252Fwww.mi.com%252F%26sign%3DNzY3MDk1YzczNmUwMGM4ODAxOWE0NjRiNTU5ZGQyMzFhYjFmOGU0Nw%2C%2C&amp;sid=mi_eshop&amp;_bannerBiz=mistore&amp;_qrsize=180&amp;_locale=en"
+                        data-lang="en" class="lang-select-li">English</a>|</li>
+                <li><a href="https://static.account.xiaomi.com/html/faq/faqList.html" target="_blank">常见问题</a>|</li>
+                <li><a id="msg-privacy" href="/about/protocol/privacy" target="_blank">隐私政策</a></li>
+            </ul>
+        </div>
+        <p class="nf-intro">小米公司版权所有-京ICP备10046444-<a class="beian-record-link" target="_blank"
+                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020134"><span><img
+                        src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png"></span>京公网安备11010802020134号</a>-京ICP证110507号
+        </p>
+    </div>
+
+</body>
+<script src="js/vue.js"></script>
+<script src="js/axios.js"></script>
+<script>
+ var base_url="http://localhost:20001/xiaomi-security/";
+    let app=new Vue({
+        el:"#app",
+        data:{
+            id:'',
+            idCk:'',
+            email:'',
+            emailCk:'',
+            tel:'',
+            telCk:'',
+            pwd:'',
+            pwdCk:'',
+            pwd2:'',
+            pwdCk2:'',
+            code:'',
+            codeCk:0,
+        },
+        methods:{
+            //发送验证码
+            sendCode:function (){
+               var promise=  axios.get(base_url+"email/sendEmail?email="+this.email);
+               promise.then().then(result=>{
+                   if (result.data.code=="1"){
+                       alert("发送验证码成功");
+                       this.codeCk=result.data.num;
+                   }
+               });
+            },
+
+            //注册
+            register:function() {
+                //是否被注册
+                if (this.idCk!='' || this.emailCk!='' || this.telCk!='' || this.pwdCk!='' || this.pwdCk2!='' ){
+                    alert('注册失败,注册信息错误');
+                    return;
+                }
+                if (this.code!=this.codeCk){
+                    alert('验证码错误');
+                    return;
+                }
+
+                var params=new URLSearchParams();
+                params.append("username",this.id);
+                params.append("tel",this.tel);
+                params.append("pwd",this.pwd);
+                params.append("email",this.email);
+
+                    axios.post(base_url+"user/reg.action",params).then(data=>{
+                        if (data.data.code==1){
+                            alert("注册成功");
+                            window.location="login.html";
+                        }else {
+                            alert('注册失败');
+                        }
+
+                    });
+
+
+            },
+
+            //输入框检查
+            checkId:function (){
+                if (this.id.length>=2 && this.id.length<=20){
+                     this.idCk='';
+                } else {
+                    this.idCk='Id长度应在2到20个字符内';
+                }
+            },
+            checkEmail:function (){
+                if (this.email.includes('@qq.com')){
+                    this.emailCk='';
+                } else {
+                    this.emailCk='邮箱格式不符合';
+                }
+                axios.get(base_url+"user/checkEmail?email="+this.email).then(result=>{
+                    if (result.data.code==0){
+                        this.emailCk='注册失败,邮箱已被注册';
+                    }
+                });
+            },
+            checkTel:function (){
+                const telRegex = /^1[0-9]{10}$/
+                if (telRegex.test(this.tel)){
+                    this.telCk='';
+                } else {
+                    this.telCk='电话格式不合法';
+                }
+
+                axios.get(base_url+"user/checkTel?tel="+this.tel).then(result=>{
+                    if (result.data.code==0){
+                        this.telCk='注册失败,手机号已经被注册';
+                    }
+                });
+            },
+
+            checkPwd:function (){
+                if (this.pwd.length>=2 &&this.pwd.length<=10){
+                    this.pwdCk='';
+                } else {
+                    this.pwdCk='密码长度应在2到10个字符内';
+                }
+            },
+            checkPwd2:function (){
+                if (this.pwd2==this.pwd){
+                    this.pwdCk2='';
+                } else {
+                    this.pwdCk2='密码不一致';
+                }
+            },
+
+
+        },
+
+
+    })
+
+</script>
+</html>

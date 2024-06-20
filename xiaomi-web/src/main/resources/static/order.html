@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写订单信息</title>
+    <link rel="stylesheet" href="css1/index.css">
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+<div id="order">
+    <div class="order_head">
+        <div class="head_background">
+            <div class="head_box">
+                <a href="index.html" class="head_left_a"><img src="images/logo.jpg" alt="" class="head_left_p"></a>
+                <h1 class="head_h1">确认订单</h1>
+                <div class="head_right">
+                    <span class="head_right_in">1412625918 ∨</span>
+                    <span class="head_right_in">|</span>
+                    <a href="" class="head_right_in">我的订单</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="order_body">
+        <div class="order_body_background">
+            <ul class="order_line">
+                <li class="order_lien_in">
+                    <h3 class="order_title">收货地址</h3>
+                </li>
+                <li class="order_lien_in">
+                    <span class="order_span">|</span>
+                    <span class="order_span">大型商场下单后,收货地址将无法修改.</span>
+                </li>
+                <li class="order_lien_in">
+                    <a href="" class="order_a">快递公司会电话联系您确认送货时间,收货时需要核对身份信息</a>
+
+                </li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <div class="common_list_con clearfix">
+                <dl>
+                    <dt>寄送到：</dt>
+                    <dd v-for="address in addresses" :key="address.id">
+                        <input type="radio" name="addressRadio" v-model="selectedAddressId" :value="address.aid">
+                        {{ address.address }} （{{ address.consignee }} 收） {{ address.tel }}
+                    </dd>
+                </dl>
+                <a href="user_center_site.html" class="edit_site">编辑收货地址</a>
+            </div>
+            <ul class="order_line order_line_bordtr">
+                <li class="order_lien_in order_in">
+                    <h3 class="order_title">支付方式</h3>
+                </li>
+
+                <li class="order_lien_in">
+                    <a href="" class="order_a">在线支付(支持微信支付、支付宝、银联、财付通、小米钱包等）</a>
+
+                </li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <ul class="order_line order_line_bordtr">
+                <li class="order_lien_in order_in">
+                    <h3 class="order_title">配送方式</h3>
+                </li>
+
+                <li class="order_lien_in">
+                    <a href="" class="order_a">快递配送(运费100元)</a>
+
+                </li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <ul class="order_line order_line_bordtr">
+                <li class="order_lien_in">
+                    <h3 class="order_title">配送时间</h3>
+                </li>
+                <li class="order_PStime">不限送货时间：周一至周日</li>
+                <li class="order_PStime">工作日送货：周一至周五</li>
+                <li class="order_PStime"> 双休日、假日送货：周六至周日</li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <ul class="order_line order_line_bordtr_1">
+                <li class="order_lien_in">
+                    <h3 class="order_title">发票</h3>
+                </li>
+                <li class="order_lien_in order_line_bordtr_2">
+                    <a href="" class="order_a">电子发票 个人 商品明细 修改 ></a>
+                </li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <ul class="order_line order_line_bordtr">
+                <li class="order_lien_in">
+                    <h3 class="order_title">商品及优惠券</h3>
+                </li>
+                <li class="order_lien_in">
+
+                    <a href="trolley.html"><span class="order_span_rigth">返回购物车</span></a>
+                </li>
+
+                <li class="order_lien_in"></li>
+            </ul>
+
+            <ul class="order_line order_line_bordtr" v-for="orderInfo in orderInfos">
+                <li class="order_lien_in" >
+                    <img class="order_price_tv"  style="height: 18px; width: 27px" :src="'http://192.168.85.128:8888/'+orderInfo.pics" alt="">
+                    <p class="order_price">{{orderInfo.name}}/{{orderInfo.color}}/{{orderInfo.cap}}</p>
+                </li>
+                <li class="order_lien_in">
+                    <p class="order_price_1">{{orderInfo.price/orderInfo.num}}{{orderInfo.num}}*{{orderInfo.num}}</p>
+                </li>
+                <li class="order_price1">
+                    <p class="order_price_2">{{orderInfo.price}}</p>
+
+                </li>
+                <li class="order_lien_in"></li>
+            </ul>
+            <ul class="order_line ">
+                <li class="order_lien_in">
+                    <p class="order_price_11">商品件数:</p>
+                </li>
+                <li class="order_price1">
+                    <p class="order_price_2">{{totalQuantity}}件</p>
+                </li>
+            </ul>
+            <ul class="order_line " >
+                <li class="order_lien_in">
+                    <p class="order_price_11">金额合计:</p>
+                </li>
+                <li class="order_price1">
+                    <p class="order_price_2">{{totalPrice}}元</p>
+                </li>
+
+            </ul>
+            <ul class="order_line ">
+                <li class="order_lien_in">
+                    <p class="order_price_11">运费:</p>
+                </li>
+                <li class="order_price1">
+                    <p class="order_price_2">100元</p>
+                </li>
+            </ul>
+            <ul class="order_line order_line_bordtr">
+                <li class="order_lien_in">
+                    <p class="order_price_11"><br>应付总额:</p>
+                </li>
+                <li class="order_price1">
+                    <p class="order_price_2" style="font-size: 35px" >{{totalPrice-100}}元</p>
+
+                </li>
+            </ul>
+            <ul class="pay">
+                <a href="javascript:void(0);" class="pay_a" @click="over()">结算</a>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="foot">
+        <ul class="foot_ul">
+            <li class="foot_li">预约维修服务</li>
+            <li class="foot_li">7天无理由退货</li>
+            <li class="foot_li">15天免费换货</li>
+            <li class="foot_li">满15元包邮</li>
+            <li class="foot_li foot_fot">520余家售后网点</li>
+        </ul>
+        <div class="foot_center">
+            <div class="foot_cen_left">
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+            </div>
+            <div class="foot_cen_right">
+                <p class="foot-phone">400-100-5678</p>
+                <p class="foot-right-center">周一至周日 8:00-18:00<br>（仅收市话费)</p>
+                <a class="foot-right-bottmo" href="">联系客服</a>
+            </div>
+        </div>
+    </div>
+    <div class="fot_bot_max">
+        <div class="fot_bot">
+            <img src="img/logo.jpg" class="fot_bot_logo" >
+            <div class="fot_bot_text">
+                <p class="fot_bot_p">
+                    <a class="fot_bot_a" href="">小米商城</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">MIUI</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米家</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米聊</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">多看</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">游戏</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">路由器</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米粉卡</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">政企服务</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">小米天猫店</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">隐私政策</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">问题反馈</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">廉政举报</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">Select Region</a>
+                </p>
+                <p class="fot_bot_p fot_bot_a1">
+                    "©"
+                    <a class="fot_bot_a1" href="">mi.con</a>
+                    " 京ICP证110507号"
+                    <a class="fot_bot_a1" href="">京ICP备10046444号</a>
+                    <a class="fot_bot_a1" href="">京公网安备11010802020134号</a>
+                    <a class="fot_bot_a1" href="">京网文[2017]1530-131号</a>
+                    "<br>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试"
+
+
+
+                </p>
+            </div>
+            <div class="fot_bot_right">
+                <a href="" class="fot_bot_right_img"><img src="img/foot_01.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_02.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_03.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_04.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_05.png" alt=""></a>
+            </div>
+
+        </div>
+        <img class="fot_bottom_img" src="img/foot_06.png">
+    </div>
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/qs.js"></script>
+<script src="js/cart.js"></script>
+<!--<script src='js/require.js' defer async='true' data-main='js/cart.js'></script>-->
+<script src="js/axios.js"></script>
+<script>
+    var base_url="http://localhost:20001/";
+    var addr_order=base_url+"xiaomi-cart/";
+
+    let app = new Vue({
+        el:"#order",
+        data:{
+            Amount:'',
+            orderInfos:{},
+            addresses:{},
+            selectInos:[],
+            gnos:[],
+            nums:[],
+            sum:0,
+            ono:1,
+            uid: 1,
+            user:{},
+            selectedAddressId:1
+        },
+        methods:{
+            findByOno() {
+                var _this=this;
+                _this.ono = JSON.parse(sessionStorage.getItem("ono"));
+                var params = new URLSearchParams();
+                params.append("ono",_this.ono);
+                axios.post(addr_order+"order/findByOno", params).then(data =>{
+                    _this.orderInfos = data.data.data;
+                    for (let i = 0; i < this.orderInfos.length; i++) {
+                        this.gnos.push(this.orderInfos[i].gno);
+                    }
+                    for (let i = 0; i < this.orderInfos.length; i++) {
+                        this.nums.push(this.orderInfos[i].num);
+                    }
+                    console.log(_this.orderInfos);
+                    console.log(_this.gnos);
+                    console.log(_this.nums);
+
+                });
+            },
+            findAdd(){
+                var _this=this;
+                var params = new URLSearchParams();
+                _this.user =JSON.parse(localStorage.getItem("user"));
+                _this.uid = _this.user.id;
+                params.append("uid",_this.uid);
+                //tnd 这是查询地址的方法名
+                axios.post(addr_order+"order/findAdd", params).then(data =>{
+                    _this.addresses = data.data.data;
+                    console.log( _this.addresses);
+                });
+            },
+            //结算方法
+            over(){
+                var _this=this;
+                var params = new URLSearchParams();
+                params.append("gnos",_this.gnos);
+                params.append("nums",_this.nums);
+                // 调用删减库存方法
+                axios.post(addr_order+"order/updatePhoneinfo", params).then(data =>{
+
+                });
+                _this.ono = JSON.parse(sessionStorage.getItem("ono"));
+                var params1 = new URLSearchParams();
+                params1.append("ono",_this.ono);
+                params1.append("aid",_this.selectedAddressId);
+                //
+                axios.post(addr_order+"order/updateAdd", params1).then(data =>{
+
+                });
+                //一共需要三个参数 subject是支付名称    traceno是商户订单号必须变化     total是总金额
+
+                window.open("http://localhost:6001/alipay/pay?subject=1&traceNo="+_this.ono+"&totalAmount="+this.Amount,"_self")  //跳转至支付宝页面
+                //支付成功后应该调用添加订单详情  但支付宝异步回调接口目前无法稳定执行异步回调  --内网穿透ip不断更换（不变的要钱）
+
+
+
+            }
+        },
+        mounted:function(){
+            this.findByOno();
+            this.findAdd();
+            this.user = JSON.parse(sessionStorage.getItem("user"));
+
+        },
+        computed: {
+            totalQuantity(){
+                let totalQuantity = 0;
+                for (let i = 0; i < this.orderInfos.length; i++) {
+                    totalQuantity += this.orderInfos[i].num;
+                }
+                return totalQuantity;
+            },
+            totalPrice(){
+                let totalQuantity = 0;
+                for (let i = 0; i < this.orderInfos.length; i++) {
+                    totalQuantity += this.orderInfos[i].price;
+                }
+                this.Amount=totalQuantity;
+                return totalQuantity;
+            }
+        },
+    });
+
+</script>
+</body>
+</html>

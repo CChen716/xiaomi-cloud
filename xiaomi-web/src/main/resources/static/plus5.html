@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>手机详情</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css1/iconfont.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <!--字体图标-->
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+        [v-cloak]{
+            display:none !important;
+        }
+    </style>
+
+</head>
+<body>
+<div id="plu5" v-cloak>
+    <div class="box">
+        <div class="inner whiteGL">
+            <div class="left">
+                <a class="mix" href="">小米商城</a>
+                <a href="">MIUI</a>
+                <a href="">loT</a>
+                <a href="">云服务</a>
+                <a href="">水滴</a>
+                <a href="">金融</a>
+                <a href="">有品</a>
+                <a class="max" href="">Select Region</a>
+            </div>
+            <div class="right">
+                <!--                <a class="mix" href="login.html">登录</a>-->
+                <!--                <a href="reg.html">注册</a>-->
+                <!--                <a class="max"  href="">消息通知</a>-->
+                <a href="shopCart.html">我的购物车</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="logo">
+        <div class="logo_left">
+            <div>
+                <a href="index.html" title="小米官网"><img class="xiaomi" src="images/logo.jpg"></a>
+
+            </div>
+        </div>
+        <ul class="logo_center orangeGL">
+            <a href="">小米手机</a>
+            <a href="">红米</a>
+            <a href="">笔记本</a>
+            <a href="">电视</a>
+            <a href="">盒子</a>
+            <a href="">新品</a>
+            <a href="">路由器</a>
+            <a href="">智能硬件</a>
+            <a href="">服务</a>
+            <a href="">我的购物车</a>
+        </ul>
+        <form class="logo_right">
+            <div class="logo_input"><input type="text"   v-model="searchBrand"   >
+                <div class="logo_input_div">
+                    <a class="logo_input_a" href="">{{phonesInfo[0].name}}</a>
+                </div>
+            </div >
+            <a  href="#"  class="logo_right_a"   @click="findBrand()" >
+                <img src="images/find.jpg">
+            </a>
+        </form>
+    </div>
+    <div class="plus5_no1">
+        <h2 class="plus5_no1_float">{{phonesInfo[0].name}}</h2><p class="plus5_no1_float">|</p><a href="javascript:;" class="plus5_no1_float"p>{{phonesInfo[0].name}}</a>
+        <a href="javascript:;" class="plus5_no1_float_rigth">用户评价概述</a>
+        <span class="plus5_no1_float_rigth">|</span>
+        <a href="javascript:;" class="plus5_no1_float_rigth">F码通道</a>
+        <span class="plus5_no1_float_rigth">|</span>
+        <a href="javascript:;" class="plus5_no1_float_rigth">概述</a>
+    </div>
+    <!--    <div class="plus5_no2 ">-->
+    <!--        <div class="plus5_no2_in">-->
+    <!--            <a class="plus5_no2_in_a"> 为方便您购买，请提前登录 </a>-->
+    <!--            <a class="plus5_no2_in_a orange"style="color: pink;" href="login.html"  >立即登录</a>-->
+    <!--            <a id="plus5_no2_in" class="plus5_no2_in_a" href="javascript:;">x</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="plus5_no3" id="plu5_id">
+        <div class="plus5_no3_img">
+            <div class="showImg" >
+                <img  @mouseover="changeInterval(true)"
+                      @mouseleave="changeInterval(false)"
+                      v-for="(item) in uniqueImages"
+                      :key="item.id"
+                      :src="'http://192.168.85.128:8888/'+item.url"
+                      alt="暂无图片"
+                      v-show="item.id===currentIndex"
+                >
+                <!--                //左侧按钮-->
+                <div  @click="clickIcon('up')"   class="iconDiv icon-left">
+                    <i class="el-icon-caret-left"></i>
+                </div>
+                <!--                //右侧按钮-->
+                <div  @click="clickIcon('down')"  class="iconDiv icon-right">
+                    <i class="el-icon-caret-right"></i>
+                </div>
+                <!--                //控制圆点-->
+                <div class="banner-circle">
+                    <ul>
+                        <li @click="changeImg(item.id)"
+                            v-for="(item) in imgArr"
+                            :key="item.id"
+                            :class="item.id===currentIndex? 'active': '' "
+                        ></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="plus5_no3_right">
+            <h1>{{phonesInfo[0].name}}</h1>
+            <p class="plus5_no3_right_p2"><span class="plus5_no3_right_span2">小米自营|</span>{{phonesInfo[0].name}}</p>
+            <p class="plus5_no3_right_p3"  >{{price}}<span class="plus5_no3_right_span3">{{integerPrice}}元</span></p>
+
+            <div >
+            </div>
+            <div class="plus5_no3_right_div5">
+                <p   style="letter-spacing: 6px;">
+                    <span class="plus5_no3_right_div5_span"></span></p>
+                <div style=" background-color:#fff;border: 1px solid seashell;box-shadow: 0 2px 10px rgba(0,0,0,.15);
+ "  class="dropdown" >
+                    <p    style="letter-spacing: 6px;" >
+                        <span class="plus5_no3_right_div5_span"></span></p>
+
+                </div>
+            </div>
+            <div class="plus5_no3_right_div6">选择版本</div>
+            <div class="plus5_no3_right_div7" >
+                <li
+                        v-for="(cap, index) in uniqueCaps"
+                        :key="index"
+                        :class="{
+                        plus5_no3_right_div7_in: true,
+                        plus5_no3_right_div7_in_hover: activeIndex !== index,
+                        gray: activeIndex === index,
+                         }"
+                        @click="changeColor(cap,index)"
+                > <div>
+                    <span class="plus5_no3_right_div7_span0">{{cap}}GB</span>
+                </div>
+                </li>
+            </div>
+            <!--            //修改-->
+            <div class="plus5_no3_right_div6">选择颜色</div>
+            <div class="plus5_no3_right_div9" >
+                <div >
+                    <!--                    修改-->
+                    <div v-for="(color,index1) in uniqueColors" :key="index1"  :class="{plus5_no3_right_div7_in:true,
+                    plus5_no3_right_div7_in_hover: active1 !== index1,
+                    gray: active1 === index1, }" @click="changeColor1(color,index1)">
+                        <div><li ><span  >{{color}}</span></li></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="plus5_no3_right_div10">
+                <p class="plus5_no3_right_div10_p1">{{phonesInfo[0].name}} <span class="plus5_no3_right_div10_span0">{{cap}}G</span> <span class="plus5_no3_right_div10_span1"></span><span class="plus5_no3_right_div10_span2">{{color}}</span></p>
+                <!--修改-->
+                <p class="plus5_no3_right_div10_p2"   v-if="price !== null && price !== 0">总计 ：{{price}}元</p>
+                <p class="plus5_no3_right_div10_p2" v-else>暂无现货</p>
+            </div>
+            <a href="#" @click.prevent>
+                <div  v-if="statusnum === 0" style="background-color: gray;width: 300px; margin-top: 30px;height: 54px;line-height: 50px; text-align: center;color: #fff; "    :class="{ disabled: statusnum === 0 }">
+                    正在加急补货。。。。
+                </div>
+                <div v-else class="plus5_no3_right_div11" @click="addCart()">
+                    加入购物车
+                </div>
+            </a>
+            <div class="plus5_no3_right_div12">
+                <div class="plus5_no3_right_div12_y">√</div>
+                <div class="plus5_no3_right_div12_z">七天无理由退货</div>
+                <div class="plus5_no3_right_div12_y">√</div>
+                <div class="plus5_no3_right_div12_z">15天质量问题换货</div>
+                <div class="plus5_no3_right_div12_y">√</div>
+                <div class="plus5_no3_right_div12_z">360天保障</div>
+            </div>
+            <a href="javascript:void (0);"></a>
+
+        </div>
+    </div>
+    <div id="app" style="width: 62.5rem;margin: 0 auto;">
+        <div >
+            <el-input type="textarea"placeholder="请输入评论" v-model="content"></el-input>
+            <div style="text-align: right;margin: 10px 0;">
+                <el-button  type="primary" @click="submit">提交</el-button>
+            </div>
+        </div>
+        <div style="margin: 20px 0">
+            <div style="margin:10px 0;font-size: 24px;padding: 10px 0;border-bottom: 1px solid #ccc; text-align: left">评论列表</div>
+            <div style="margin:20px 0;text-align: left">
+                <div style="padding: 10px 0" v-for="(father,i) in comData"  :key="i">
+                    <div style="display: flex">
+                        <div style="width: 80px"><el-avatar shape="square" :size="50" :src="'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'"></el-avatar></div>
+                        <div style="flex: 1">
+                            <div v-html="father.username"></div>
+                            <div style="margin-top: 10px;color: #666" v-html="father.content"></div>
+                            <div><el-button type="text" @click="openReply()">回复</el-button></div>
+                            <div style="margin-left: 100px;background-color: aliceblue;padding: 10px;border-radius: 10px">
+                                <!--                                有一个v-for-->
+                                <div v-for="(son ,i) in father.sonData" >
+                                    <div style="padding: 5px 0"><b style="cursor: pointer" @click="getPrice()" v-html="son.username"></b><span>回复<span style="color: cornflowerblue" v-html="son.target"></span>
+                                    <span style="color: #666;margin-left: 10px;font-size: 13px;margin-top: 3px" v-html="son.content"></span></span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <el-dialog title="回复" :visible.sync="dialogFormVisible" width="40%">
+                            <el-form :model="sonContent">
+                                <el-form-item label="内容" :label-width="String(80)">
+                                    <el-input v-model="sonContent.content" autocomplete="off"   style="width: 80%"></el-input>
+                                </el-form-item>
+                            </el-form>
+                            <div slot="footer" class="dialog-footer">
+                                <el-button @click="dialogFormVisible = false">取 消</el-button>
+                                <el-button type="primary" @click="reply(father)">确 定</el-button>
+                            </div>
+                        </el-dialog>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <ul class="foot_ul">
+            <li class="foot_li">预约维修服务</li>
+            <li class="foot_li">7天无理由退货</li>
+            <li class="foot_li">15天免费换货</li>
+            <li class="foot_li">满15元包邮</li>
+            <li class="foot_li foot_fot">520余家售后网点</li>
+        </ul>
+        <div class="foot_center">
+            <div class="foot_cen_left">
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+                <dl class="foot_dl">
+                    <dt class="foot_dt">帮助中心</dt>
+                    <dd class="foot_dd"><a>账户管理</a></dd>
+                    <dd class="foot_dd"><a>购物指南</a></dd>
+                    <dd class="foot_dd"><a>订单操作</a></dd>
+                </dl>
+            </div>
+            <div class="foot_cen_right">
+                <p class="foot-phone">400-100-5678</p>
+                <p class="foot-right-center">周一至周日 8:00-18:00<br>（仅收市话费)</p>
+                <a class="foot-right-bottmo" href="">联系客服</a>
+            </div>
+        </div>
+    </div>
+    <div class="fot_bot_max">
+        <div class="fot_bot">
+            <img src="img/logo.jpg" class="fot_bot_logo" >
+            <div class="fot_bot_text">
+                <p class="fot_bot_p">
+                    <a class="fot_bot_a" href="">小米商城</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">MIUI</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米家</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米聊</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">多看</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">游戏</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">路由器</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">米粉卡</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">政企服务</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">小米天猫店</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">隐私政策</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">问题反馈</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">廉政举报</a>
+                    <span class="fot_bot_span">|</span>
+                    <a class="fot_bot_a" href="">Select Region</a>
+                </p>
+                <p class="fot_bot_p fot_bot_a1">
+                    "©"
+                    <a class="fot_bot_a1" href="">mi.con</a>
+                    " 京ICP证110507号"
+                    <a class="fot_bot_a1" href="">京ICP备10046444号</a>
+                    <a class="fot_bot_a1" href="">京公网安备11010802020134号</a>
+                    <a class="fot_bot_a1" href="">京网文[2017]1530-131号</a>
+                    "<br>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试"
+                </p>
+            </div>
+            <div class="fot_bot_right">
+                <a href="" class="fot_bot_right_img"><img src="img/foot_01.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_02.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_03.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_04.png" alt=""></a>
+                <a href="" class="fot_bot_right_img"><img src="img/foot_05.png" alt=""></a>
+            </div>
+
+        </div>
+        <img class="fot_bottom_img" src="img/foot_06.png">
+    </div>
+    <div class="fixed">
+        <div class="fixed_in">
+            <a class="fixed_a" href=""><img src="img/fixed_01.png" alt="" class="fixed_img"></a>
+            <p class="fixed_p">个人中心</p>
+        </div>
+        <div class="fixed_in">
+            <a class="fixed_a" href=""><img src="img/fixed_02.png" alt="" class="fixed_img"></a>
+            <!--<a class="fixed_a" href=""><img src="img/fixed_o_02.png" alt="" class="fixed_img"></a>-->
+
+            <p class="fixed_p">联系客服</p>
+        </div>
+        <div class="fixed_in">
+            <a class="fixed_a" href=""><img src="img/fixed_03.png" alt="" class="fixed_img"></a>
+            <p class="fixed_p">购物车</p>
+        </div>
+        <div class="fixed_in fi_bottmo">
+            <a class="fixed_a" href=""><img src="img/fixed_04.png" alt="" class="fixed_img"></a>
+            <p class="fixed_p">回到顶部</p>
+        </div>
+    </div>
+</div>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <script src="js/qs.js"></script>
+
+<!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!--    <script>-->
+<!--        // var plus5_no2_in = document.getElementById("plus5_no2_in");-->
+<!--//         var plus5_no2 = document.getElementsByClassName("plus5_no2")[0];-->
+<!--//         plus5_no2.onclick = function () {-->
+<!--//             plus5_no2.className="plus5_no2 plus5_no2_close";-->
+<!--// //            plus5_no2.style.display="none";-->
+<!--//         }-->
+<!--        $(".plus5_no3_right_div9 .plus5_no3_right_div7_in").click(function () {-->
+<!--            console.log($(this).children().eq(1).html());-->
+<!--            $(".plus5_no3_right_div10_span2").html($(this).children().eq(1).html());-->
+
+<!--            $(".plus5_no3_img img").css("display","none").eq($(this).index()).css("display", "block");-->
+<!--            $(this).siblings().removeClass("plus5_no3_right_div7_in_hover").end().addClass("plus5_no3_right_div7_in_hover");-->
+
+<!--        })-->
+<!--        $(".plus5_no3_right_div7 .plus5_no3_right_div7_in").click(function () {-->
+<!--//            var value = $(".plus5_no3_right_div7_span0 ").html();-->
+<!--            console.log($(this).children().eq(1).html());-->
+<!--            $(".plus5_no3_right_div10_span0").html($(this).children().html());-->
+<!--            $(".plus5_no3_right_span10").html($(this).children().eq(1).html());-->
+<!--            var value = "总计:"+$(this).children().eq(1).html()-->
+<!--            $(".plus5_no3_right_div10_p2").html(value);-->
+
+<!--            $(this).siblings().removeClass("plus5_no3_right_div7_in_hover").end().addClass("plus5_no3_right_div7_in_hover");-->
+<!--        })-->
+<!--    </script>-->
+<script>
+
+    // //使用axios时,利用原型模式给axios加入 Authorization头,这样每个请求都会加入Authorization头部
+    // Vue.prototype.axios=axios;
+    // //在每次请求时,前段携带token到请求头中
+    // axios.interceptors.request.use(config=>{
+    //     //从localStorage或Vuex中获取token
+    //     const token=localStorage.getItem('token');
+    //     //如果有token,就添加到请求头中
+    //     if (token){
+    //         config.headers.Authorization=token;
+    //     }else {
+    //         config.headers.Authorization='';
+    //     }
+    //     return config;
+    // },error=>{
+    //     return Promise.reject(error);
+    // });
+    //
+    // let app3=new Vue({
+    //     el:"#yc-header",
+    //     data:{
+    //         userInfo:{},
+    //         loginStatus:0,
+    //     },
+    //     mounted:function(){
+    //         this.checkLogin();
+    //     },
+    //     methods:{
+    //
+    //         checkLogin:function (){
+    //             var _this=this;  //防止变量污染
+    //             //如果浏览器的storage无token,则说明没有用户登录
+    //             if (localStorage.getItem('token')==null){
+    //                 _this.userInfo={};
+    //                 _this.loginStatus=0;
+    //             }
+    //             axios.get('/xiaomi-security/user/loginCheck?pagenum=0&pagesize=0').then(data=>{
+    //                 if (data.data.code==0){
+    //                     _this.loginStatus=0;
+    //                     console.log(data.data);
+    //                 }else {
+    //                     _this.loginStatus=1;
+    //                     _this.userInfo=data.data.data;
+    //                 }
+    //             });
+    //         },
+    //     }
+    //
+    // })
+
+    let app=new Vue({
+        el:'#plu5',
+        data:{
+            dialogFormVisible:false,
+            phone:'',
+            phones:'',
+            colors:[],
+            activeIndex:0,
+            active1:0,
+            carts:[],
+            searchBrand: '',//搜索框文本
+            loginid:'',
+            statusnum:'',
+            sonContent:{
+                content:''
+
+            },//子类的回复
+            //新加上
+            phonesInfo:[],
+            cap:'',
+            color:'',
+            price:'',
+            images:[],
+            comData:{},
+            content:'',
+            currentIndex :0,//当前所在图片下标
+            timer:null,//定时轮询
+            imgArr:[
+
+            ]
+
+            //首页是否已经登录的id
+        },
+        computed: {
+            //新加
+            integerPrice() {
+                return Math.floor(this.price * (1 + 0.2));
+            },
+            //新加的
+            uniqueCaps(){
+                const  caps=new Set();
+                this.phonesInfo.forEach(item=>{
+                    caps.add(item.cap);
+                })
+                return  Array.from(caps);
+            },
+            uniqueColors(){
+                const colors=new Set();
+                this.phonesInfo.forEach(item=>{
+                    colors.add(item.color);
+                })
+                return Array.from(colors);
+            },
+            uniqueImages() {
+                const images = new Set();
+                this.phonesInfo.forEach((item, index) => {
+                    const imageObject = {
+                        id: index , // 添加id属性，可以根据索引设置唯一的id
+                        url: item.pics
+                    };
+                    images.add(imageObject);
+                });
+                return Array.from(images);
+            }
+        },
+        mounted:function () {
+            this.startInterval()
+            axios.all([this.showDetailHtml(),this.getCom()]).then(axios.spread((rs1,rs2)=>{
+                this.$emit('my-event');
+            }))
+        },
+        methods: {
+
+            //开启定时器
+            startInterval(){
+                // 事件里定时器应该先清除在设置，防止多次点击直接生成多个定时器
+                clearInterval(this.timer);
+                this.timer = setInterval(()=>{
+                    this.currentIndex++;
+                    if(this.currentIndex > this.imgArr.length-1){
+                        this.currentIndex = 0
+                    }
+                },3000)
+            },
+            // 点击左右箭头
+            clickIcon(val){
+                if(val==='down'){
+                    this.currentIndex++;
+                    if(this.currentIndex===this.imgArr.length){
+                        this.currentIndex = 0;
+                    }
+                }else{
+                    /* 第一种写法
+                    this.currentIndex--;
+                    if(this.currentIndex < 0){
+                        this.currentIndex = this.imgArr.length-1;
+                    } */
+                    // 第二种写法
+                    if(this.currentIndex === 0){
+                        this.currentIndex = this.imgArr.length;
+                    }
+                    this.currentIndex--;
+                }
+            },
+            // 点击控制圆点
+            changeImg(index){
+                this.currentIndex = index
+            },
+            //鼠标移入移出控制
+            changeInterval(val){
+                if(val){
+                    clearInterval(this.timer)
+                }else{
+                    this.startInterval()
+                }
+            },
+            //提交评论
+            submit() {
+
+                //此处要获取username,userid,foreignid
+                var params=new URLSearchParams();
+                params.append("content",this.content);
+                params.append("pid",0);
+                params.append("target",1);
+                params.append("foreignid",1);
+                params.append("username","张三");
+                params.append("userid",1);
+                if (this.content==""||this.content==null){
+                    alert("评论不能为空")
+                }else{
+                    axios.post("/xiaomi-img/com/addCom",params).then(data=>{
+                        if (data.data.code==0){
+                            alert("发表评论失败");
+                            return;
+                        }
+                        alert("发表评论成功")
+                        this.getCom()
+                        this.content=""
+                    })
+                }
+            },
+            reply(father){
+                //这里要获取pid和target foreignid username
+                var params=new URLSearchParams();
+                params.append("content",this.sonContent.content);
+                params.append("pid",father.id);
+                params.append("target",father.username);
+                params.append("foreignid",1);
+                params.append("username","张三");
+                params.append("userid",1);
+                if (this.sonContent.content==""||this.sonContent.content==null){
+                    alert("评论不能为空")
+                }else{
+                    axios.post("/xiaomi-img/com/addCom",params).then(data=>{
+                        if (data.data.code==0){
+                            alert("发表评论失败");
+                            return;
+                        }
+                        alert("发表评论成功")
+                        this.getCom()
+                        this.sonContent.content=""
+                        this.dialogFormVisible=false
+                    })
+                }
+            },
+            openReply(){
+                this.dialogFormVisible=true
+            },
+            findBrand:function(){ //根据品牌名称搜索
+                console.log(this.searchBrand);
+                if (this.searchBrand==null||this.searchBrand==""){
+                    alert("请输入搜索条件");
+                }else {
+                    sessionStorage.setItem("getBrand", this.searchBrand);//将参数设置到session中
+                    location.href="search.html";
+                    //需要判断搜索的内容 如果是搜索的品牌那么将
+                }
+            },
+            //留下
+            changeColor(cap, index) {
+                this.activeIndex = index;
+                // 更新被点击的 div 的索引
+                this.cap = cap;
+                this.getPrice()
+            },
+            //留下
+            changeColor1(color, index) {
+                this.active1 = index;
+                this.color = color;
+                this.getPrice()
+            },
+            //加入购物车方法
+            addCart(){
+                let id =this.phonesInfo.find(item=>item.cap===this.cap&&item.color===this.color).id;
+
+                let flag=0;
+                this.loginid=sessionStorage.getItem("id");   //首页登录后会将该用户的id值设置进去
+                if (this.loginid===null){ //没有值说明未登录
+                    alert("请登录！！！");
+                    location.href="login.html";
+                }
+
+                // if(this.carts.length>0){
+                //     for(let i=0;i<this.carts.length;i++){
+                //         if(this.carts[i].id==id){
+                //             flag=1;
+                //             axios.post('cart',
+                //                 qs.stringify({
+                //                     op:'update',
+                //                     gno:id,
+                //                     num:1,
+                //                 })
+                //             ).then(rs=>{
+                //                 if (rs.data > 0) {
+                //                     this.carts[i].num = this.carts[i].num + 1;
+                //                     this.goodsCount++;
+                //                 } else {
+                //                     alert("添加失败");
+                //                 }
+                //             });
+                //         }
+                //     }
+                // }
+                var params=new URLSearchParams();
+                var phone=JSON.parse(sessionStorage.getItem('DetailInfo'));
+                var user =JSON.parse(sessionStorage.getItem('user')).id;    //TODO :还未测试
+                params.append("gno",id)
+                params.append("uno",user;
+                params.append("num",1);
+                if (flag==0){
+                    //购物车没有
+                    axios.post("cart",params
+
+                    ).then(rs=>{
+                        let cno=rs.data;
+                        if ("0"==cno){
+                            alert("添加失败")
+                        }else {
+                            //更多数据
+                            // this.carts.push({gno:id,cno:cno,num:1,uno:this.uno});
+                            // this.goodsCount++;
+                            //添加成功了
+                            alert("添加成功")
+                        }
+                    });
+                }
+                alert("添加成功");
+            },
+            showDetailHtml(){
+                var _this=this;
+                //修改为sessionstorage中后去pid
+
+            //  var phone=JSON.parse(sessionStorage.getItem('DetailInfo'));   原方式
+                let hash=decodeURI(location.hash);
+                console.log(hash);
+                if(hash==''){
+                    // location.href="index.html";
+                    return;
+                }
+                hash=hash.replace("#","");
+                if (hash.includes("pid=")) {
+                    let value = hash.match(/pid=(\d+)/);
+                    if (value && value[1]) {
+                        hash = value[1];
+                    }
+                }
+                pid=hash;
+                console.log(pid);
+                var promise=axios.get('/xiaomi-img/com/findPhoneByPid?pid='+pid);
+                promise.then(result=>{
+                    console.log(result);
+                    if (result.data.code==1){
+                        _this.phonesInfo=result.data.data;
+                        _this.cap=_this.phonesInfo[0].cap;
+                        _this.color=_this.phonesInfo[0].color;
+                        _this.getPrice(_this.cap,_this.color);
+                    }
+                })
+            },
+            //获取
+            getPrice () {
+                var _this=this;
+                const color=_this.color;
+                const cap=_this.cap;
+                _this.price = this.phonesInfo.find(item => item.cap === cap && item.color === color).price;
+                // 如果找到匹配的项，则返回对应的price值，否则返回0或其他默认值
+            },
+            //评论
+            getCom(){
+                var _this=this;
+                const pid=1;
+                axios.get('/xiaomi-img/com/findComByForeignid?pid='+pid).then(data=>{
+                    if (data.data.code==0){
+                        alert("暂无数据");
+                        return;
+                    }else{
+                        _this.comData=data.data.data["0"];
+                        for (let i=0;i<_this.comData.length;i++){
+                            _this.comData[i].sonData=data.data.data[_this.comData[i].id];
+                        }
+                    }
+                })
+            },
+
+        },
+        created() {
+            this.$on('my-event');
+        },
+    });
+
+
+
+
+
+
+
+    //
+    // function checkLogin(){
+    //     return axios.get("user?op=check");
+    // };
+    // function findnoforcolors(){
+    //     return axios({
+    //         url:'Phone',
+    //         method:'get',
+    //         params:{op:'findnoforcolors',pid:pid}
+    //
+    //     })
+    // }
+
+    //获取地址栏传入的参数方法
+    // function findPhoneByPid() {
+    //     let hash=decodeURI(location.hash);
+    //     console.log(hash);
+    //     if(hash==''){
+    //         // location.href="index.html";
+    //         return;
+    //     }
+    //     hash=hash.replace("#","");
+    //     if (hash.includes("pid=")) {
+    //         let value = hash.match(/pid=(\d+)/);
+    //         if (value && value[1]) {
+    //             hash = value[1];
+    //         }
+    //     }
+    //     pid=hash;
+    //     console.log(pid);
+    //     return axios({
+    //         url:'phoneBottom',
+    //         method:'get',
+    //         params:{op:'findByPid',pid:pid}
+    //     })
+    // }
+
+    // function findByUid() {
+    //     this.loginid=sessionStorage.getItem("id")
+    //     return axios({
+    //         url:'address',
+    //         method: 'get',
+    //         params: {op:'findByUid',uid:this.loginid}
+    //
+    //     })
+    //
+    // };
+    // function findByForeignId(foreignid) {
+    //     return axios({
+    //         url:'com',
+    //         method:'get',
+    //         params: {
+    //             op:'findByForeignId',
+    //             foreign_id:pid,
+    //         }
+    //     })
+    // }
+    //分割颜色
+
+
+
+</script>
+
+</body>
+</html>

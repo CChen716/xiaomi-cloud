@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="app">
+    <div class="coupon">
+        <h2>无门槛50优惠券</h2>
+        <p>立即领取，享受折扣优惠！</p>
+        <div>
+            <span v-if="countdownTime > 0"></span>
+        </div>
+        <a  v-if="seckillstate==-1" class="btn" href="javascript:void(0)" >时间未到</a>
+        <a  v-else-if="seckillstate==1" class="btn" href="javascript:void(0)" >已经结束</a>
+        <a  v-else-if="seckillstate==0" class="btn" href="javascript:void(0)" >秒杀火速开始</a>
+
+        <br>
+        <br>
+        <a   class="btn" :class="{ 'disabled': seckillstate==1||seckillstate==-1 }" href="javascript:void(0)" @click="claimCoupon">抢购</a>
+    </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/qs.js"></script>
+<script type="text/javascript">
+    let app=new Vue({
+        el:"#app",
+        data(){
+            return {
+                //新加
+                isAvailable: true, // 是否可领取
+                countdownTime: 10, // 倒计时时间，单位为秒
+                timer: null,
+                seckillstate:0,
+                isseckill:false,
+                isbuy: false //查询是否抢到
+            }
+        },
+        methods:{
+            claimCoupon() {
+                if (this.isAvailable) {
+                    var params=new URLSearchParams();
+                    params.append("goodsId",1);
+                    // 执行领取优惠券的逻辑
+                    axios.post("/xiaomi-img/seckill/doSeckill",params).then(result=>{
+                            if (result.data.code==1){
+                                alert("正在排队抢票");
+                                if (!this.isbuy){
+                                    timerId =  setTimeout(() => this.pollData(), 1000);
+                                }
+                            }else if (result.data.code==0){
+                                alert(result.data.msg);
+                            }
+                        }
+                    )
+                    console.log('领取优惠券');
+                }
+            },
+            pollData(){
+                var params=new URLSearchParams();
+                params.append("goodsId",1);
+                params.append("userid",1);  //TODO 登录系统 传入id
+                axios.post("/xiaomi-img/seckill/getSeckillResult",params).then(result=>{
+                    if (result.data.code==-1){
+                        this.seckillstate=-1;
+                        alert("票已经抢完");
+                        clearTimeout(timerId);
+                        this.isbuy=true;
+                    }else if(result.data.code==1){
+                        this.seckillstate=1;
+                        alert("恭喜你成功抢到");
+                        clearTimeout(timerId);
+                        this.isbuy=true;
+                    }else if (result.data.code==0){
+                        alert("马上排队中");
+                        timerId =  setTimeout(() => this.pollData(), 1000);
+                    }
+                })
+            },
+            updateCurrentTime() {
+                this.currentTime = new Date();
+                setTimeout(this.updateCurrentTime, 1000); // 每秒钟更新一次当前时间
+            },
+        },
+        mounted(){
+            axios.all(this.isCurrentTimeInRange()).then();
+
+        },
+        //进入页面后启动定时轮询
+        computed: {
+            isCurrentTimeInRange() {
+                axios.get("/xiaomi-img/seckill/findSeckillByGoodId").then(result=>{
+                    if (result.data.code==0){
+                        this.isseckill=true;
+                        return
+                    }
+                    const startDate = new Date(result.data.data.startdate);
+                    const endDate = new Date(result.data.data.enddate);
+                    if (this.currentTime<startDate){
+                        return this.seckillstate=-1;
+                    }else if(this.currentTime>= startDate && this.currentTime <= endDate){
+                        return  this.seckillstate=0;
+                    }else if(this.currentTime>endDate){
+                        this.isAvailable=false;
+                        return this.seckillstate=1;
+                    }
+
+                })
+
+            },
+        },
+        //新加
+        created() {
+            this.updateCurrentTime();
+        },
+
+
+
+
+    })
+
+
+</script>
+</body>
+</html>

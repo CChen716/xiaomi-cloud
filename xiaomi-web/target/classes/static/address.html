@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8" />
+		<title>最家</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mygxin.css" />
+	</head>
+	<body>
+	<div id="app">
+		<!------------------------------head------------------------------>
+		<div class="head ding">
+			<div class="wrapper clearfix">
+				<div class="clearfix" id="top">
+					<h1 class="fl"><a href="index.html"><img src="images/logo-mi2.png" height="50px" width="60px" /></a></h1>
+					<div class="fr clearfix" id="top1">
+						<p class="fl">
+							<a href="login.html" id="login">登录</a>
+							<a href="register.html" id="reg">注册</a>
+						</p>
+						<form action="#" method="get" class="fl">
+							<input type="text" placeholder="搜索" />
+							<input type="button" />
+						</form>
+						<div class="btn fl clearfix">
+							<a href="mygxin.html"><img src="img/grzx.png"/></a>
+							<a href="#" class="er1"><img src="img/ewm.png"/></a>
+							<a href="cart.html"><img src="img/gwc.png"/></a>
+							<p><a href="#"><img src="img/smewm.png"/></a></p>
+						</div>
+					</div>
+				</div>
+				<ul class="clearfix" id="bott">
+					<li><a href="index.html">首页</a></li>
+					<li>
+						<a href="#">所有商品</a>
+						<div class="sList">
+							<div class="wrapper  clearfix">
+								<!-- 尚未更改-->
+								<a href="search.html">
+									<dl>
+										<dt><img src="img/20230709164200.png"/></dt>
+										<dd>华为</dd>
+									</dl>
+								</a>
+								<a href="search.html">
+									<dl>
+										<dt><img src="img/20230710142351.png"/></dt>
+										<dd>vivo</dd>
+									</dl>
+								</a>
+								<a href="search.html">
+									<dl>
+										<dt><img src="img/20230710151444.png"/></dt>
+										<dd>oppo</dd>
+									</dl>
+								</a>
+								<a href="search.html">
+									<dl>
+										<dt><img src="img/20230710161145.png"/></dt>
+										<dd>iPhone</dd>
+									</dl>
+								</a>
+								<a href="search.html">
+									<dl>
+										<dt><img src="img/20230710162730.png" height="205px" width="140px"/></dt>
+										<dd>小米</dd>
+									</dl>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="shopCart.html">购物车</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!------------------------------idea------------------------------>
+		<div class="address mt">
+			<div class="wrapper clearfix">
+				<a href="index.html" class="fl">首页</a>
+				<span>/</span>
+				<a href="mygxin.html">个人中心</a>
+				<span>/</span>
+				<a href="address.html" class="on">地址管理</a>
+			</div>
+		</div>
+		
+		<!------------------------------Bott------------------------------>
+		<div class="Bott">
+			<div class="wrapper clearfix">
+				<div class="zuo fl">
+					<h3>
+						<a href="#"><img src="img/tx.png"/></a>
+						<p class="clearfix"><span class="fl" >{{userInfo.username}}</span></p>
+					</h3>
+					<div>
+						<h4>我的交易</h4>
+						<ul>
+							<li><a href="shopCart.html">我的购物车</a></li>
+							<li><a href="myorderq.html">我的订单</a></li>
+						</ul>
+						<h4>个人中心</h4>
+						<ul>
+							<li><a href="mygxin.html">我的中心</a></li>
+							<li class="on"><a href="address.html">地址管理</a></li>
+						</ul>
+						<h4>账户管理</h4>
+						<ul>
+							<li><a href="mygrxx.html">个人信息</a></li>
+							<li><a href="forgetPwd.html">修改密码</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="you fl">
+					<h2>收货地址</h2>
+					<div class="add">
+						<div>
+							<a href="#2" id="addxad"><img src="img/jia.png"/></a>
+							<span>添加新地址</span>
+						</div>
+						<span v-for="addr in address">
+						<div id="dizhi">
+								<p>{{addr.consignee}}</p>
+								<p>{{addr.tel}}</p>
+								<p>{{addr.address}}</p>
+								</br>
+
+								<a href="javascript:void(0)" @click="deleteAddress(addr.aid)">删除</a>
+
+						</div>
+					</span>
+
+					</div>
+					<div style="float: left">
+					<a @click="pre">上一页</a>
+					<a @click="next">下一页</a>
+					</div>
+
+		</div>
+		<!--编辑弹框-->
+		<!--遮罩-->
+		<div class="mask"></div>
+		<div class="adddz">
+			<form action="#" method="get">
+				<input type="text" placeholder="收货人" v-model="username" class="on" />
+				<input type="text" placeholder="手机号" v-model="tel" />
+				<div class="city">
+					<select name=""  id="province"  @change="changeCity"  v-model="provinceid">
+						<option value="" >省份/自治区</option>
+					</select>
+					<select id="city" v-html="cityOp" @change="changeCounty" v-model="cityid">
+						<option value="" >城市/地区</option>
+					</select>
+					<select id="county" v-html="countyOp" v-model="countyid">
+						<option value="" >区/县</option>
+					</select>
+				</div>
+				<textarea name="" rows="" cols=""  v-model="detailAddress"  placeholder="详细地址"></textarea>
+				<div class="bc">
+					<input type="button" value="保存" @click="save"/>
+					<input type="button" value="取消" />
+				</div>
+			</form>
+		</div>
+		</div>
+			</div>
+		</div>
+		<!--返回顶部-->
+		<div class="gotop">
+			<a href="shopCart.html">
+			<dl>
+				<dt><img src="img/gt1.png"/></dt>
+				<dd>去购<br />物车</dd>
+			</dl>
+			</a>
+			<a href="#" class="dh">
+			<dl>
+				<dt><img src="img/gt2.png"/></dt>
+				<dd>联系<br />客服</dd>
+			</dl>
+			</a>
+			<a href="mygxin.html">
+			<dl>
+				<dt><img src="img/gt3.png"/></dt>
+				<dd>个人<br />中心</dd>
+			</dl>
+			</a>
+			<a href="#" class="toptop" style="display: none">
+			<dl>
+				<dt><img src="img/gt4.png"/></dt>
+				<dd>返回<br />顶部</dd>
+			</dl>
+			</a>
+			<p>400-800-8200</p>
+		</div>
+		
+		
+		<!--footer-->
+		<div class="footer">
+			<div class="top">
+				<div class="wrapper">
+					<div class="clearfix">
+						<a href="#2" class="fl"><img src="img/foot1.png"/></a>
+						<span class="fl">7天无理由退货</span>
+					</div>
+					<div class="clearfix">
+						<a href="#2" class="fl"><img src="img/foot2.png"/></a>
+						<span class="fl">15天免费换货</span>
+					</div>
+					<div class="clearfix">
+						<a href="#2" class="fl"><img src="img/foot3.png"/></a>
+						<span class="fl">满599包邮</span>
+					</div>
+					<div class="clearfix">
+						<a href="#2" class="fl"><img src="img/foot4.png"/></a>
+						<span class="fl">手机特色服务</span>
+					</div>
+				</div>
+			</div>
+			<p class="dibu">最家家居&copy;2013-2017公司版权所有 京ICP备080100-44备0000111000号<br />
+			违法和不良信息举报电话：400-800-8200，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p>
+		</div>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/user.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.js"></script>
+		<script src="js/vue.js"></script>
+	<script>
+		//使用axios时,利用原型模式给axios加入 Authorization头,这样每个请求都会加入Authorization头部
+		Vue.prototype.axios=axios;
+		//在每次请求时,前段携带token到请求头中
+		axios.interceptors.request.use(config=>{
+			//从localStorage或Vuex中获取token
+			const token=localStorage.getItem('token');
+			//如果有token,就添加到请求头中
+			if (token){
+				config.headers.Authorization=token;
+			}else {
+				config.headers.Authorization='';
+			}
+			return config;
+		},error=>{
+			return Promise.reject(error);
+		});
+
+
+		//添加地址
+		var provinceList = [
+			{"id": 1, "name": "湖南省"},
+			{"id": 2, "name": "福建省"},
+			{"id": 3, "name": "江西省"},
+		];
+		var cityList = [
+			{"id": "101", "name": "长沙市", "pid": 1},
+			{"id": "102", "name": "株洲市", "pid": 1},
+			{"id": "103", "name": "湘潭市", "pid": 1},
+			{"id": "104", "name": "邵阳市", "pid": 1},
+			{"id": "105", "name": "衡阳市", "pid": 1},
+
+			{"id": "201", "name": "福州市", "pid": 2},
+			{"id": "202", "name": "厦门市", "pid": 2},
+			{"id": "203", "name": "莆田市", "pid": 2},
+			{"id": "204", "name": "三明市", "pid": 2},
+			{"id": "205", "name": "宁德市", "pid": 2},
+
+			{"id": "301", "name": "南昌市", "pid": 3},
+			{"id": "302", "name": "萍乡市", "pid": 3},
+			{"id": "303", "name": "九江市", "pid": 3},
+			{"id": "304", "name": "新余市", "pid": 3},
+			{"id": "305", "name": "鹰潭市", "pid": 3}
+		];
+		var countyList = [
+			{"id": "10101", "name": "芙蓉区", "pid": 101},
+			{"id": "10102", "name": "长沙县", "pid": 101},
+			{"id": "10103", "name": "开福区", "pid": 101},
+			{"id": "10104", "name": "雨花区", "pid": 101},
+			{"id": "10105", "name": "望城区", "pid": 101},
+			{"id": "10106", "name": "宁乡市", "pid": 101},
+
+			{"id": "10201", "name": "荷塘区", "pid": 102},
+			{"id": "10202", "name": "石峰区", "pid": 102},
+			{"id": "10203", "name": "天元区", "pid": 102},
+			{"id": "10204", "name": "醴陵市", "pid": 102},
+			{"id": "10205", "name": "炎陵县", "pid": 102},
+			{"id": "10206", "name": "醴陵市", "pid": 102},
+
+			{"id": "10301", "name": "雨湖区", "pid": 103},
+			{"id": "10302", "name": "岳塘区", "pid": 103},
+			{"id": "10303", "name": "湘潭县", "pid": 103},
+			{"id": "10304", "name": "湘乡市", "pid": 103},
+			{"id": "10305", "name": "韶山市", "pid": 103},
+			{"id": "10306", "name": "其他区", "pid": 103},
+
+			{"id": "10401", "name": "双清区", "pid": 104},
+			{"id": "10402", "name": "大祥区", "pid": 104},
+			{"id": "10403", "name": "北塔区", "pid": 104},
+			{"id": "10404", "name": "邵东市", "pid": 104},
+			{"id": "10405", "name": "新邵县", "pid": 104},
+			{"id": "10406", "name": "邵阳县", "pid": 104},
+
+			{"id": "10501", "name": "珠晖区", "pid": 105},
+			{"id": "10502", "name": "雁峰区", "pid": 105},
+			{"id": "10503", "name": "石鼓区", "pid": 105},
+			{"id": "10504", "name": "蒸湘区", "pid": 105},
+			{"id": "10505", "name": "南岳区", "pid": 105},
+			{"id": "10506", "name": "衡阳县", "pid": 105},
+
+			{"id": "20101", "name": "鼓楼区", "pid": 201},
+			{"id": "20102", "name": "台江区", "pid": 201},
+			{"id": "20103", "name": "仓山区", "pid": 201},
+			{"id": "20104", "name": "马尾区", "pid": 201},
+			{"id": "20105", "name": "晋安区", "pid": 201},
+			{"id": "20106", "name": "闽侯县", "pid": 201},
+
+			{"id": "20201", "name": "思明区", "pid": 202},
+			{"id": "20202", "name": "海沧区", "pid": 202},
+			{"id": "20203", "name": "湖里区", "pid": 202},
+			{"id": "20204", "name": "集美区", "pid": 202},
+			{"id": "20205", "name": "同安区", "pid": 202},
+			{"id": "20206", "name": "翔安区", "pid": 202},
+
+			{"id": "20301", "name": "城厢区", "pid": 203},
+			{"id": "20302", "name": "涵江区", "pid": 203},
+			{"id": "20303", "name": "荔城区", "pid": 203},
+			{"id": "20304", "name": "秀屿区", "pid": 203},
+			{"id": "20305", "name": "仙游县", "pid": 203},
+			{"id": "20306", "name": "其它区", "pid": 203},
+
+			{"id": "20401", "name": "三元区", "pid": 204},
+			{"id": "20402", "name": "明溪县", "pid": 204},
+			{"id": "20403", "name": "清流县", "pid": 204},
+			{"id": "20404", "name": "宁化县", "pid": 204},
+			{"id": "20405", "name": "大田县", "pid": 204},
+			{"id": "20406", "name": "尤溪县", "pid": 204},
+
+			{"id": "20501", "name": "蕉城区", "pid": 205},
+			{"id": "20502", "name": "霞浦县", "pid": 205},
+			{"id": "20503", "name": "古田县", "pid": 205},
+			{"id": "20504", "name": "屏南县", "pid": 205},
+			{"id": "20505", "name": "寿宁县", "pid": 205},
+			{"id": "20506", "name": "周宁县", "pid": 205},
+
+			{"id": "30101", "name": "东湖区", "pid": 301},
+			{"id": "30102", "name": "西湖区", "pid": 301},
+			{"id": "30103", "name": "青云谱区", "pid": 301},
+			{"id": "30104", "name": "青山湖区", "pid": 301},
+			{"id": "30105", "name": "南昌县", "pid": 301},
+			{"id": "30106", "name": "新建区", "pid": 301},
+
+			{"id": "30201", "name": "安源区", "pid": 302},
+			{"id": "30202", "name": "湘东区", "pid": 302},
+			{"id": "30203", "name": "莲花县", "pid": 302},
+			{"id": "30204", "name": "上栗县", "pid": 302},
+			{"id": "30205", "name": "芦溪县", "pid": 302},
+			{"id": "30206", "name": "其它区", "pid": 302},
+
+			{"id": "30301", "name": "濂溪区", "pid": 303},
+			{"id": "30302", "name": "浔阳区", "pid": 303},
+			{"id": "30303", "name": "柴桑区", "pid": 303},
+			{"id": "30304", "name": "武宁县", "pid": 303},
+			{"id": "30305", "name": "修水县", "pid": 303},
+			{"id": "30306", "name": "永修县", "pid": 303},
+
+			{"id": "30401", "name": "渝水区", "pid": 304},
+			{"id": "30401", "name": "分宜县", "pid": 304},
+			{"id": "30401", "name": "其它区", "pid": 304},
+
+			{"id": "30201", "name": "月湖区", "pid": 305},
+			{"id": "30202", "name": "余江区", "pid": 305},
+			{"id": "30203", "name": "贵溪市", "pid": 305},
+			{"id": "30204", "name": "其它区", "pid": 305},
+		];
+		var provinceSelector = document.getElementById("province");
+		// 初始化省份列表
+		for (var i = 0; i < provinceList.length; i++) {
+			var opt = document.createElement("option");
+			opt.value = provinceList[i].id;
+			opt.innerHTML = provinceList[i].name;
+			provinceSelector.appendChild(opt);
+		}
+		let app=new Vue({
+			el:"#app",
+			data:{
+				provinceid:'',
+				cityid:'',
+				countyid:'',
+				username:'',
+				tel:'',
+				cityOp:'',
+				countyOp:'',
+				detailAddress:'',
+				userInfo:{},
+				address:{},
+				loginStatus:0,
+				totalPage:0,
+				pagenum:1,
+				pagesize:2,
+				aid:0,
+				user:{}
+			},
+			methods:{
+				//上一页
+				pre:function (){
+					if (this.pagenum==1){
+						return;
+					}
+					this.pagenum=this.pagenum-1;
+					this.checkLogin();
+				},
+				//下一页
+				next:function (){
+					if (this.pagenum==this.totalPage){
+						return;
+					}
+					this.pagenum=this.pagenum+1;
+					this.checkLogin();
+				},
+				//检查登录
+				checkLogin:function (){
+					var _this=this;  //防止变量污染
+					//如果浏览器的storage无token,则说明没有用户登录
+					if (localStorage.getItem('token')==null){
+						_this.userInfo={};
+						_this.loginStatus=0;
+						window.location="index.html";
+					}
+					axios.get('/xiaomi-security/user/loginCheck?pagenum='+this.pagenum+'&pagesize='+this.pagesize).then(data=>{
+						if (data.data.code==0){
+							_this.loginStatus=0;
+							console.log(data.data);
+						}else {
+							_this.loginStatus=1;
+							_this.userInfo=data.data.data;
+							//将地址传入
+							this.address=data.data.address;
+							this.totalPage=data.data.addressTotalpages;
+							this.user=sessionStorage.getItem("user");
+							console.log(this.user);
+
+						}
+					});
+				},
+				//保存地址
+				save:function (){
+					let pid = this.provinceid;
+					let  obj1=provinceList[pid-1].name;
+					let  obj2 = cityList.filter(item  =>  item.id  ===  this.cityid).map(item  =>  item.name);
+					let  obj3=countyList.filter(item  =>  item.id  ===  this.countyid).map(item  =>  item.name);
+					let pro2=obj2.join();
+					let pro3=obj3.join();
+
+					var params=new URLSearchParams();
+					params.append("address",obj1+' '+pro2+' '+pro3+' '+this.detailAddress);
+					params.append("uid",this.userInfo.id);
+					params.append("tel",this.tel);
+					params.append("consignee",this.username);
+					//post请求结果是一个Promise对象
+					axios.post("/xiaomi-security/user/saveAddress",params).then(data=>{
+						if (data.code==0){
+							alert("添加地址失败");
+							return;
+						}
+						alert('添加地址成功');
+						window.location='address.html';
+					});
+
+				},
+				//删除地址
+				deleteAddress:function (data){
+					this.aid=data;
+					axios.get('/xiaomi-security/user/deleteAddress?id='+this.aid).then(result=>{
+						if (result.code==0){
+							alert('删除失败');
+							return;
+						}
+							alert('删除成功');
+							this.checkLogin();
+					})
+				},
+				//省份和城市级联查询
+				changeCity:function(){
+					var _this=this;  //防止变量污染
+					var str='';
+					for (var i = 0; i < cityList.length; i++) {
+						if (cityList[i].pid == _this.provinceid) {
+							str+='<option value="'+cityList[i].id+'">'+cityList[i].name+'</option>';
+						}
+					}
+					_this.cityOp=str;
+				},
+				changeCounty:function (){
+					var _this=this;  //防止变量污染
+					var str='';
+					for (var i=0;i<countyList.length;i++){
+						if (countyList[i].pid==_this.cityid){
+							str+='<option value="'+countyList[i].id+'">'+countyList[i].name+'</option>';
+						}
+					}
+					_this.countyOp=str;
+				},
+			},
+			mounted:function (){
+				//页面挂载
+				axios.all([this.checkLogin()]).then(axios.spread(function (d1){
+
+				}));
+			},
+
+		})
+	</script>
+	</body>
+</html>

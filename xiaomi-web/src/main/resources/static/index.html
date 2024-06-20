@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米</title>
+    <!--网页的图标-->
+    <link rel="icon" href="images/favicon.ico">
+    <!--全局样式-->
+    <link rel="stylesheet" href="css/reset.css">
+    <!--字体图标-->
+    <link rel="stylesheet" href="css/iconfont.css">
+    <!--自己的样式-->
+    <link rel="stylesheet" href="css/mi-index.css">
+</head>
+<body>
+<!--头部开始-->
+<div >
+<div class="header" id="yc-header">
+    <div class="wrap">
+        <ul class="header-left">
+            <li><a href="#">大米商城</a><span>|</span></li>
+            <li><a href="#">MIUI</a><span>|</span></li>
+            <li><a href="#">loT</a><span>|</span></li>
+            <li><a href="#">云服务</a><span>|</span></li>
+<!--            <li><a href="#">天星数科</a><span>|</span></li>-->
+<!--            <li><a href="#">有品</a><span>|</span></li>-->
+<!--            <li><a href="#">小爱开放平台</a><span>|</span></li>-->
+<!--            <li><a href="#">企业团购</a><span>|</span></li>-->
+<!--            <li><a href="#">资质证照</a><span>|</span></li>-->
+<!--            <li><a href="#">协议规则</a><span>|</span></li>-->
+            <li>
+                <a href="#">下载app</a><span>|</span>
+                <div class="download">
+                    <a href="#">
+                        <img src="images/78c30d4f259ed43ab20e810a522a6249.png" alt="">
+                        <p>小米商城APP</p>
+                    </a>
+                </div>
+                <div class="triangle"></div>
+            </li>
+            <li><a href="#">智能生活</a><span>|</span></li>
+            <li><a href="login-1.html">管理者平台</a></li>
+        </ul>
+        <ul class="header-right">
+            <li class="login_info" v-if="loginStatus==1" href="#">欢迎:<em>{{userInfo.username}}</em></li>
+            <li class="login_info" v-if="loginStatus==1" ><a href="myorderq.html">查看我的订单</a></li>
+            <li class="quit" v-if="loginStatus==1"  @click="quit"><a href="#"><span>|</span>退出登录</a></li>
+            <li class="login_btn" v-if="loginStatus==0"><a href="login.html" >登录</a><span>|</span></li>
+            <li class="reg_btn" v-if="loginStatus==0"><a href="register.html">注册</a><span>|</span></li>
+<!--            <li class="cart">-->
+<!--                <a href="cart.html">-->
+<!--                    <i class="iconfont">&#xe653;</i>-->
+<!--                    购物车({{goodsCount}})-->
+<!--                </a>-->
+<!--                <div class="cart-list">-->
+<!--                    <p v-show="checkGoodsCount" ><img src="static/member/img/shop.png"/> 购物车中暂无数据</p>-->
+<!--                    <ul class="cart-list-info" v-show="checkGoodsCountNotNull">-->
+<!--                        <li v-for="good in goods">-->
+<!--                            <img :src="'http://192.168.85.128:8888/'+good.pics" height="100px" width="100px" style="float: left">-->
+<!--                            <h5>{{good.name}}&nbsp;&nbsp;&nbsp;&nbsp;颜色:{{good.color}}&nbsp;&nbsp;&nbsp;&nbsp;规格:{{good.cap}}-->
+<!--                                &nbsp;&nbsp;&nbsp;&nbsp;${{good.price}}</h5>-->
+
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </li>-->
+
+<!--            <li class="address" >-->
+<!--                <a href="#">-->
+<!--                    添加地址-->
+<!--                </a>-->
+<!--                <div class="address-list">-->
+<!--                    <label>省份：</label>-->
+<!--                    <select id="province" @change="changeCity"  v-model="provinceid">-->
+<!--                        <option value=""></option>-->
+<!--                    </select>-->
+<!--                    <label>城市：</label>-->
+<!--                    <select id="city" v-html="cityOp" @change="changeCounty" v-model="cityid">-->
+<!--                        <option value=""></option>-->
+<!--                    </select>-->
+<!--                    <label>区/县：</label>-->
+<!--                    <select id="county" v-html="countyOp" v-model="countyid">-->
+<!--                        <option value=""></option>-->
+<!--                    </select>-->
+<!--                    </br>-->
+<!--                    <div >-->
+<!--                        <label>详细地址&nbsp;&nbsp;&nbsp;&nbsp;:</label>-->
+<!--                        <input type="text" placeholder="请输入详细地址" v-model="detailAdd" @input="checkInput1">-->
+<!--                        </br>-->
+<!--                        <p class="error_tip1" v-show="showErrorTip1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细地址长度需要在5-120个汉字或字符</p>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label>收货人姓名:</label>-->
+<!--                        <input  type="text" placeholder="请输入收货人姓名" v-model="receiveName" @input="checkInput2">-->
+<!--                        </br>-->
+<!--                        <p class="error_tip2" v-show="showErrorTip2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人姓名长度需要在2-25个汉字或字符之间</p>-->
+<!--                    </div>-->
+<!--                    <div >-->
+<!--                        <label id="input_tel">电话号码&nbsp;&nbsp;&nbsp;&nbsp;:</label>-->
+<!--                        <input type="text" placeholder="请输入收货人电话" v-model="receiveTel" @input="checkInput3">-->
+<!--                        </br>-->
+<!--                        <p class="error_tip3"  v-show="showErrorTip3">电话号码不符合规格</p>-->
+<!--                    </div>-->
+<!--                    <button type="button" id="addAddress" href="#" @click="addAddress">添加</button>-->
+<!--                </div>-->
+<!--            </li>-->
+        </ul>
+    </div>
+</div>
+<!--头部结束-->
+<!--导航开始-->
+    <div id="yc-index">
+<div class="nav">
+    <div class="wrap">
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo-mi2.png" alt="">
+            </a>
+        </div>
+        <div class="nav-bar">
+            <ul>
+                <li> <a>&nbsp;&nbsp;&nbsp;</a></li>
+                <li><a>&nbsp;&nbsp;&nbsp;</a></li>
+                <li>
+                    <a href="#">爆款推荐</a>
+                    <div class="nav-bar-list">
+                        <div class="wrap">
+                            <ul>
+                                <li>
+                                    <a href="#"   @click="shiftDetail(110)" >
+                                        <div class="img-box">
+                                            <img src="images/20230710161416.png" alt="">
+                                        </div>
+                                        <p class="name1">小米 MIX Fold</p>
+                                        <p class="price1">6599元起</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"   @click="shiftDetail(8)"  >
+                                        <div class="img-box">
+                                            <img src="images/20230709163344.png" alt="">
+                                        </div>
+                                        <p class="name1">华为 Mate 50 Pro</p>
+                                        <p class="price1">5299元起</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"   @click="shiftDetail(109)"  >
+                                        <div class="img-box">
+                                            <img src="images/20230710161112.png" alt="">
+                                        </div>
+                                        <p class="name1">苹果14 Pro Max</p>
+                                        <p class="price1">8488元起</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"  @click="shiftDetail(28)"   >
+                                        <div class="img-box">
+                                            <img src="images/20230710143753.png" alt="">
+                                        </div>
+                                        <p class="name1">VIVO X80 Pro</p>
+                                        <p class="price1">5999元起</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"   @click="shiftDetail(42)"  >
+                                        <div class="img-box">
+                                            <img src="images/20230710150416.png" alt="">
+                                        </div>
+                                        <p class="name1">OPPO Find N2</p>
+                                        <p class="price1">7299元起</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"   @click="shiftDetail(1)"  >
+                                        <div class="img-box">
+                                            <img src="images/20230709160407.png" alt="">
+                                        </div>
+                                        <p class="name1">华为 Mate X3</p>
+                                        <p class="price1">15338元起</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+<!--                <li>-->
+<!--                    <a href="#">新品推荐</a>-->
+<!--                    <div class="nav-bar-list">-->
+<!--                        <div class="wrap">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/88bb84ff06f0ab467b859aeed36b817a.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/a1c45eadcedeb27b1cafca0359422da9.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/a1c45eadcedeb27b1cafca0359422da9.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/a1c45eadcedeb27b1cafca0359422da9.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/a1c45eadcedeb27b1cafca0359422da9.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <div class="img-box">-->
+<!--                                            <img src="images/a1c45eadcedeb27b1cafca0359422da9.webp" alt="">-->
+<!--                                        </div>-->
+<!--                                        <p class="name1">小米11 Pro</p>-->
+<!--                                        <p class="price1">4499元起</p>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+                <li><a href="myorderq.html">我的订单</a></li>
+                <li><a href="shopCart.html" >我的购物车</a></li>
+                <li><a href="#">智能硬件</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">社区</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" v-model="searchBrand"   @keyup="searchFunction"  id="searchInput">
+            <a href="#" class="iconfont" @click="findBrand()"  >&#xe63d; </a>
+            <div class="search-list" id="searchContent" >
+                <a href="#" @click="selectList('苹果')" >苹果</a>
+                <a href="#"  @click="selectList('华为')" >华为</a>
+                <a href="#"   @click="selectList('OPPO')" >OPPO</a>
+                <a href="#"  @click="selectList('小米')" >小米</a>
+                <a href="#"   @click="selectList('VIVO')" >VIVO</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--导航结束-->
+<!--banner开始-->
+<div class="banner">
+    <div class="wrap">
+        <div class="banner-box">
+
+        </div>
+        <div class="slide" >
+            <ul>
+                <li>
+                    <a href="#">苹果手机<i class="iconfont">&#xe658;</i></a>
+                    <div class="slide-list">
+                        <ul class="phones_list"  v-for="phone in phoneIphone">
+                            <li>
+                                <a href="#"  @click="shiftDetail(phone.pid)"  id="link">
+                                    <img :src=`http://192.168.85.128:8888//${phone.pics}` alt="">
+                                    <span>{{phone.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+<!--                        <ul>-->
+
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                        <ul>-->
+
+
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                        <ul>-->
+
+
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <a href="#">-->
+<!--                                    <img src="images/4a7a4f24061860901f724b6ba6d75fd9.webp" alt="">-->
+<!--                                    <span>小米10</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+                    </div>
+                </li>
+                <li>
+                    <a href="#">华为手机<i class="iconfont">&#xe658;</i></a>
+                    <div class="slide-list">
+                        <ul  v-for=" huawei in phoneHuaWei">
+                            <li>
+                                <a href="#"  @click="shiftDetail(huawei.pid)"  id="link">
+                                    <img  :src=`http://192.168.85.128:8888//${huawei.pics}`  alt="">
+                                    <span>{{huawei.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">OPPO手机<i class="iconfont">&#xe658;</i></a>
+                    <div class="slide-list">
+                        <ul v-for=" oppo in phoneOPPO">
+                            <li>
+                                <a href="#"  @click="shiftDetail(oppo.pid)"  id="link">
+                                    <img :src=`http://192.168.85.128:8888//${oppo.pics}` alt="">
+                                    <span>{{oppo.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">小米手机<i class="iconfont">&#xe658;</i></a>
+                    <div class="slide-list">
+                        <ul v-for="xiaomi in phoneMi">
+                            <li>
+                                <a href="#"  @click="shiftDetail(xiaomi.pid)"  id="link">
+                                    <img :src=`http://192.168.85.128:8888//${xiaomi.pics}`  alt="">
+                                    <span>{{xiaomi.name}}</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">vivo手机<i class="iconfont">&#xe658;</i></a>
+                    <div class="slide-list">
+                        <ul v-for="vivo in phoneVIVO">
+                            <li>
+                                <a href="#"  @click="shiftDetail(vivo.pid)"  id="link">
+                                    <img :src="`http://192.168.85.128:8888/${vivo.pics}`"  alt="" >
+                                    <span>{{vivo.name}}</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="prev"></div>
+        <div class="next"></div>
+    </div>
+</div>
+<!--banner结束-->
+<!--广告开始-->
+<div class="adv">
+    <div class="wrap">
+        <div class="adv-aside">
+            <ul>
+                <li class="row col">
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+                <li class="row col">
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+                <li class="row">
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+                <li class="col">
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+                <li class="col">
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="iconfont">&#xe733;</i>
+                        <p>米粉卡</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="adv-img">
+            <a href="#">
+                <img src="images/ixiaomi.png" alt="">
+            </a>
+        </div>
+        <div class="adv-img">
+            <a href="#">
+                <img src="images/zho2.png" alt="">
+            </a>
+        </div>
+        <div class="adv-img">
+            <a href="#">
+                <img src="images/zho3.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+<!--广告结束-->
+<!--主体开始-->
+    <div class="container" id="index">
+        <div class="wrap">
+            <!--手机开始-->
+            <div class="phone">
+                <div class="home-banner-box">
+                    <a href="#">
+                        <img src="images/xiaomiPic.png" width="1226px" height="120px" alt="">
+                    </a>
+
+                </div>
+                <!--            修改-->
+                <h2   class="title" >
+                    <span id="phoneusername">小米</span>
+                    <!--                    <a href="#" class="more">查看更多 <i class="iconfont">&#xe616;</i></a>-->
+                </h2>
+                <div class="home-box">
+                    <div class="home-box-left home-box-left1">
+                        <a href="#">
+                            <img src="images/c583f2edc613f1be20fa415910b13ce3.webp" alt="">
+                        </a>
+                    </div>
+                    <div class="home-box-right">
+                        <ul v-for=" phone in phones" @click="shiftDetail(phone.pid)">
+                            <li class="items">
+                                <a >
+                                    <img :src="'http://192.168.85.128:8888/'+phone.pics" alt="" class="img1">
+                                    <p class="name2">{{phone.name}}</p>
+                                    <!--                                    <p class="desc2">{{phone.name}}</p>-->
+                                    <p class="price2">{{phone.price}}元起
+                                        <del>{{phone.price*(1+0.2)| integer}}元</del>
+                                    </p>
+                                </a>
+                            </li>
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                            <!--                        <li class="items">-->
+                            <!--                            <a href="#">-->
+                            <!--                                <img src="images/61454401f855cf5ed64747a6ac04bae5.webp" alt="" class="img1">-->
+                            <!--                                <p class="name2">Note 10 Pro</p>-->
+                            <!--                                <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                            <!--                                <p class="price2">1599元起-->
+                            <!--                                    <del>1699元</del>-->
+                            <!--                                </p>-->
+                            <!--                            </a>-->
+                            <!--                        </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--手机结束-->
+            <!--家电开始-->
+            <div class="ele">
+                <div class="home-banner-box">
+                    <a href="#">
+                        <img src="images/华为Picc.png" width="1226px" height="120px" alt="">
+                    </a>
+
+                </div>
+                <h2 class="title" id="household">华为</h2>
+                <div class="home-box">
+                    <div class="home-box-left" >
+                        <ul>
+                            <li class="items">
+                                <a href="#">
+                                    <img src="images/huawei.png" alt=""  class="huawei">
+                                </a>
+                            </li>
+                            <li class="items">
+                                <a href="#">
+                                    <img src="images/huawei.png" alt=""  class="huawei">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!--                修改-->
+                    <div class="home-box-right">
+                        <ul>
+                            <div  v-for="(household, i) in households" @click="shiftDetail(household.pid)">
+                                <li class="items" v-if="i<=7">
+                                    <a >
+                                        <img :src="'http://192.168.85.128:8888/'+household.pics" alt="" class="img1">
+                                        <p class="name2">{{household.name}}</p>
+                                        <!--                                        <p class="desc2">""</p>-->
+                                        <p class="price2">{{household.price}}元起
+                                            <del>{{household.price*(1+0.2)| integer}}元</del>
+                                        </p>
+                                    </a>
+                                </li>
+                            </div>
+
+
+
+
+
+
+
+                            <!--                            <div v-for="(household, i) in households">-->
+                            <!--                                <li class="last-items"  v-if="i==7">-->
+                            <!--                                    <div>-->
+                            <!--                                        <a href="#">-->
+                            <!--                                            <div class="items-text">-->
+                            <!--                                                <p>{{household.name}}</p>-->
+                            <!--                                                <p>{{household.price| integer}}元</p>-->
+                            <!--                                            </div>-->
+                            <!--                                            <img :src="'../'+household.pics" alt="">-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+
+                            <!--                                </li>-->
+                            <!--                            </div>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--家电结束-->
+            <!--智能开始-->
+            <div class="ele">
+                <div class="home-banner-box">
+                    <a href="#">
+                        <img src="images/iphonePic.png" width="1226px" height="120px" alt="">
+                    </a>
+
+                </div>
+                <h2 class="title" id="intells">苹果</h2>
+                <div class="home-box">
+                    <div class="home-box-left">
+                        <ul>
+                            <li class="items">
+                                <a href="#">
+                                    <img src="images/iPhonePic3.png" width="234px" height="300px" alt="">
+
+                                </a>
+                            </li>
+                            <li class="items">
+                                <a href="#">
+                                    <img src="images/iPhonePic4.png" width="234px" height="300px" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="home-box-right" id="intell">
+
+                        <ul>
+                            <div v-for="(intell,i) in intells"  >
+                                <li class="items" v-if="i<=7">
+                                    <a :href="'plus5.html#'+intell.pid">
+                                        <img :src="'http://192.168.85.128:8888/'+intell.pics" alt="" class="img1">
+                                        <p class="name2">{{intell.name}}</p>
+                                        <!--                                        <p class="desc2">天玑1100年度旗舰芯，VC液冷散热</p>-->
+                                        <p class="price2">{{intell.price}}元起
+                                            <del>{{intell.price*(1+0.2)| integer}}元</del>
+                                        </p>
+                                    </a>
+                                </li>
+                            </div>
+                            <!--                            <div v-for="(intell,i) in intells">-->
+                            <!--                                <li class="last-items" v-if="i==7" >-->
+                            <!--                                    <div>-->
+                            <!--                                        <a href="#">-->
+                            <!--                                            <div class="items-text">-->
+                            <!--                                                <p>{{intell.name}}</p>-->
+                            <!--                                                <p>{{intell.price}}元</p>-->
+                            <!--                                            </div>-->
+                            <!--                                            <img :src="'../'+intell.pics" alt="">-->
+                            <!--                                        </a>-->
+                            <!--                                    </div>-->
+
+                            <!--                                </li>-->
+                            <!--                            </div>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--智能结束-->
+            <!--视频开始-->
+            <div class="video">
+                <div class="home-banner-box">
+                    <a href="#">
+                        <img src="images/88e35cffc82cd98cd53172460067af17.webp" alt="">
+                    </a>
+
+                </div>
+                <!--                <h2 class="title">视频-->
+                <!--                    <a href="#" class="more">查看全部 <i class="iconfont">&#xe616;</i></a>-->
+                <!--                </h2>-->
+                <!--                <div class="video-box">-->
+                <!--                    <ul>-->
+                <!--                        <li class="video-items">-->
+                <!--                            <a href="#">-->
+                <!--                                <div class="video-img">-->
+                <!--                                    <img src="images/e74c4ff741bcdfc5b28a48a43e4edc6d.webp" alt="">-->
+                <!--                                    <div class="play">-->
+                <!--                                        <span></span>-->
+                <!--                                    </div>-->
+
+                <!--                                </div>-->
+                <!--                                <p>2021年春季新品发布会第一场</p>-->
+                <!--                            </a>-->
+                <!--                        </li>-->
+                <!--                        <li class="video-items">-->
+                <!--                            <a href="#">-->
+                <!--                                <div class="video-img">-->
+                <!--                                    <img src="images/e74c4ff741bcdfc5b28a48a43e4edc6d.webp" alt="">-->
+                <!--                                    <div class="play">-->
+                <!--                                        <span></span>-->
+                <!--                                    </div>-->
+
+                <!--                                </div>-->
+                <!--                                <p>2021年春季新品发布会第一场</p>-->
+                <!--                            </a>-->
+                <!--                        </li>-->
+                <!--                        <li class="video-items">-->
+                <!--                            <a href="#">-->
+                <!--                                <div class="video-img">-->
+                <!--                                    <img src="images/e74c4ff741bcdfc5b28a48a43e4edc6d.webp" alt="">-->
+                <!--                                    <div class="play">-->
+                <!--                                        <span></span>-->
+                <!--                                    </div>-->
+
+                <!--                                </div>-->
+                <!--                                <p>2021年春季新品发布会第一场</p>-->
+                <!--                            </a>-->
+                <!--                        </li>-->
+                <!--                        <li class="video-items">-->
+                <!--                            <a href="#">-->
+                <!--                                <div class="video-img">-->
+                <!--                                    <img src="images/e74c4ff741bcdfc5b28a48a43e4edc6d.webp" alt="">-->
+                <!--                                    <div class="play">-->
+                <!--                                        <span></span>-->
+                <!--                                    </div>-->
+
+                <!--                                </div>-->
+                <!--                                <p>2021年春季新品发布会第一场</p>-->
+                <!--                            </a>-->
+                <!--                        </li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
+            </div>
+            <!--视频结束-->
+        </div>
+    </div>
+<!--主体结束-->
+<!--页脚开始-->
+<div class="footer">
+    <div class="site-footer">
+        <div class="wrap">
+            <div class="footer-service">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe606;</i>
+                            <span>15天免费换货</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe606;</i>
+                            <span>15天免费换货</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe606;</i>
+                            <span>15天免费换货</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe606;</i>
+                            <span>15天免费换货</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe606;</i>
+                            <span>15天免费换货</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        帮助中心
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                    <li>
+                        <a href="#">账户管理</a>
+                    </li>
+                </ul>
+                <div class="contact">
+                    <p class="tel">400-100-5678</p>
+                    <p class="time">8:00-18:00（仅收市话费）</p>
+                    <a href="#" class="kefu">
+                        <i class="iconfont">&#xe710;</i>
+                        人工客服
+                    </a>
+                    <p class="follow">
+                        关注小米：
+                        <span class="wb"></span>
+                        <span class="wx"></span>
+                        <img src="images/wx-img.png" alt="" class="wx-img">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-info">
+        <div class="wrap">
+            <div class="footer-logo">
+                <img src="images/logo-mi2.png" alt="">
+            </div>
+            <div class="sites">
+                <p>
+                    <a rel="nofollow" href="//www.mi.com/index.html" target="_blank">小米商城</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//www.miui.com/" target="_blank">MIUI</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//home.mi.com/index.html" target="_blank">米家</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="http://www.miliao.com/" target="_blank">米聊</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//www.duokan.com/" target="_blank">多看</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//game.xiaomi.com/" target="_blank">游戏</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//b.mi.com/?client_id=180100031058&masid=17409.0358" target="_blank">政企服务</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//xiaomi.tmall.com/" target="_blank">小米天猫店</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//privacy.mi.com/all/zh_CN/" target="_blank">小米集团隐私政策</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/f516fe9e2c01.html" target="_blank">小米公司儿童信息保护规则</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/ded8d0e4a77d.html" target="_blank">小米商城隐私政策</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//www.mi.com/about/user-agreement/" target="_blank">小米商城用户协议</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="//static.mi.com/feedback/" target="_blank">问题反馈</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="javascript:void(0);" class="J_siteGlobalRegion">Select Location</a>
+                    <br>
+                    <a rel="nofollow" href="http://www.mi.com/beihu" target="_blank">北京互联网法院法律服务工作站</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="http://www.cca.org.cn/" target="_blank">中国消费者协会</a>
+                    <span class="sep">|</span>
+                    <a rel="nofollow" href="http://www.bj315.org/" target="_blank">北京市消费者协会</a>
+                </p>
+                <p>
+                    ©
+                    <a href="javascript:;" target="_blank" title="mi.com">mi.com</a> 京ICP证110507号
+                    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow">京ICP备10046444号</a>
+                    <a rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020134" target="_blank">京公网安备11010802020134号</a>
+                    <a href="//www.mi.com/culture-license/" target="_blank">京网文[2020]0276-042号</a>
+                    <br>
+                    <a href="//www.mi.com/medical/record/" target="_blank">（京）网械平台备字（2018）第00005号</a>
+                    <a href="//www.mi.com/medical/qualification/" target="_blank">互联网药品信息服务资格证 (京)-非经营性-2014-0090</a>
+                    <a href="//www.mi.com/business-license/" target="_blank">营业执照</a>
+                    <a href="//www.mi.com/medical/list/" target="_blank">医疗器械质量公告</a>
+                    <br>
+                    <a href="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e0c7d4cf3b7cd88de10196e30c92e020.png" target="_blank">增值电信业务许可证</a>&nbsp;网络食品经营备案 京食药网食备202010048 &nbsp;
+                    <a href="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c6859168166651511897f54fa1047fe3.png" target="_blank">食品经营许可证</a>
+                    <br>
+                    违法和不良信息举报电话：171-5104-4404&nbsp;<a href='https://www.mi.com/intellectual' target="_blank">知识产权侵权投诉</a>&nbsp;本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                </p>
+                <p>
+                    <img src="images/truste.png" alt="">
+                    <img src="images/truste.png" alt="">
+                    <img src="images/truste.png" alt="">
+                    <img src="images/truste.png" alt="">
+                    <img src="images/truste.png" alt="">
+                </p>
+            </div>
+            <img src="images/slogan2020.png" alt="" class="slogan">
+        </div>
+    </div>
+</div>
+</div>
+<!--页脚结束-->
+
+<script src="js/vue.js"></script>
+<script src="js/qs.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+
+
+
+
+
+
+    let app=new Vue({
+        el:"#yc-index",
+        data:{
+            phoneAll:{},     //搜索框智能匹配 所有产品型号
+            searchBrand:'',
+            phones:{},
+            phoneIphone:{},
+            phoneHuaWei:{},
+            phoneOPPO:{},
+            phoneMi:{},
+            phoneVIVO:{}
+
+        },
+        mounted:function (){
+           axios.all([findPhone(),findAll()])  //,findAll()
+            .then(axios.spread((rs1,rs2)=>{
+                this.phoneAll=rs2.data.phoneAll;        //存入所有手机型号
+                this.phones=rs1.data.SlidePhone;
+                console.log(this.phones);
+                this.phoneIphone=this.phones.slice(24,32);  //不包含结束索引 和后端不一样  所以此处结束索引都要+1
+                this.phoneHuaWei=this.phones.slice(0,8);
+                this.phoneOPPO=this.phones.slice(16,24);
+                this.phoneMi=this.phones.slice(32,40);
+                this.phoneVIVO=this.phones.slice(8,16);
+                console.log( this.phoneIphone);
+                console.log( this.phoneHuaWei);
+                console.log( this.phoneOPPO);
+                console.log( this.phoneMi);
+                console.log( this.phoneVIVO)
+            }));
+
+        },
+
+        methods:{
+            //搜索绑定方法--改为地址栏传参
+            findBrand:function (){
+                console.log(this.searchBrand);
+                const baseUrl = 'search.html';
+                var url = baseUrl +'#keyword=' + this.searchBrand;
+                if (this.searchBrand==null||this.searchBrand==""){
+                    alert("请输入搜索条件");
+                }else {
+                    //将findAll()中的参数通过sessionStorage传过去
+                    sessionStorage.setItem("phoneAll", JSON.stringify(this.phoneAll));
+                    // document.getElementById('link').href = url;
+                    //改为在本页面打开不跳转
+                    window.open(url, "_self");
+                }
+            //    window.location.href = url;
+            },
+            //之前通过sessionStorage实现 此方案废弃改为地址栏
+            // findBrand:function(){
+            //     console.log(this.searchBrand);
+            //     if (this.searchBrand==null||this.searchBrand==""){
+            //         alert("请输入搜索条件");
+            //     }else {
+            //         sessionStorage.setItem("getBrand", this.searchBrand);//将参数设置到session中
+            //         sessionStorage.setItem("firstBrand",this.searchBrand);//将首次参数设置给session
+            //         location.href = "search.html";
+            //     }
+            // },
+            //跳转搜索页面     此方案废弃改为地址栏 同上
+            // selectBrand:function (brand){
+            //     console.log(brand)
+            //     sessionStorage.setItem("getBrand",brand);
+            //     sessionStorage.setItem("firstBrand",brand);//将首次参数设置给session
+            //     location.href="search.html";
+            // },
+            //搜索页面顶部推荐型号   此方案需要更改 同改为地址栏传参
+            selectList:function (brand){ //下拉框默认品牌
+                console.log(brand);
+                const baseUrl = 'search.html';
+                var url = baseUrl +'#keyword=' + brand;
+
+                //将findAll()中的参数通过sessionStorage传过去
+                sessionStorage.setItem("phoneAll", JSON.stringify(this.phoneAll));
+                // document.getElementById('link').href = url;
+                //改为在本页面打开不跳转
+                window.open(url, "_self");
+
+            },
+
+            //链接跳转至详情页面
+            shiftDetail:function (id){
+                const baseUrl = 'plus5.html';
+                const pid = id;
+                var url = baseUrl +'#pid=' + pid;
+                document.getElementById('link').href = url;
+             //   window.location.href = url;
+                //改为在本页面打开不跳转
+                window.open(url, "_self");   //  还有其他参数：_blank 表示新开一个标签页
+            },
+            //搜索框关键字匹配方法
+            searchFunction:function (){
+                //获取输入框中的文本
+                var searchText=document.getElementById("searchInput").value;
+                console.log(searchText);
+                //获取需要匹配的指定元素中的内容  先获取到
+                var content=document.getElementById("searchContent");//获取父节点
+                console.log(content);
+                //获取指定元素中的需要匹配的所有列表
+                // var items=content.getElementsByTagName("a"); //获取父节点下指定的子节点
+                var items=this.phoneAll;
+                console.log(items);
+                //清空结果显示区域
+                document.getElementById("searchContent").innerHTML="";
+                //遍历匹配元素列表
+                for (var i=0;i<items.length;i++){
+                    var itemText=items[i].name;
+                    console.log(itemText);
+                    //判断元素文本是否包含搜索文本
+                    if (itemText.includes(searchText)){
+                        //创建匹配结果节点
+                        var  resultItem=document.createElement("a");
+                        //设置匹配结果节点的文本为元素文本
+                        resultItem.innerText=itemText;   //a标签中的文本
+                        var  resultName=itemText;
+                        //将匹配结果节点添加到结果显示区域
+                        console.log(resultItem);
+                        var  element=document.getElementById('searchContent');
+                        // element.appendChild(resultItem).setAttribute("href","#");
+                        // element.appendChild(resultItem).setAttribute("v-on:click","selectBrand("+"'"+resultName.toString()+"'"+")");
+                        element.appendChild(resultItem);
+                        resultItem.setAttribute("href","#");
+                        // resultItem.setAttribute("v-on:click","selectBrand("+"'"+resultName.toString()+"'"+")");
+                        resultItem.setAttribute("onclick","clickFind("+"'"+resultName.toString()+"'"+")");
+                        // document.getElementById('searchContent').appendChild(resultItem).setAttribute("v-on:click","selectBrand("+"'"+resultName.toString()+"'"+")");
+
+                    }
+                }
+
+            },
+
+        }
+
+
+
+    });
+
+    let strings =[];
+    let phoneusername=$("#phoneusername").text();
+    console.log(phoneusername);
+    let household=$('#household').text();
+    console.log(household);
+    let intell=$("#intells").text();
+    strings.push(phoneusername);
+    strings.push(household);
+    strings.push(intell)
+
+
+    let app2=new Vue({
+        el:'#index',
+        data:{
+            phones:'',
+            households:'',
+            intells:''
+
+        },
+        methods:{
+            //链接跳转至详情页面
+            shiftDetail:function (id){
+                const baseUrl = 'plus5.html';
+                const pid = id;
+                var url = baseUrl +'#pid=' + pid;
+                document.getElementById('link').href = url;
+                //   window.location.href = url;
+                //改为在本页面打开不跳转
+                window.open(url, "_self");   //  还有其他参数：_blank 表示新开一个标签页
+            },
+            findTop(){
+                var params=new URLSearchParams();
+                params.append("brand",strings);
+                axios.post("/xiaomi-img/index/getPhoneTop",params
+                ).then(rs1=> {
+                    this.phones = rs1.data[0].list;
+                    this.households = rs1.data[1].list;
+                    this.intells = rs1.data[2].list;
+
+                } )
+
+
+
+            },
+        //     openDetailHtml(pid){
+        //         sessionStorage.setItem('DetailInfo',JSON.stringify({"pid":pid}))
+        //         //_self表示当前也打开
+        //         window.open("/xiaomi-web/plus5.html","_self")
+        //     }
+        },
+        filters: {
+            integer(value) {
+                return Math.floor(value); // 使用 Math.floor() 方法将小数转换为整数
+            },
+        },
+        mounted:function () {
+            axios.all([this.findTop()]).then(res=>{}
+
+            )
+        }
+    });
+    //使用axios时,利用原型模式给axios加入 Authorization头,这样每个请求都会加入Authorization头部
+    Vue.prototype.axios=axios;
+    //在每次请求时,前段携带token到请求头中
+    axios.interceptors.request.use(config=>{
+        //从localStorage或Vuex中获取token
+        const token=localStorage.getItem('token');
+        //如果有token,就添加到请求头中
+        if (token){
+            config.headers.Authorization=token;
+        }else {
+            config.headers.Authorization='';
+        }
+        return config;
+    },error=>{
+        return Promise.reject(error);
+    });
+
+    let app3=new Vue({
+        el:"#yc-header",
+        data:{
+            userInfo:{},
+            loginStatus:0,
+        },
+        mounted:function(){
+            this.checkLogin();
+        },
+        methods:{
+
+            checkLogin:function (){
+                var _this=this;  //防止变量污染
+                //如果浏览器的storage无token,则说明没有用户登录
+                if (localStorage.getItem('token')==null){
+                    _this.userInfo={};
+                    _this.loginStatus=0;
+                }
+                axios.get('/xiaomi-security/user/loginCheck?pagenum=0&pagesize=0').then(data=>{
+                    if (data.data.code==0){
+                        _this.loginStatus=0;
+                        console.log(data.data);
+                    }else {
+                        _this.loginStatus=1;
+                        _this.userInfo=data.data.data;
+                    }
+                });
+            },
+        }
+
+    })
+
+
+
+    // let app3=new Vue({
+    //     el:"#yc-header",
+    //     data:{
+    //         onlogin:false,
+    //         outlogin:true,
+    //         loginName:'匿名',
+    //         id:'',
+    //         goods:{},
+    //         goodsCount:0,
+    //         carts:{},
+    //         type:{},
+    //         provinceid:'',
+    //         cityid:'',
+    //         countyid:'',
+    //         cityOp:'',
+    //         countyOp:'',
+    //         detailAdd:'',
+    //         receiveName:'',
+    //         receiveTel:'',
+    //         checkGoodsCount:true,
+    //         checkGoodsCountNotNull:false,
+    //         showErrorTip1: true,
+    //         showErrorTip2: true,
+    //         showErrorTip3: true,
+    //         provinceList:[
+    //             {"id": 1, "name": "湖南省"},
+    //             {"id": 2, "name": "福建省"},
+    //             {"id": 3, "name": "江西省"},
+    //         ],
+    //         cityList : [
+    //             {"id": "101", "name": "长沙市", "pid": 1},
+    //             {"id": "102", "name": "株洲市", "pid": 1},
+    //             {"id": "103", "name": "湘潭市", "pid": 1},
+    //             {"id": "104", "name": "邵阳市", "pid": 1},
+    //             {"id": "105", "name": "衡阳市", "pid": 1},
+    //
+    //             {"id": "201", "name": "福州市", "pid": 2},
+    //             {"id": "202", "name": "厦门市", "pid": 2},
+    //             {"id": "203", "name": "莆田市", "pid": 2},
+    //             {"id": "204", "name": "三明市", "pid": 2},
+    //             {"id": "205", "name": "宁德市", "pid": 2},
+    //
+    //             {"id": "301", "name": "南昌市", "pid": 3},
+    //             {"id": "302", "name": "萍乡市", "pid": 3},
+    //             {"id": "303", "name": "九江市", "pid": 3},
+    //             {"id": "304", "name": "新余市", "pid": 3},
+    //             {"id": "305", "name": "鹰潭市", "pid": 3}
+    //         ],
+    //         countyList :[
+    //             {"id": "10101", "name": "芙蓉区", "pid": 101},
+    //             {"id": "10102", "name": "长沙县", "pid": 101},
+    //             {"id": "10103", "name": "开福区", "pid": 101},
+    //             {"id": "10104", "name": "雨花区", "pid": 101},
+    //             {"id": "10105", "name": "望城区", "pid": 101},
+    //             {"id": "10106", "name": "宁乡市", "pid": 101},
+    //
+    //             {"id": "10201", "name": "荷塘区", "pid": 102},
+    //             {"id": "10202", "name": "石峰区", "pid": 102},
+    //             {"id": "10203", "name": "天元区", "pid": 102},
+    //             {"id": "10204", "name": "醴陵市", "pid": 102},
+    //             {"id": "10205", "name": "炎陵县", "pid": 102},
+    //             {"id": "10206", "name": "醴陵市", "pid": 102},
+    //
+    //             {"id": "10301", "name": "雨湖区", "pid": 103},
+    //             {"id": "10302", "name": "岳塘区", "pid": 103},
+    //             {"id": "10303", "name": "湘潭县", "pid": 103},
+    //             {"id": "10304", "name": "湘乡市", "pid": 103},
+    //             {"id": "10305", "name": "韶山市", "pid": 103},
+    //             {"id": "10306", "name": "其他区", "pid": 103},
+    //
+    //             {"id": "10401", "name": "双清区", "pid": 104},
+    //             {"id": "10402", "name": "大祥区", "pid": 104},
+    //             {"id": "10403", "name": "北塔区", "pid": 104},
+    //             {"id": "10404", "name": "邵东市", "pid": 104},
+    //             {"id": "10405", "name": "新邵县", "pid": 104},
+    //             {"id": "10406", "name": "邵阳县", "pid": 104},
+    //
+    //             {"id": "10501", "name": "珠晖区", "pid": 105},
+    //             {"id": "10502", "name": "雁峰区", "pid": 105},
+    //             {"id": "10503", "name": "石鼓区", "pid": 105},
+    //             {"id": "10504", "name": "蒸湘区", "pid": 105},
+    //             {"id": "10505", "name": "南岳区", "pid": 105},
+    //             {"id": "10506", "name": "衡阳县", "pid": 105},
+    //
+    //             {"id": "20101", "name": "鼓楼区", "pid": 201},
+    //             {"id": "20102", "name": "台江区", "pid": 201},
+    //             {"id": "20103", "name": "仓山区", "pid": 201},
+    //             {"id": "20104", "name": "马尾区", "pid": 201},
+    //             {"id": "20105", "name": "晋安区", "pid": 201},
+    //             {"id": "20106", "name": "闽侯县", "pid": 201},
+    //
+    //             {"id": "20201", "name": "思明区", "pid": 202},
+    //             {"id": "20202", "name": "海沧区", "pid": 202},
+    //             {"id": "20203", "name": "湖里区", "pid": 202},
+    //             {"id": "20204", "name": "集美区", "pid": 202},
+    //             {"id": "20205", "name": "同安区", "pid": 202},
+    //             {"id": "20206", "name": "翔安区", "pid": 202},
+    //
+    //             {"id": "20301", "name": "城厢区", "pid": 203},
+    //             {"id": "20302", "name": "涵江区", "pid": 203},
+    //             {"id": "20303", "name": "荔城区", "pid": 203},
+    //             {"id": "20304", "name": "秀屿区", "pid": 203},
+    //             {"id": "20305", "name": "仙游县", "pid": 203},
+    //             {"id": "20306", "name": "其它区", "pid": 203},
+    //
+    //             {"id": "20401", "name": "三元区", "pid": 204},
+    //             {"id": "20402", "name": "明溪县", "pid": 204},
+    //             {"id": "20403", "name": "清流县", "pid": 204},
+    //             {"id": "20404", "name": "宁化县", "pid": 204},
+    //             {"id": "20405", "name": "大田县", "pid": 204},
+    //             {"id": "20406", "name": "尤溪县", "pid": 204},
+    //
+    //             {"id": "20501", "name": "蕉城区", "pid": 205},
+    //             {"id": "20502", "name": "霞浦县", "pid": 205},
+    //             {"id": "20503", "name": "古田县", "pid": 205},
+    //             {"id": "20504", "name": "屏南县", "pid": 205},
+    //             {"id": "20505", "name": "寿宁县", "pid": 205},
+    //             {"id": "20506", "name": "周宁县", "pid": 205},
+    //
+    //             {"id": "30101", "name": "东湖区", "pid": 301},
+    //             {"id": "30102", "name": "西湖区", "pid": 301},
+    //             {"id": "30103", "name": "青云谱区", "pid": 301},
+    //             {"id": "30104", "name": "青山湖区", "pid": 301},
+    //             {"id": "30105", "name": "南昌县", "pid": 301},
+    //             {"id": "30106", "name": "新建区", "pid": 301},
+    //
+    //             {"id": "30201", "name": "安源区", "pid": 302},
+    //             {"id": "30202", "name": "湘东区", "pid": 302},
+    //             {"id": "30203", "name": "莲花县", "pid": 302},
+    //             {"id": "30204", "name": "上栗县", "pid": 302},
+    //             {"id": "30205", "name": "芦溪县", "pid": 302},
+    //             {"id": "30206", "name": "其它区", "pid": 302},
+    //
+    //             {"id": "30301", "name": "濂溪区", "pid": 303},
+    //             {"id": "30302", "name": "浔阳区", "pid": 303},
+    //             {"id": "30303", "name": "柴桑区", "pid": 303},
+    //             {"id": "30304", "name": "武宁县", "pid": 303},
+    //             {"id": "30305", "name": "修水县", "pid": 303},
+    //             {"id": "30306", "name": "永修县", "pid": 303},
+    //
+    //             {"id": "30401", "name": "渝水区", "pid": 304},
+    //             {"id": "30401", "name": "分宜县", "pid": 304},
+    //             {"id": "30401", "name": "其它区", "pid": 304},
+    //
+    //             {"id": "30201", "name": "月湖区", "pid": 305},
+    //             {"id": "30202", "name": "余江区", "pid": 305},
+    //             {"id": "30203", "name": "贵溪市", "pid": 305},
+    //             {"id": "30204", "name": "其它区", "pid": 305},
+    //         ]
+    //     },
+    //     mounted:function (){
+    //         //检查是否登录
+    //         axios.all([checkLogin()]).then(axios.spread((rs1)=>{
+    //             console.log(rs1);
+    //             if (rs1.data.code==0){
+    //                 //说明未登录
+    //                 this.onlogin=false;
+    //                 this.outlogin=true;
+    //             }else {
+    //                 //登录成功
+    //                 this.loginName=rs1.data.user.username;
+    //                 this.carts=rs1.data.carts;
+    //                 this.id=rs1.data.user.id;
+    //
+    //                 this.onlogin=true;
+    //                 this.outlogin=false;
+    //
+    //                 sessionStorage.setItem("id",this.id);// 登录后存入用户id
+    //                 sessionStorage.setItem("username",this.loginName);//存入用户名字
+    //                 sessionStorage.setItem("carts",this.carts);//存入用户购物车
+    //                 sessionStorage.setItem("onlogin",this.onlogin);//登录状态
+    //
+    //                 //从session中获取购物车商品数量
+    //                 for (let i=0;i<this.carts.length;i++){
+    //                     this.goodsCount+=this.carts[i].num;
+    //                 }
+    //                 //购物车的显示与暂无数据
+    //                 this.checkGoodsCountWay();
+    //                 this.checkGoodsCountNotNullWay();
+    //
+    //                 //购物车数据
+    //                 this.goods=this.carts;
+    //                 console.log(this.goods);
+    //                 //定时刷新购物车
+    //                  this.fetchData();
+    //                  setInterval(this.fetchData,3000);
+    //             }
+    //         }));
+    //     },
+    //     methods:{
+    //         //购物车的刷新
+    //         fetchData(){
+    //             axios.get("user",{
+    //                 params: {
+    //                     op:'freshCart'
+    //                 }
+    //             }).then(rs=>{
+    //                 this.goods=rs.data;
+    //                 let num=0;
+    //                 for (let i=0;i<this.goods.length;i++){
+    //                     num+=this.goods[i].num;
+    //                 }
+    //                 this.goodsCount=num;
+    //                 console.log(rs.data);
+    //             })
+    //         },
+    //
+    //         //退出按钮
+    //         quit:function (){
+    //             this.onlogin=false;
+    //             this.outlogin=true;
+    //
+    //         },
+    //         //添加地址按钮
+    //         addAddress:function (){
+    //             //判断是否登录
+    //             if (this.outlogin){
+    //                 alert('请先登录后再添加地址');
+    //                 location.href="login.html";
+    //             }else {
+    //                 let pid = this.provinceid;
+    //                 let  obj1=this.provinceList[pid-1].name;
+    //                 let  obj2 = this.cityList.filter(item  =>  item.id  ===  this.cityid).map(item  =>  item.name);
+    //                 let  obj3=this.countyList.filter(item  =>  item.id  ===  this.countyid).map(item  =>  item.name);
+    //                 let pro2=obj2.join();
+    //                 let pro3=obj3.join();
+    //
+    //                 if (!this.showErrorTip1 && !this.showErrorTip2 && !this.showErrorTip3){
+    //                     axios.get("phone",{
+    //                         params:{
+    //                             op:'addAddress',
+    //                             id:this.id,
+    //                             province:obj1,
+    //                             city:pro2,
+    //                             county:pro3,
+    //                             detailAdd: this.detailAdd,
+    //                             receiveName: this.receiveName,
+    //                             receiveTel: this.receiveTel
+    //                         }
+    //
+    //                     }).then(rs=>{
+    //                         if (rs.data==1){
+    //                             alert("地址添加成功");
+    //                             this.detailAdd='';
+    //                             this.receiveName='';
+    //                             this.receiveTel='';
+    //                             this.provinceid='';
+    //                             this.cityid='';
+    //                             this.countyid='';
+    //                         }else {
+    //                             alert("地址添加失败");
+    //                         }
+    //                     })
+    //                 }else {
+    //                     alert('请检查是否填写正确');
+    //                 }
+    //             }
+    //
+    //
+    //         },
+    //         //添加地址中的省份与城市改变后的代码
+    //         changeCity:function(){
+    //             var str='';
+    //             for (var i = 0; i < cityList.length; i++) {
+    //                 if (cityList[i].pid == this.provinceid) {
+    //                     str+='<option value="'+cityList[i].id+'">'+cityList[i].name+'</option>';
+    //                 }
+    //             }
+    //             this.cityOp=str;
+    //         },
+    //         changeCounty:function (){
+    //             var str='';
+    //             for (var i=0;i<countyList.length;i++){
+    //                 if (countyList[i].pid==this.cityid){
+    //                     str+='<option value="'+countyList[i].id+'">'+countyList[i].name+'</option>';
+    //                 }
+    //             }
+    //             this.countyOp=str;
+    //         },
+    //         //添加地址中的详细地址判断
+    //         checkInput1(){
+    //             const address=this.detailAdd.trim();
+    //             const isLengthValid=address.length>=5 && address.length<=120;
+    //             const isName=/^[\u4e00-\u9fa5a-zA-Z0-9]+$/.test(address);//判断是否为中文或英文或数字
+    //             this.showErrorTip1= !isLengthValid || !isName ;
+    //         },
+    //         //添加地址中的收货人姓名判断
+    //         checkInput2(){
+    //             const receiveName=this.receiveName.trim();
+    //             console.log(receiveName.length);
+    //             const isLengthValid=receiveName.length>=2 && receiveName.length<=25;
+    //             const isName=/^[\u4e00-\u9fa5a-zA-Z]+$/.test(receiveName);//判断是否为中文或英文
+    //             this.showErrorTip2= !isLengthValid || !isName ;
+    //         },
+    //         //添加地址中的电话号码判断
+    //         checkInput3() {
+    //             const phoneNumber = this.receiveTel.trim();
+    //             const isNumber = /^\d+$/.test(phoneNumber);
+    //             const isLengthValid = phoneNumber.length === 11;
+    //             const isFirstDigitValid = phoneNumber.charAt(0) === '1';
+    //             this.showErrorTip3 = !isNumber || !isLengthValid || !isFirstDigitValid ;
+    //         },
+    //         //当购物车中的商品数为0时
+    //         checkGoodsCountWay(){
+    //             let checkCount= this.goodsCount!=0;
+    //             if (checkCount){
+    //                 this.checkGoodsCount=false;
+    //             }
+    //         },
+    //         //当购物车中的商品数不为0时
+    //         checkGoodsCountNotNullWay(){
+    //             let checkCount= this.goodsCount!=0;
+    //             if (checkCount){
+    //                 this.checkGoodsCountNotNull=true;
+    //             }
+    //         }
+    //
+    //     }
+    //
+    // });
+
+
+    //
+    // function findTop() {
+    //
+    //     return axios({
+    //         url:'phoneBottom',
+    //         method:'get',
+    //         params:{op:"findTop",brand:phoneusername,brand1:household,brand2:intell}
+    //     });
+    //
+    //
+    // }
+
+    //搜索框智能匹配查询所有型号
+    function findAll(){
+
+        return axios.get("/xiaomi-img/index/findAll");
+
+    }
+
+    //主页滑动栏数据
+    function findPhone(){
+
+        return axios.get("/xiaomi-img/index/findSlide");
+
+    }
+
+
+    //搜索框智能匹配标签方法
+    function clickFind(name){   //参数为匹配到的节点的商品名字
+       // sessionStorage.setItem("getBrand",name);
+        const baseUrl = 'search.html';
+        var url = baseUrl +'#keyword=' + name;
+        //将findAll()中的参数通过sessionStorage传过去
+        sessionStorage.setItem("phoneAll", JSON.stringify(app.$data.phoneAll));   //js访问vue需要使用app.$data.需要的参数
+        // document.getElementById('link').href = url;
+        //改为在本页面打开不跳转
+        window.open(url, "_self");       //TODO  非vue方法不知道是否可以跳转  -->可以跳转
+        // window.location.href=url;
+    }
+
+    // //检查用户是否登录   //TODO  整合登录鉴权模块
+    // function checkLogin(){
+    //     return axios.get("user?op=check");
+    // }
+
+
+
+
+</script>
+<!--<script>-->
+<!--    let phoneusername=$("#phoneusername").text();-->
+<!--    console.log(phoneusername);-->
+<!--    let household=$('#household').text();-->
+<!--    console.log(household)-->
+<!--    let intell=$("#intells").text();-->
+<!--    console.log(intell)-->
+
+<!--    let app2=new Vue({-->
+<!--        el:'#index',-->
+<!--        data:{-->
+<!--            phones:'',-->
+<!--            households:'',-->
+<!--            intells:''-->
+
+<!--        },-->
+<!--        filters: {-->
+<!--            integer(value) {-->
+<!--                return Math.floor(value); // 使用 Math.floor() 方法将小数转换为整数-->
+<!--            },-->
+<!--        },-->
+<!--        mounted:function () {-->
+<!--            axios.all([findTop()]).then(axios.spread((rs1)=>{-->
+<!--                    console.log(rs1);-->
+
+<!--                    this.phones=rs1.data[0].list;-->
+<!--                    this.households=rs1.data[1].list;-->
+<!--                    this.intells=rs1.data[2].list;-->
+
+
+
+
+<!--                })-->
+<!--            )-->
+<!--        }-->
+<!--    });-->
+
+<!--    function findTop() {-->
+<!--        return axios({-->
+<!--            url:'phoneBottom',-->
+<!--            method:'get',-->
+<!--            params:{op:"findTop",brand:phoneusername,brand1:household,brand2:intell}-->
+<!--        });-->
+
+
+<!--    }-->
+
+<!--</script>-->
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>谷粒商城订单</title>
+  <link rel="stylesheet" href="css1/indexorder.css">
+  <style media="screen">
+    * {
+      font-family: "微软雅黑";
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<div id="nav" >
+  <nav>
+
+    <div class="myjd">
+      <h3 style="color: white">我的大米商城</h3>
+      <button onclick="location.href='index.html'">返回大米商城首页</button>
+    </div>
+    <ul class="nav_ul" style="color: white">
+      <li>首页</li>
+
+
+
+    </ul>
+    <div class="right">
+      <div class="btn">
+
+      </div>
+
+    </div>
+    <div style="clear:both;"></div>
+  </nav>
+
+</div>
+<div style="clear:both;"></div>
+<div id="big">
+  <div id="bigLeft">
+    <ul>
+
+    </ul>
+    <ul>
+
+    </ul>
+    <ul>
+
+    </ul>
+    <ul>
+
+    </ul>
+    <ul>
+
+    </ul>
+    <ul>
+
+    </ul>
+  </div>
+  <div id="bigRight">
+    <div class="myOrder">
+      <p >我的订单</p>
+    </div>
+
+
+    <!--使用Vue-app -->
+
+
+
+    <div class="allBig" id="app">
+      <div class="allOrder">
+        <ul class="allOrderTop">
+          <li>
+            <ol>
+              <li >全部订单</li>
+
+              <div style="clear:both;"></div>
+            </ol>
+          </li>
+
+          <li class="allOrderTopLastLi">
+            <div>
+              <input type="text" placeholder="商品名称" v-model="search" id="searchName"><button class="search" @click="searchName()"></button>
+            </div>
+          </li>
+          <div class="clear:both;"></div>
+        </ul>
+
+      </div>
+      <div class="details">
+        <ul class="detailsUl">
+          <div class="detailsUlDiv">
+            <li class="detailsLiok detailsLi">全部订单</i>
+            </li>
+            <li class="detailsLi">订单详情</li>
+            <div style="clear:both;"></div>
+          </div>
+
+          <li class="detailsLi1" style="border-right: 80px">数量</li>
+          <li class="detailsLi1">金额</li>
+          <li class="detailsLi1 detailsLiok">全部状态</i>
+
+          </li>
+          <li class="detailsLi1">操作</li>
+          <div style="clear:both;"></div>
+        </ul>
+      </div>
+
+      <table class="table" v-for="good in goods" >
+        <tr>
+          <td colspan="7" style="background:#F7F7F7" >
+            <span style="color:#AAAAAA">日期:{{good.odate}}</span>
+            <span><ruby style="color:#AAAAAA">订单号:</ruby> {{good.ono}}</span>
+            <span>谷粒商城<i class="table_i"></i></span>
+            <i class="table_i5 isShow"></i>
+          </td>
+        </tr>
+        <tr class="tr" >
+          <td colspan="3" style="border-right: 1px solid #ccc">
+            <img style="height: 60px; width: 60px;border: none" :src="'../'+good.pics" alt="" class="img">
+            <div>
+              <p style="width: 450px; height: auto;overflow: auto; font-size: 16px;font-weight: 300" >
+                {{good.name}}&nbsp;&nbsp;颜色:{{good.color}}&nbsp;&nbsp;规格:{{good.cap}}&nbsp;&nbsp;价格:{{good.price}}元
+
+              </p>
+
+            </div>
+            <div style="margin-left:15px;"></div>
+            <div style="clear:both"></div>
+          </td>
+          <td th:if="${itemStat.index==0}" th:rowspan="${itemStat.size}">{{good.num}} 台</td>
+          <td th:if="${itemStat.index==0}" th:rowspan="${itemStat.size}"style="padding-left:10px;color:#AAAAB1;">
+            <p style="margin-bottom:5px;color: #f40">￥{{good.price*good.num}}</p>
+            <hr style="width:90%;">
+            <p v-if="good.status==0" href="#" id="paying">在线支付</p>
+          </td>
+          <td th:if="${itemStat.index==0}" th:rowspan="${itemStat.size}">
+            <ul>
+              <li style="color:#71B247;" v-if="good.status==0 &&good.statu!=2 &&good.statu!=3">待发货</li>
+              <li style="color:#71B247;" v-if="good.status==1 &&good.statu!=2 &&good.statu!=3">已发货</li>
+              <li style="color:#71B247;" v-if="good.statu==2">已完成</li>
+              <li style="color:#71B247;" v-if="good.statu==3">已取消</li>
+
+              <div class="hi">
+                <div class="p-tit">
+
+                </div>
+                <div class="hideList">
+
+                </div>
+              </div>
+              </li>
+            </ul>
+          </td>
+          <td th:if="${itemStat.index==0}" th:rowspan="${itemStat.size}">
+            <button v-if="good.status==1 &&good.statu==1" @click="confirm(good.ino)" >确认收货</button>
+            <p style="margin:4px 0; " v-if="good.statu!=3" @click="cancel(good.ino)">取消订单</p>
+          </td>
+        </tr>
+      </table>
+
+      <div class="order_btm">
+        <div>
+          <button href="javascript:void(0)" @click="PageNumDecline();findPage()">上一页</button>
+          <span>{{pageNum}}</span>
+          <button href="javascript:void(0)" @click="PageNumPlus();findPage()">下一页</button>
+        </div>
+      </div>
+      <div style="clear:both;"></div>
+    </div >
+
+
+    <!--结束Vue-app-->
+
+    <div class="mySwiper" id="app2">
+      <div class="mySwiper_like">
+        <div class="left">爆款机型</div>
+        <ol>
+          <li class="liList"></li>
+          <div style="clear:both"></div>
+        </ol>
+        <div style="clear:both"></div>
+      </div>
+      <ul >
+        <li style="display:block;" class="hot-item">
+          <dl v-for="hot in hots">
+            <dt>
+              <a href="#" id="link" @click="shiftDetail(hot.pid)">
+              <img :src="'../'+hot.pics" alt="" height="160px" width="160px">
+              </a>
+            </dt>
+            <dd>
+              <div>{{hot.name}}</div>
+              <div>{{hot.brand}}</div>
+              <p>¥{{hot.price}}</p>
+              <span>(已有{{hot.num}}人购买)</span>
+            </dd>
+          </dl>
+
+
+
+          <div style="clear:both;"></div>
+        </li>
+
+      </ul>
+    </div>
+
+<!--    <div id="logo">-->
+<!--      <img src="static/member/img/datu.jpg" alt="">-->
+<!--      <img src="static/member/img/datu1.jpg" alt="">-->
+<!--    </div>-->
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
+
+<div class="footer">
+  <div class="top">
+    <ul>
+      <li class="item fore1">
+        <i></i>
+        品类齐全，轻松购物
+      </li>
+      <li class="item fore2">
+        <i></i>
+        多仓直发，极速配送
+      </li>
+      <li class="item fore3">
+        <i></i>
+        正品行货，精致服务
+
+
+      </li>
+      <li class="item fore4">
+        <i></i>
+        天天低价，畅选无忧
+
+
+      </li>
+      <div style="clear:both;"></div>
+    </ul>
+  </div>
+  <div class="wrap">
+    <div class="wrap1">
+      <div class="wrap2">
+        <dl>
+          <dt>购物指南</dt>
+          <dd>购物流程</dd>
+          <dd>会员介绍</dd>
+          <dd>生活旅行/团购</dd>
+          <dd>常见问题</dd>
+          <dd>大家电</dd>
+          <dd>联系客服</dd>
+        </dl>
+        <dl>
+          <dt>配送方式</dt>
+          <dd>上门自提</dd>
+          <dd>211限时达</dd>
+          <dd>配送服务查询</dd>
+          <dd>配送费收取标准</dd>
+          <dd>海外配送</dd>
+
+        </dl>
+        <dl>
+          <dt>支付方式</dt>
+          <dd>货到付款</dd>
+          <dd>在线支付</dd>
+          <dd>分期付款</dd>
+          <dd>邮局汇款</dd>
+          <dd>公司转账</dd>
+        </dl>
+        <dl>
+          <dt>公司转账</dt>
+          <dd>售后政策</dd>
+          <dd>价格保护</dd>
+          <dd>退款说明</dd>
+          <dd>返修/退换货</dd>
+          <dd>取消订单</dd>
+
+
+        </dl>
+        <dl>
+          <dt>特色服务</dt>
+          <dd>夺宝岛</dd>
+          <dd>DIY装机</dd>
+          <dd>延保服务</dd>
+          <dd>谷粒商城E卡</dd>
+          <dd>谷粒商城通信</dd>
+          <dd>谷粒商城gulimall+</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <p class="p1">
+    <a href="static/member/#">关于我们</a>
+    <a href="static/member/#">联系我们</a>
+    <a href="static/member/#">联系客服</a>
+    <a href="static/member/#">合作招商</a>
+    <a href="static/member/#">合作招商</a>
+    <a href="static/member/#">营销中心</a>
+    <a href="static/member/#" style="width:80px;">手机谷粒商城</a>
+    <a href="static/member/#">友情链接</a>
+    <a href="static/member/#">销售联盟</a>
+    <a href="static/member/#" style="width:80px;">谷粒商城社区</a>
+    <a href="static/member/#">风险监测</a>
+    <a href="static/member/#">隐私政策</a>
+    <a href="static/member/#" style="width:80px;">谷粒商城公益</a>
+    <a href="static/member/#" style="width:80px;">English Site</a>
+    <a href="static/member/#" style="border-right: none">Contact Us</a>
+  </p>
+  <p class="p2">
+    <a href="static/member/#">京公网安备 11000002000088号</a>
+    <a href="static/member/#">京ICP证070359号</a>
+    <a href="static/member/#">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>
+    <a href="static/member/#">新出发京零 字第大120007号</a>
+  </p>
+  <p class="p3">
+    <a href="static/member/#">互联网出版许可证编号新出网证(京)字150号</a>
+    <a href="static/member/#">出版物经营许可证</a>
+    <a href="static/member/#">网络文化经营许可证京网文[2014]2148-348号</a>
+    <a href="static/member/#">违法和不良信息举报电话：4006561155</a>
+  </p>
+  <p class="p4">
+    <a href="static/member/#">Copyright © 2004 - 2017  谷粒商城gulimall.com 版权所有</a>
+    <a href="static/member/#">消费者维权热线：4006067733</a>
+    <a href="static/member/#">经营证照</a>
+  </p>
+  <p class="p5">
+    <a href="static/member/#">谷粒商城旗下网站：谷粒商城钱包</a>
+    <a href="static/member/#">谷粒商城云</a>
+
+  </p>
+  <p class="img">
+    <span class="span icon1"></span>
+    <span class="span icon2"></span>
+    <span class="span icon3"></span>
+    <span class="span icon4"></span>
+    <span class="span icon5"></span>
+    <span class="span icon6"></span>
+  </p>
+  <div style="clear: both"></div>
+</div>
+<div class="fixed">
+
+  <div class="teSe">
+    <ul>
+      <li class="test_li1">
+        <ol>
+          <div></div>
+          <li>宽带</li>
+          <li>我的旅行订单</li>
+          <li>夺宝箱</li>
+          <li>我的定期送</li>
+          <li>我的竞拍保证金</li>
+          <li>谷粒商城白条</li>
+          <li>谷粒商城回收</li>
+          <li>装机大师</li>
+          <li>黄金托管业务</li>
+        </ol>
+      </li>
+      <li class="test_li2"></li>
+      <li><a href="static/member/#" class="test_li3"></a></li>
+    </ul>
+  </div>
+</div>
+
+
+</body>
+<script src="js/index.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/axios.js"></script>
+<script>
+
+
+  let pageSize=3;
+  let pageNum=1;
+  let search=null;
+  let app=new Vue({
+    el:'#app',
+    data:{
+      onlogin:false,
+      outlogin:true,
+      checkGoodsCount:true,
+      checkGoodsCountNotNull:false,
+      id:'',
+      search:'',
+      activeTab: 'allOrder',
+      goodsCount:0,
+      pageNum:1,
+      pageSize:3,
+      totalPage:3,
+      carts:{},
+      goods:{},
+      //数据刷新
+      intervalId:null,
+
+    },
+    mounted:function (){
+      //检查是否登录
+      axios.all([checkLogin(),findTree()]).then(axios.spread((rs1,rs2)=>{
+        console.log(rs1);
+        console.log(rs2);
+        if (rs1.data.code==0){
+          //说明未登录
+          this.onlogin=false;
+          this.outlogin=true;
+        }else {
+          //登录成功
+          this.carts=rs1.data.carts;
+          this.id=rs1.data.user.id;
+          this.onlogin=true;
+          this.outlogin=false;
+          //购物车数据
+          this.goods=rs2.data.goods;
+          console.log(this.goods);
+          this.totalPage=rs2.data.total;
+
+
+
+        }
+      }));
+    },
+    methods: {
+      //当购物车中的商品数为0时
+      checkGoodsCountWay() {
+        let checkCount = this.goodsCount != 0;
+        if (checkCount) {
+          this.checkGoodsCount = false;
+        }
+      },
+      //当购物车中的商品数不为0时
+      checkGoodsCountNotNullWay() {
+        let checkCount = this.goodsCount != 0;
+        if (checkCount) {
+          this.checkGoodsCountNotNull = true;
+        }
+      },
+      //页数增加
+      PageNumPlus() {
+        if (this.pageNum < this.totalPage) {
+          this.pageNum++;
+        }
+      },
+
+      //页数减少
+      PageNumDecline() {
+        if (this.pageNum != 1) {
+          this.pageNum--;
+        }
+      },
+      //查看前三条数据
+      findPage: function () {
+        axios({
+          url: 'order',
+          method: "get",
+          params: {
+            op: 'findPage',
+            uid: this.id,
+            pageNum: this.pageNum,
+            pageSize: this.pageSize,
+            search: this.search
+          }
+        }).then(rs => {
+          this.goods = rs.data.goods;
+          this.totalPage = rs.data.total;
+        })
+      },
+
+      //根据商品名查询
+      searchName: function () {
+        axios({
+          url: 'order',
+          method: "get",
+          params: {
+            op: 'findPage',
+            uid: this.id,
+            pageNum: this.pageNum,
+            pageSize: this.pageSize,
+            search: this.search
+          }
+        }).then(rs => {
+          this.goods = rs.data.goods;
+          this.totalPage = rs.data.total;
+        })
+      },
+      //确认收货
+      confirm: function (ino) {
+        alert('确认收货成功,请等待后台处理');
+        axios({
+          url: 'order',
+          method: 'get',
+          params: {
+            op: 'update',
+            ino: ino,
+            statu: 2
+          }
+        })
+
+
+      },
+
+
+      //取消订单
+      cancel: function (ino) {
+        alert('取消订单成功,请等待后台处理');
+        axios({
+          url: 'order',
+          method: 'get',
+          params: {
+            op: 'update',
+            ino: ino,
+            statu: 3
+          }
+        })
+
+      },
+
+           // 定时刷新数据函数
+            dataRefreh() {
+              // 计时器正在进行中，退出函数
+              if (this.intervalId != null) {
+                return;
+              }
+              // 计时器为空，操作
+              this.intervalId = setInterval(() => {
+                this.findPage(); //加载数据函数
+              }, 1000);
+            },
+            // 停止定时器
+            clear() {
+              clearInterval(this.intervalId); //清除计时器
+              this.intervalId = null; //设置为null
+            },
+          },
+          created(){
+            this.dataRefreh();
+          },
+          destroyed(){
+            // 在页面销毁后，清除计时器
+            this.clear();
+    }
+
+
+
+  });
+
+
+  let app2=new Vue({
+    el:'#app2',
+    data:{
+      hots:{}
+    },
+    mounted:function (){
+      //爆款显示
+      axios.all([findHot()]).then(axios.spread((rs3)=>{
+
+        console.log(rs3);
+        this.hots=rs3.data.hots;
+      }));
+    },
+    methods:{
+      //详情页
+      shiftDetail:function (id){
+        const baseUrl = 'plus5.html';
+        const pid = id;
+        var url = baseUrl +'#pid=' + pid;
+        document.getElementById('link').href = url;
+        window.location.href = url;
+      },
+
+    }
+
+
+  });
+
+
+
+
+  //检查用户是否登录
+  function checkLogin(){
+    return axios.get("order?op=check");
+  }
+
+  //查看热销商品
+  function findHot(){
+    return axios.get("hot?op=findHot");
+    /*return axios({
+      url:'order',
+      method:'get',
+      params:{
+        op:'findHot'
+      }
+    });*/
+  }
+
+  //分页查看前三条数据
+  function findTree(){
+    return axios({
+      url:'order',
+      method:'get',
+      params:{
+        op:'findPage',
+        pageNum:pageNum,
+        pageSize:pageSize,
+        search:search
+      }
+    });
+  }
+
+</script>
+
+
+</html>

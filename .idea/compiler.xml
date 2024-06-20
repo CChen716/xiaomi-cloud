@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="xiaomi-web" />
+        <module name="xiaomi-gateway" />
+        <module name="xiaomi-init" />
+        <module name="xiaomi-cart" />
+        <module name="xiaomi-img" />
+        <module name="xiaomi-security" />
+        <module name="xiaomi-es" />
+        <module name="xiaomi-entity" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="xiaomi-cart" options="-parameters" />
+      <module name="xiaomi-entity" options="-parameters" />
+      <module name="xiaomi-es" options="-parameters" />
+      <module name="xiaomi-gateway" options="-parameters" />
+      <module name="xiaomi-img" options="-parameters" />
+      <module name="xiaomi-init" options="-parameters" />
+      <module name="xiaomi-security" options="-parameters" />
+      <module name="xiaomi-web" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,108 @@
+2023-11-27 20:08:19.691  INFO 20884 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2023-11-27 20:08:19.767  INFO 20884 --- [restartedMain] com.yc.xiaomi.SecurityApp                : Starting SecurityApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 20884 (D:\javacloudlx\xiaomi\xiaomi-security\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2023-11-27 20:08:19.768  INFO 20884 --- [restartedMain] com.yc.xiaomi.SecurityApp                : No active profile set, falling back to 1 default profile: "default"
+2023-11-27 20:08:19.796  INFO 20884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-27 20:08:19.797  INFO 20884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-27 20:08:20.632  INFO 20884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-11-27 20:08:20.634  INFO 20884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-27 20:08:20.648  INFO 20884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-11-27 20:08:20.797  INFO 20884 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1d61b82e-ecb8-31d3-a855-5099fbc13965
+2023-11-27 20:08:21.096  INFO 20884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8003 (http)
+2023-11-27 20:08:21.103  INFO 20884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-27 20:08:21.103  INFO 20884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2023-11-27 20:08:21.163  INFO 20884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-27 20:08:21.164  INFO 20884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1367 ms
+2023-11-27 20:08:21.258  INFO 20884 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-11-27 20:08:21.595  INFO 20884 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-11-27 20:08:30.331  INFO 20884 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2023-11-27 20:08:30.496  INFO 20884 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c179ce0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d3c0e94, org.springframework.security.web.context.SecurityContextPersistenceFilter@3185a5a6, org.springframework.security.web.header.HeaderWriterFilter@266a390c, org.springframework.security.web.authentication.logout.LogoutFilter@35f876af, com.yc.xiaomi.filters.JwtRequestFilter@39fead8c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9a55412, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a665d38, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22c4e4b4, org.springframework.security.web.session.SessionManagementFilter@5f7e24db, org.springframework.security.web.access.ExceptionTranslationFilter@610f5d73, org.springframework.security.web.access.intercept.AuthorizationFilter@5626178]
+2023-11-27 20:08:36.003  WARN 20884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-27 20:08:39.085  INFO 22968 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2023-11-27 20:08:39.162  INFO 22968 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 22968 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2023-11-27 20:08:39.163  INFO 22968 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
+2023-11-27 20:08:39.190  INFO 22968 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-27 20:08:39.190  INFO 22968 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-27 20:08:39.536  INFO 20884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8003 (http) with context path ''
+2023-11-27 20:08:39.560  INFO 20884 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-27 20:08:39.560  INFO 20884 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-27 20:08:39.969  INFO 22968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-11-27 20:08:39.971  INFO 22968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-27 20:08:39.985  INFO 22968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-11-27 20:08:40.133  INFO 22968 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3c027c85-70ea-3da3-948b-9bf26da2f93d
+2023-11-27 20:08:40.450  INFO 22968 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
+2023-11-27 20:08:40.457  INFO 22968 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-27 20:08:40.457  INFO 22968 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2023-11-27 20:08:40.520  INFO 22968 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-27 20:08:40.520  INFO 22968 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1330 ms
+2023-11-27 20:08:40.631  INFO 22968 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-11-27 20:08:40.950  INFO 22968 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-11-27 20:08:45.451  INFO 20884 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-security 173.18.3.181:8003 register finished
+2023-11-27 20:08:48.351  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.353  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.354  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.376  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.376  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.376  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.376  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.376  WARN 20884 --- [restartedMain] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: , dataTypeClass: class java.lang.Void
+2023-11-27 20:08:48.484  INFO 20884 --- [restartedMain] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2023-11-27 20:08:48.489  INFO 20884 --- [restartedMain] com.yc.xiaomi.SecurityApp                : Started SecurityApp in 31.234 seconds (JVM running for 33.906)
+2023-11-27 20:08:49.833  INFO 22968 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2023-11-27 20:08:50.024  WARN 22968 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-27 20:08:50.212  INFO 20884 --- [RMI TCP Connection(10)-192.168.85.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-27 20:08:50.213  INFO 20884 --- [RMI TCP Connection(10)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-27 20:08:50.215  INFO 20884 --- [RMI TCP Connection(10)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-11-27 20:08:52.798  INFO 22968 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
+2023-11-27 20:08:52.833  INFO 22968 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-27 20:08:52.833  INFO 22968 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-27 20:08:58.739  INFO 22968 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-cart 173.18.3.181:6001 register finished
+2023-11-27 20:09:01.269  INFO 22968 --- [restartedMain] com.yc.CartApp                           : Started CartApp in 26.155 seconds (JVM running for 29.416)
+2023-11-27 20:09:04.646  INFO 22968 --- [RMI TCP Connection(7)-192.168.85.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-27 20:09:04.646  INFO 22968 --- [RMI TCP Connection(7)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-27 20:09:04.648  INFO 22968 --- [RMI TCP Connection(7)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-11-27 20:10:56.173  WARN 22968 --- [Thread-11] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2023-11-27 20:10:56.173  WARN 22968 --- [Thread-8] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2023-11-27 20:10:56.174  WARN 22968 --- [Thread-8] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2023-11-27 20:10:56.174  WARN 22968 --- [Thread-11] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2023-11-27 20:10:57.148  INFO 22968 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2023-11-27 20:10:57.153  INFO 22968 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2023-11-27 20:10:57.296  INFO 22968 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2023-11-27 20:10:57.302  INFO 22968 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2023-11-27 20:11:26.599  INFO 21564 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2023-11-27 20:11:26.669  INFO 21564 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 21564 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2023-11-27 20:11:26.669  INFO 21564 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
+2023-11-27 20:11:26.693  INFO 21564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-27 20:11:26.694  INFO 21564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-27 20:11:27.372  INFO 21564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-11-27 20:11:27.373  INFO 21564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-11-27 20:11:27.387  INFO 21564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-11-27 20:11:27.523  INFO 21564 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3c027c85-70ea-3da3-948b-9bf26da2f93d
+2023-11-27 20:11:27.820  INFO 21564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
+2023-11-27 20:11:27.826  INFO 21564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-27 20:11:27.827  INFO 21564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2023-11-27 20:11:27.889  INFO 21564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-27 20:11:27.889  INFO 21564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1195 ms
+2023-11-27 20:11:27.979  INFO 21564 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-11-27 20:11:28.236  INFO 21564 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-11-27 20:11:33.239  INFO 21564 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2023-11-27 20:11:33.395  WARN 21564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-11-27 20:11:34.960  INFO 21564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
+2023-11-27 20:11:34.988  INFO 21564 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-11-27 20:11:34.988  INFO 21564 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-11-27 20:11:38.842  INFO 21564 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-cart 173.18.3.181:6001 register finished
+2023-11-27 20:11:40.378  INFO 21564 --- [restartedMain] com.yc.CartApp                           : Started CartApp in 15.685 seconds (JVM running for 17.403)
+2023-11-27 20:11:40.695  INFO 21564 --- [RMI TCP Connection(1)-192.168.85.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-27 20:11:40.695  INFO 21564 --- [RMI TCP Connection(1)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-27 20:11:40.697  INFO 21564 --- [RMI TCP Connection(1)-192.168.85.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-11-27 20:35:12.245  INFO 20884 --- [Thread-1] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2023-11-27 20:35:12.253  INFO 20884 --- [Thread-1] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2023-11-27 20:35:12.388  INFO 20884 --- [Thread-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2023-11-27 20:35:12.403  INFO 20884 --- [Thread-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2023-11-27 20:47:05.697  WARN 21564 --- [Thread-11] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2023-11-27 20:47:05.701  WARN 21564 --- [Thread-8] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2023-11-27 20:47:05.703  WARN 21564 --- [Thread-8] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2023-11-27 20:47:05.704  WARN 21564 --- [Thread-11] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2023-11-27 20:47:06.743  INFO 21564 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2023-11-27 20:47:06.748  INFO 21564 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2023-11-27 20:47:06.900  INFO 21564 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2023-11-27 20:47:06.912  INFO 21564 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

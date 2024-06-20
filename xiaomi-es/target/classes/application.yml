@@ -1,0 +1,112 @@
+
+spring:
+  rabbitmq:
+    host: 192.168.85.128
+    port: 5673   # linux 对外开放端口是5673：5672
+    username: admin
+    password: admin
+    virtual-host: /
+    listener:
+      simple:
+        prefetch: 1  #消费者每次消费一条消息
+        acknowledge-mode: auto  #none 不处理 自动删除  #manul 手动处理  #auto 自动模式
+        retry:
+          enabled: true  #开启消费者失败重试
+          initial-interval: 300ms  #初始的失败等待时长为300ms
+          multiplier: 1  #下次失败的等待时长倍数
+          max-attempts: 3  #最大重试次数
+          stateless: true # 无状态   false有状态  如果业务中有事务 则应该要改为false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher #swagger匹配路径
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/db_xiaomi?serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
+    # Druid的其他属性配置
+    druid:
+      # 初始化时建立物理连接的个数
+      initial-size: 5
+      # 连接池的最小空闲数量
+      min-idle: 5
+      # 连接池最大连接数量
+      max-active: 20
+      # 获取连接时最大等待时间，单位毫秒
+      max-wait: 60000
+      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-while-idle: true
+      # 既作为检测的间隔时间又作为testWhileIdel执行的依据
+      time-between-eviction-runs-millis: 60000
+      # 销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接(配置连接在池中的最小生存时间)
+      min-evictable-idle-time-millis: 30000
+      # 用来检测数据库连接是否有效的sql 必须是一个查询语句(oracle中为 select 1 from dual)
+      validation-query: select 'x'
+      # 申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-borrow: false
+      # 归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-return: false
+      # 是否缓存preparedStatement, 也就是PSCache,PSCache对支持游标的数据库性能提升巨大，比如说oracle,在mysql下建议关闭。
+      pool-prepared-statements: false
+      # 置监控统计拦截的filters，去掉后监控界面sql无法统计，stat: 监控统计、Slf4j:日志记录、waLL: 防御sqL注入
+      filters: stat,wall,slf4j
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+      max-pool-prepared-statement-per-connection-size: -1
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+      web-stat-filter:
+        # 是否启用StatFilter默认值true
+        enabled: true
+        # 添加过滤规则
+        url-pattern: /*
+        # 忽略过滤的格式
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
+      stat-view-servlet:
+        # 是否启用StatViewServlet默认值true
+        enabled: true
+        # 访问路径为/druid时，跳转到StatViewServlet
+        url-pattern: /druid/*
+        # 是否能够重置数据
+        reset-enable: false
+        # 需要账号密码才能访问控制台，默认为root
+        login-username: druid
+        login-password: druid
+        # IP白名单
+        allow: 127.0.0.1
+        # IP黑名单（共同存在时，deny优先于allow）
+        deny:
+
+  cloud:
+    nacos:
+      discovery:            #cloud的服务注册发现功能
+        server-addr: localhost:8848  #将此服务到本机nacos中
+        username: nacos  #nacos登录用户名和密码
+        password: nacos
+  application:
+    name: xiaomi-es   #此服务的服务名,在nacos服务器显示,以显示区发
+server:
+  port: 5002    #此服务的端口
+  tomcat:
+    accept-count: 100  #等待队列长度  默认100
+    threads:
+      max: 20
+      min-spare: 5
+    max-connections: 20
+management:      #通过actuator暴漏服务的管理端口
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #*代表所有的端口暴漏,一定要加"",因为*是特殊字符,加上""防止转移
+logging:
+  level:
+    root: info
+    com.yc: info
+    org.springframework: info
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

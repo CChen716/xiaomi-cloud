@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yc</groupId>
+    <artifactId>xiaomi</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>xiaomi-web</module>
+        <module>xiaomi-entity</module>
+        <module>xiaomi-gateway</module>
+        <module>xiaomi-security</module>
+        <module>xiaomi-init</module>
+        <module>xiaomi-img</module>
+        <module>xiaomi-cart</module>
+        <module>xiaomi-es</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.0</version>
+    </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2021.0.6</version>
+                <!-- 此依赖不会打包到最终的构件中，只影响依赖的解析过程 -->
+                <type>pom</type>
+                <!-- 只与type=pom一起用，表示将此pom文件 中的 dependencyManagement 下的依赖信息导入当前pom -->
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2021.0.5.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+            <!--热部署插件:  devtools会监听classpath下的文件变化, 触发  Restarter类重新加该.
+                    spring.devtools.restart.exclude属性来指定.
+             -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <!--限定依赖的传递   ,在其它的项目引入此项目时，不会包含dev-tools插件  -->
+                <optional>true</optional>
+                <version>2.7.0</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <!-- 关于版本号，使用版本仲裁机制来确定  -->
+                <version>1.18.26</version>
+            </dependency>
+            <!--整合junit测试 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.7.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13.2</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <!--  optional 表示可选，它将选择权交给了上层应用服务 -->
+                <version>2.7.0</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.0.32</version>
+                <!--不要写版本号 这样可以保证与父模块版块一致  -->
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <version>2.7.0</version>
+                <artifactId>spring-boot-starter-data-jdbc</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.22</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.4.2</version>
+            </dependency>
+            <!--swagger 3的starter依赖引入-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+<!--            这个依赖提供了一组监控和管理生产环境的端点和功能-->
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-quartz</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+<!--            用于定时任务和作业调度。-->
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+<!--            缓存抽象的支持，包括对常见缓存提供商-->
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.1</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

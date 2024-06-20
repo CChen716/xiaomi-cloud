@@ -1,0 +1,27 @@
+server:
+  port: 7777
+  web:
+    resources:
+      static-locations: [classpath:/public/,classpath:/resources/,classpath:/META-INF/resources/,classpath:/static/]
+
+logging:
+  level:
+    root: info
+    com.yc: info
+    org.springframework.web: info
+
+spring:
+  cloud:
+    nacos:                                    #cloud的服务注册发现功能
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+  application:
+    name: xiaomi-web
+
+management:            #通过actuator暴露此服务的端口
+  endpoints:
+    web:
+      exposure:
+        include: "*"     # *代表所有端口暴露

@@ -1,0 +1,119 @@
+spring:
+  redis:
+    database: 4
+    host: 127.0.0.1
+    port: 6379
+    timeout: 10000ms
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER #swagger匹配路径
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/db_xiaomi?serverTimezone=UTC
+    type: com.alibaba.druid.pool.DruidDataSource
+    # Druid的其他属性配置
+
+
+    druid:
+      # 初始化时建立物理连接的个数
+      initial-size: 5
+      # 连接池的最小空闲数量
+      min-idle: 5
+      # 连接池最大连接数量
+      max-active: 20
+      # 获取连接时最大等待时间，单位毫秒
+      max-wait: 60000
+      # 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-while-idle: true
+      # 既作为检测的间隔时间又作为testWhileIdel执行的依据
+      time-between-eviction-runs-millis: 60000
+      # 销毁线程时检测当前连接的最后活动时间和当前时间差大于该值时，关闭当前连接(配置连接在池中的最小生存时间)
+      min-evictable-idle-time-millis: 30000
+      # 用来检测数据库连接是否有效的sql 必须是一个查询语句(oracle中为 select 1 from dual)
+      validation-query: select 'x'
+      # 申请连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-borrow: false
+      # 归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+      test-on-return: false
+      # 是否缓存preparedStatement, 也就是PSCache,PSCache对支持游标的数据库性能提升巨大，比如说oracle,在mysql下建议关闭。
+      pool-prepared-statements: false
+      # 置监控统计拦截的filters，去掉后监控界面sql无法统计，stat: 监控统计、Slf4j:日志记录、waLL: 防御sqL注入
+      filters: stat,wall,slf4j
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+      max-pool-prepared-statement-per-connection-size: -1
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+      web-stat-filter:
+        # 是否启用StatFilter默认值true
+        enabled: true
+        # 添加过滤规则
+        url-pattern: /*
+        # 忽略过滤的格式
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico
+      stat-view-servlet:
+        # 是否启用StatViewServlet默认值true
+        enabled: true
+        # 访问路径为/druid时，跳转到StatViewServlet
+        url-pattern: /druid/*
+        # 是否能够重置数据
+        reset-enable: false
+        # 需要账号密码才能访问控制台，默认为root
+        login-username: druid
+        login-password: druid
+        # IP白名单
+        allow: 127.0.0.1
+        # IP黑名单（共同存在时，deny优先于allow）
+        deny:
+
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java #自动监控java源码的变化,如发送更新,自动编译项目
+      exclude: static/**
+
+  cloud:
+    nacos:
+      discovery:            #cloud的服务注册发现功能
+        server-addr: localhost:8848  #将此服务到本机nacos中
+        username: nacos  #nacos登录用户名和密码
+        password: nacos
+  application:
+    name: xiaomi-cart   #此服务的服务名,在nacos服务器显示,以显示区发
+
+server:
+  port: 6001    #此服务的端口
+
+management:      #通过actuator暴漏服务的管理端口
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #*代表所有的端口暴漏,一定要加"",因为*是特殊字符,加上""防止转移
+
+
+logging:
+  level:
+    root: info
+    com.yc: info
+    org.springframework: info
+  file:
+    path: ./logs
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  typeEnumsPackage: com.yc.bean  #枚举类型的扫描路径
+
+alipay:
+  appId: 9021000131618733
+  appPrivateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCjBGXyUcweuWpOKaCYXSjhYy2opzon6B6rsa8TEyy+Haj7HigpouYMSHzD2JgQo54sY3vIDT8Rii7vxL2/2p7Ma1f3NnAygteZXd4J9oqdxkUIldXCsYi3OgTULb2JYIlIi2Yj3QX5AbQSF6qoN0IScyXNhVGuqgwVkUwsiw4TFWokDSMdMibhbDveAwxN1DJg13AQ9b7hjPM1RhJCpuYeA6GZRAh8QbzYL5jJmE857LGfxjGdiG3wC78K9u5vTLc78tlpy+ntZsy/Ja3ufXG10T4emdL/sD4m4/ZSl0ocr8wrMf+sGuOG0IynSqVP995IwKm0EpTMjN8byiePjjPbAgMBAAECggEAc8sz/yRLMafS8yJuiMvjtfWVAS+IB8DByIO2MH52UbUPyxBoxuqHLkJvHU5E9czDFhS0YC3IltTo8jd18UmBcwLswRVSLQ7zxmT+y2TsoZWsg6Sq6ljhHAWCWJUFBQgle/pI20CsdWvYVOGqv0JBFInmWE5S7xaq7sb+rMU5giOXy8WUnc8o0GJa7Zh4Uf292AphRcuPpMZXMnGERDyO6kQmtxtATupGYo8pm+PpJ8y3DIDL0REyAAINpWFv7uy8zrJ5PHQAunMpRlGu7CkrUYuOz+uSR/LK8s3/2mLMdorVBQI/lZUXl1oAHFDLiha1tW8qS88iXwJpK81i4vuEQQKBgQDlcknO+4009VDNF3csivr0+0u8mY+9OVXY9e3Ye0lsq5mXMJfDQlZzmJsPMg/qRHsvs9iIfb3anOzwEOD6O3U9dK9nDZM6fnYLDcZcDzJEezvJpk3zL713AI5uOKfwmQbgwZ76nmbZ9a6vPKrZ9Drz2f9cafflQB3a/U43+ZfC1QKBgQC14gnkgB9Mo9oVbKX5Ttj6DeinGmm3TkJMknHs2I/rAF2KgD4oOO/gVyylKMUfQI1zLU3UUNxgSQYCRtwpK0f9yPBuRlPjkxT8rjBC+F6f8yTfcZihoTLy79IQQpIWz/LxC2M3mnUvjZqhgZWAKDV1vP5HYMDQ/nu6tAbrZ4OT7wKBgQDO2AYz41B8In8SNQpJjI0KlxTC1EjhlDORILunghVCMzyGMNdPvpkDItr+iuoQDmZjLaWR/pFN6FQtY3n9++YIXg3WQEWu4Nx3wJZG3ag6VkIi2prBFhOemVDNiqPTYZDyw3oXgv9DlJlC/tUjIWqX9LmhzSIeeHuxtNNz4L1wdQKBgQC1rXbCNzSMgnLZybA0So0zoWcOW7TTdCmHgRSpR1zimXfWW+k6lj0NsyYWR5Y3dGyWat9+P9MRnn+REKTjvqbnmqqHDFrJTGa/S2NL0fn6/Y2MYFTcxj81KVaEBWsVvFvoaL6PkQqTGHgn8V+bJw7Xb5PzSnLvj/OZeDAdPkXRIwKBgF9n0C23DTAdgvklo5aqWzPk1odZkNBAnql+4xdVAhUuL4I7pzzSGjUDWprdq0qMnZByzCdSCo2raE1VU2qKyujgIgho5Z01GZnKv+e9mZ+et696T66e/hidSrmgqItWzLO7z/EoLeJinvx64z9HbUzVGMX0nLtNq9MqSyybPDW4
+  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAklajhbZcFh2Fj8Bj5nXOcjMO3EPl8xU3u+BiUjpzJHp/iC/aMkmCVsXbQPtM6IPjJLnxz8hynMYbknxMsuJYtdRl5fcKFSJRe/xCrVBe32wuw+916ZbXqCjfNNSDxyh/hm3ikTtYjwecyUyUyiDro2q3azH61hiIsydQvA5D3ZbcgvfA3YkZ3Ej9PjYfMeftLX2HTquofPv/y3xmnj1YpVlq9tW+XMhMAiSCrIacHmS5aLeHEfqZzJXZlj18nHjcFZ8YajEih2ZEvKZ28FCRklAZLXgcb2CT3i6HVN4JJDbyXkU4eIQ0vgwiCPgG2TgLhCYK4EepbF4phczb2G190QIDAQAB
+  notifyUrl: http://k269qe.natappfree.cc/alipay/notify   #此处为内网穿透域名地址,因为使用的是免费的会不定期强制更换所以会导致支付的回调函数无法不能一直执行（域名不变的要钱）
+  returnUrl: http://localhost:20001/xiaomi-web/myorderq.html
