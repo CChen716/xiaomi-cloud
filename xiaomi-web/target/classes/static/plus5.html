@@ -636,6 +636,7 @@
             },
             //加入购物车方法
             addCart(){
+                let id =this.phonesInfo.find(item=>item.cap===this.cap&&item.color===this.color).id;
 
                 let flag=0;
                 this.loginid=sessionStorage.getItem("id");   //首页登录后会将该用户的id值设置进去
@@ -644,41 +645,47 @@
                     location.href="login.html";
                 }
 
-                if(this.carts.length>0){
-                    for(let i=0;i<this.carts.length;i++){
-                        if(this.carts[i].id==id){
-                            flag=1;
-                            axios.post('cart',
-                                qs.stringify({
-                                    op:'update',
-                                    gno:id,
-                                    num:1,
-                                })
-                            ).then(rs=>{
-                                if (rs.data > 0) {
-                                    this.carts[i].num = this.carts[i].num + 1;
-                                    this.goodsCount++;
-                                } else {
-                                    alert("添加失败");
-                                }
-                            });
-                        }
-                    }
-                }
+                // if(this.carts.length>0){
+                //     for(let i=0;i<this.carts.length;i++){
+                //         if(this.carts[i].id==id){
+                //             flag=1;
+                //             axios.post('cart',
+                //                 qs.stringify({
+                //                     op:'update',
+                //                     gno:id,
+                //                     num:1,
+                //                 })
+                //             ).then(rs=>{
+                //                 if (rs.data > 0) {
+                //                     this.carts[i].num = this.carts[i].num + 1;
+                //                     this.goodsCount++;
+                //                 } else {
+                //                     alert("添加失败");
+                //                 }
+                //             });
+                //         }
+                //     }
+                // }
+                var params=new URLSearchParams();
+                var phone=JSON.parse(sessionStorage.getItem('DetailInfo'));
+                var user =JSON.parse(sessionStorage.getItem('user')).id;    //TODO :还未测试
+                params.append("gno",id)
+                params.append("uno",user;
+                params.append("num",1);
                 if (flag==0){
                     //购物车没有
-                    axios.post("cart",qs.stringify({
-                        num:1,
-                        op:"add",
-                        gno:id
-                    })).then(rs=>{
+                    axios.post("cart",params
+
+                    ).then(rs=>{
                         let cno=rs.data;
                         if ("0"==cno){
                             alert("添加失败")
                         }else {
                             //更多数据
-                            this.carts.push({gno:id,cno:cno,num:1,uno:this.uno});
-                            this.goodsCount++;
+                            // this.carts.push({gno:id,cno:cno,num:1,uno:this.uno});
+                            // this.goodsCount++;
+                            //添加成功了
+                            alert("添加成功")
                         }
                     });
                 }

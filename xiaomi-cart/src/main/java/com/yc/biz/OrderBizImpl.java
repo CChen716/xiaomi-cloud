@@ -95,15 +95,15 @@ public class OrderBizImpl implements OrderBiz{
         }
         //TODO 将订单写入到数据库中----使用rabbitMQ异步处理
         try {
-            //执行lua脚本 实现数据查询和库存扣减
+            //执行lua脚本 实现数据查询和库存扣减  此处完成Redis库存扣减
             String result = redisTemplate.execute(SECKILL_SCRIPT, Collections.singletonList(key), num);
             log.info("lua脚本运行结果："+result);
             if (result.equals("0")){//0表示出现下订单失败
                 map.put("code",0); //失败处理
                 return map;
             }else {//表示库存扣减成功
-                //TODO 1.将订单写入订单详情表 插入订单
-                //TODO 2.将扣减的库存更新商品详情表
+                //TODO 1.将订单写入订单详情表 插入订单     交由MQ异步处理
+                //TODO 2.将扣减的库存更新商品详情表        交由MQ异步处理
                 //TODO 同步到ElasticSearch  --MQ     这一步通过Canal+MQ  不在此处处理
 
                 map.put("code",1);

@@ -350,6 +350,7 @@
                 params.append("uid",this.orderInfo.uid);
                 params.append("price",this.orderInfo.price);
                 params.append("aid",this.orderInfo.aid);
+                //在购物车调用添加订单方法？  初步订单表--这里就当做最终订单表算了  因为订单详情没有方法没弄好
                 axios.post(addr_cart+"order/addOrderInfo",params)
                     .then(data=>{
                         this.ono = data.data.data.ono;

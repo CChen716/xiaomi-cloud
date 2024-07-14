@@ -1,7 +1,7 @@
 spring:
   redis:
     database: 4
-    host: 127.0.0.1
+    host: 192.168.85.128  #此处原本将本机redis转移到了Linux中 此处为虚拟机ip地址
     port: 6379
     timeout: 10000ms
 

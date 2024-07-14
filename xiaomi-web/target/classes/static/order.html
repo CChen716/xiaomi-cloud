@@ -318,16 +318,19 @@
                 _this.user =JSON.parse(localStorage.getItem("user"));
                 _this.uid = _this.user.id;
                 params.append("uid",_this.uid);
+                //tnd 这是查询地址的方法名
                 axios.post(addr_order+"order/findAdd", params).then(data =>{
                     _this.addresses = data.data.data;
                     console.log( _this.addresses);
                 });
             },
+            //结算方法
             over(){
                 var _this=this;
                 var params = new URLSearchParams();
                 params.append("gnos",_this.gnos);
                 params.append("nums",_this.nums);
+                // 调用删减库存方法
                 axios.post(addr_order+"order/updatePhoneinfo", params).then(data =>{
 
                 });
@@ -335,19 +338,14 @@
                 var params1 = new URLSearchParams();
                 params1.append("ono",_this.ono);
                 params1.append("aid",_this.selectedAddressId);
+                //
                 axios.post(addr_order+"order/updateAdd", params1).then(data =>{
 
                 });
                 //一共需要三个参数 subject是支付名称    traceno是商户订单号必须变化     total是总金额
 
                 window.open("http://localhost:6001/alipay/pay?subject=1&traceNo="+_this.ono+"&totalAmount="+this.Amount,"_self")  //跳转至支付宝页面
-
-
-
-
-
-
-
+                //支付成功后应该调用添加订单详情  但支付宝异步回调接口目前无法稳定执行异步回调  --内网穿透ip不断更换（不变的要钱）
 
 
 
