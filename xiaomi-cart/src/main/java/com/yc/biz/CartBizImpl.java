@@ -77,4 +77,9 @@ public class CartBizImpl implements CartBiz{
         return this.cartDao.findByUno(uno);
     }
 
+    public String TestRpc(String userID,String id) {
+        System.out.println("RPC测试方法"+userID+id);
+        return "RPC测试方法"+userID+id;
+    }
+
 }

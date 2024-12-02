@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface CartBiz {
+
+
     public void del(String cno);
     public void update(int num, int cno);
     public List<CartInfo> add(CartInfo cart);
@@ -22,4 +24,6 @@ public interface CartBiz {
      */
     public List<Map<String, List<CartShowInfo>>> findByUno(int uno);
 
+
+    public String TestRpc(String userID,String id);
 }

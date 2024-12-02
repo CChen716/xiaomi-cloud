@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ import java.util.Map;
         readOnly = true, rollbackFor = RuntimeException.class)
 @Slf4j
 public class OrderBizImpl implements OrderBiz{
+
     @Autowired
     private OrderDao orderDao;
 
@@ -106,6 +108,7 @@ public class OrderBizImpl implements OrderBiz{
                 //TODO 2.将扣减的库存更新商品详情表        交由MQ异步处理
                 //TODO 同步到ElasticSearch  --MQ     这一步通过Canal+MQ  不在此处处理
 
+
                 map.put("code",1);
             }
 
@@ -124,6 +127,7 @@ public class OrderBizImpl implements OrderBiz{
         for (int i = 0; i < gnos.length; i++) {
             int gno = gnos[i];
             int num = nums[i];
+
             this.orderDao.updatePhoneinfo(gno, num);
         }
     }

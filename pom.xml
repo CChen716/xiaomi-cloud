@@ -17,6 +17,8 @@
         <module>xiaomi-img</module>
         <module>xiaomi-cart</module>
         <module>xiaomi-es</module>
+        <module>xiaomi-rpc</module>
+        <module>xiaomi-rpc-common</module>
     </modules>
 
     <properties>

@@ -10,11 +10,13 @@
         <module name="xiaomi-web" />
         <module name="xiaomi-gateway" />
         <module name="xiaomi-init" />
+        <module name="xiaomi-rpc" />
         <module name="xiaomi-cart" />
         <module name="xiaomi-img" />
         <module name="xiaomi-security" />
         <module name="xiaomi-es" />
         <module name="xiaomi-entity" />
+        <module name="xiaomi-rpc-common" />
       </profile>
     </annotationProcessing>
   </component>
@@ -26,6 +28,8 @@
       <module name="xiaomi-gateway" options="-parameters" />
       <module name="xiaomi-img" options="-parameters" />
       <module name="xiaomi-init" options="-parameters" />
+      <module name="xiaomi-rpc" options="-parameters" />
+      <module name="xiaomi-rpc-common" options="-parameters" />
       <module name="xiaomi-security" options="-parameters" />
       <module name="xiaomi-web" options="-parameters" />
     </option>

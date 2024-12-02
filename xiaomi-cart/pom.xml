@@ -17,6 +17,41 @@
     </properties>
 
     <dependencies>
+
+
+
+        <!--        rpc公共模块-->
+        <dependency>
+            <groupId>com.yc</groupId>
+            <artifactId>xiaomi-rpc-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+<!--        引入rpc模块-->
+        <dependency>
+            <groupId>com.yc</groupId>
+            <artifactId>xiaomi-rpc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+<!--        vertx服务器-->
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+
+<!--        hessian序列化-->
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>4.0.63</version>
+        </dependency>
+
+
+
         <!--   支付宝支付的依赖     -->
         <dependency>
             <groupId>com.alipay.sdk</groupId>

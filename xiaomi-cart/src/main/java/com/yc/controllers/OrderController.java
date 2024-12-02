@@ -30,7 +30,6 @@ public class OrderController {
     @Autowired
     private OrderBiz orderBiz;
 
-
     @Autowired
     private RedissonClient redissonClient;
 
@@ -38,13 +37,13 @@ public class OrderController {
     private CacheService cacheService;
 
 
-
     /**下订方法
      *
      *问题：下订单之前是否需要检查商品库存  如果是秒杀环境下   单台解决方案使用Lua脚本-----单台redis情况下
      *
      *这个方法是在购物车界面点击去结算调用
-     * 目前只能在此进行分布式锁实现
+     *目前只能在此进行分布式锁实现
+     *
      * */
     @RequestMapping(value ="addOrderInfo" ,method = {RequestMethod.POST})
     @ApiOperation(value = "添加订单")
@@ -79,15 +78,13 @@ public class OrderController {
     //这个方法xzh压根就没写好  在前端没有找到调用接口
 
     /**
-     * 下订方法
-     *
-     *
+     * 下订方
      * 这个方法是结算界面点击结算按钮后就跳转支付平台
      * 正常来讲用户点击结算按钮后，进入此请求应该要判断当前商品是否能够进行结算  --即是否还有库存  如果没有库存则直接返回结算失败信息
      * 有就在此执行订单库存扣减（这一步正常来讲应该要在支付后的异步回调函数中执行，但支付回调接口无法稳定，就干脆写到这里算了）
      *
      * TODO 实现MQ异步通知
-     *  TODO 实现分布式锁防止超卖问题
+     * TODO 实现分布式锁防止超卖问题
      *
      * pid 手机id
      * num 订购数量
@@ -139,6 +136,8 @@ public class OrderController {
         map.put("code",1);
         return map;
     }
+
+
 
     @RequestMapping(value ="updateAdd" ,method = {RequestMethod.POST})
     @ApiOperation(value = "修改订单地址")
