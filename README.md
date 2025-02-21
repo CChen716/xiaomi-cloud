@@ -79,6 +79,7 @@ rpc:
 
 @RpcReference:
 在消费端的业务类中使用该注解表示为远程调用的代理对象，就像@Autowired注解类似。rpc框架会处理该注解的对象。
+
 ![image](https://github.com/user-attachments/assets/4c249cdf-53cc-4d36-95f6-46e1c456cecd)
 
 
@@ -119,6 +120,7 @@ rpc:
 ![image](https://github.com/user-attachments/assets/2157d11e-b059-4fb7-b6d0-c6cdf7bb8b86)
 
 服务端打印：
+
 ![image](https://github.com/user-attachments/assets/18fcaa2c-5459-4f49-92db-bb4ee61432c2)
 
 
