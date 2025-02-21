@@ -62,7 +62,7 @@ rpc:
 
 在服务提供端的方法上使用，表示这个方法为rpc的远程调用方法。
 
-![image](https://github.com/user-attachments/assets/cc4e730b-795b-416f-bb33-9ea795a949c3)
+![image](https://github.com/user-attachments/assets/7c85d9fc-cd4f-4d36-a93f-2d0685cc9bb8)
 
 @RpcProvider：
 
@@ -84,6 +84,7 @@ rpc:
 
 消费端进行调用：
 		 
+![image](https://github.com/user-attachments/assets/655ed2b9-fdf0-4702-999e-d2aeae578de0)
 
 @RpcSubscribe:
 在消费端的启动类上使用，标识为rpc订阅端，将进行消费端的一些相关配置拉取以及注解扫描工作。
@@ -110,12 +111,15 @@ rpc:
 
 
 启动后使用调用工具或者测试类进行调用测试，这里使用postman工具进行调用测试
+![image](https://github.com/user-attachments/assets/4da7fc5d-3570-46b5-9a72-0b424611b955)
+
 
 调用成功后查看两个服务的打印信息。
 消费端打印：
 ![image](https://github.com/user-attachments/assets/2157d11e-b059-4fb7-b6d0-c6cdf7bb8b86)
 
 服务端打印：
+![image](https://github.com/user-attachments/assets/18fcaa2c-5459-4f49-92db-bb4ee61432c2)
 
 
 
