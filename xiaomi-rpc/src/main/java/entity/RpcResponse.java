@@ -21,6 +21,9 @@ public class RpcResponse implements Serializable {
     //响应消息
     private String msg;
 
+    //响应数据类型
+    private Class<?> dataType;
+
 
 
 }

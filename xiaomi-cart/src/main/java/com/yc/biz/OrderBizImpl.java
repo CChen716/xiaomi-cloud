@@ -1,17 +1,16 @@
 package com.yc.biz;
 
+
+import annotation.EnableRpc;
 import com.yc.bean.Address;
 import com.yc.bean.OrderInfo;
-import com.yc.bean.OrderItemInfo;
 import com.yc.beanVO.OrderShowInfo;
 import com.yc.config.SeckillConfig;
 import com.yc.dao.OrderDao;
 import com.yc.dao.OrderIteminfoDAO;
 
 import com.yc.util.CacheService;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.session.SqlSession;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -145,5 +143,11 @@ public class OrderBizImpl implements OrderBiz{
     @Override
     public void updateAdd(int ono, int aid) {
         this.orderDao.updateAdd(ono,aid);
+    }
+
+    @EnableRpc
+    public String TestRpc(String userID,String id) {
+        System.out.println("RPC测试方法2"+userID+id);
+        return "RPC测试方法2"+userID+id;
     }
 }

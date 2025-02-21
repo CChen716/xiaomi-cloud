@@ -1,0 +1,16 @@
+2024-12-04 21:58:19.739  INFO 33164 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2024-12-04 21:58:19.886  INFO 33164 --- [main] testRpc.TestRpc                          : Starting TestRpc using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 33164 (started by 12547 in D:\javacloudlx\xiaomi\xiaomi-cart)
+2024-12-04 21:58:19.886  INFO 33164 --- [main] testRpc.TestRpc                          : No active profile set, falling back to 1 default profile: "default"
+2024-12-04 21:58:21.106  INFO 33164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2024-12-04 21:58:21.112  INFO 33164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-12-04 21:58:21.144  INFO 33164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2024-12-04 21:58:21.405  INFO 33164 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ec0d950d-5120-324d-bc5f-6a4da56c2962
+2024-12-04 21:58:22.112  INFO 33164 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-12-04 21:58:24.028  INFO 33164 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-12-04 21:58:26.879  INFO 33164 --- [main] org.redisson.Version                     : Redisson 3.13.0
+2024-12-04 21:58:30.591  INFO 33164 --- [redisson-netty-2-18] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /192.168.85.128:6379
+2024-12-04 21:58:30.592  INFO 33164 --- [redisson-netty-2-19] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /192.168.85.128:6379
+2024-12-04 21:58:35.380  INFO 33164 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2024-12-04 21:58:39.038  INFO 33164 --- [main] testRpc.TestRpc                          : Started TestRpc in 21.62 seconds (JVM running for 22.53)
+2024-12-04 21:58:39.562  INFO 33164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2024-12-04 21:58:39.570  INFO 33164 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

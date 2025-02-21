@@ -19,6 +19,7 @@
         <module>xiaomi-es</module>
         <module>xiaomi-rpc</module>
         <module>xiaomi-rpc-common</module>
+        <module>xiaomi-rpc-springboot-starter</module>
     </modules>
 
     <properties>

@@ -17,6 +17,7 @@
         <module name="xiaomi-es" />
         <module name="xiaomi-entity" />
         <module name="xiaomi-rpc-common" />
+        <module name="xiaomi-rpc-springboot-starter" />
       </profile>
     </annotationProcessing>
   </component>
@@ -30,6 +31,7 @@
       <module name="xiaomi-init" options="-parameters" />
       <module name="xiaomi-rpc" options="-parameters" />
       <module name="xiaomi-rpc-common" options="-parameters" />
+      <module name="xiaomi-rpc-springboot-starter" options="-parameters" />
       <module name="xiaomi-security" options="-parameters" />
       <module name="xiaomi-web" options="-parameters" />
     </option>

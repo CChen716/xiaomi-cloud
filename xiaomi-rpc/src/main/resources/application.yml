@@ -1,0 +1,7 @@
+rpc:
+  serverPort: 8888
+  nacosAddr: 127.0.0.1:8848
+  packName: com.yc.biz
+  serverHost: localhost
+  mock: false
+  serialize: hessian

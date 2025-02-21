@@ -1,325 +1,123 @@
-2024-06-27 11:09:23.366  INFO 20536 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-2024-06-27 11:09:23.501  INFO 20536 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 20536 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
-2024-06-27 11:09:23.502  INFO 20536 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
-2024-06-27 11:09:23.548  INFO 20536 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-27 11:09:23.549  INFO 20536 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-27 11:09:25.201  INFO 20536 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2024-06-27 11:09:25.203  INFO 20536 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-27 11:09:25.229  INFO 20536 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
-2024-06-27 11:09:25.569  INFO 20536 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f7414ede-9675-36cd-ab60-e4e0be6a6850
-2024-06-27 11:09:26.219  INFO 20536 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
-2024-06-27 11:09:26.230  INFO 20536 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-27 11:09:26.230  INFO 20536 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
-2024-06-27 11:09:26.334  INFO 20536 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-27 11:09:26.334  INFO 20536 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2783 ms
-2024-06-27 11:09:26.541  INFO 20536 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2024-06-27 11:09:27.053  INFO 20536 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2024-06-27 11:09:40.741  INFO 20536 --- [restartedMain] org.redisson.Version                     : Redisson 3.13.0
-2024-06-27 11:09:50.081  INFO 21160 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-2024-06-27 11:09:50.229  INFO 21160 --- [restartedMain] com.yc.xiaomi.SecurityApp                : Starting SecurityApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 21160 (D:\javacloudlx\xiaomi\xiaomi-security\target\classes started by 12547 in D:\javacloudlx\xiaomi)
-2024-06-27 11:09:50.230  INFO 21160 --- [restartedMain] com.yc.xiaomi.SecurityApp                : No active profile set, falling back to 1 default profile: "default"
-2024-06-27 11:09:50.290  INFO 21160 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-27 11:09:50.291  INFO 21160 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-27 11:09:51.948  INFO 21160 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2024-06-27 11:09:51.951  INFO 21160 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-27 11:09:51.980  INFO 21160 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
-2024-06-27 11:09:52.286  INFO 21160 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1d61b82e-ecb8-31d3-a855-5099fbc13965
-2024-06-27 11:09:52.807  INFO 21160 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8003 (http)
-2024-06-27 11:09:52.818  INFO 21160 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-27 11:09:52.819  INFO 21160 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
-2024-06-27 11:09:52.914  INFO 21160 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-27 11:09:52.914  INFO 21160 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2622 ms
-2024-06-27 11:09:53.129  INFO 21160 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2024-06-27 11:09:53.722  INFO 21160 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2024-06-27 11:09:55.815  INFO 20536 --- [redisson-netty-2-31] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /192.168.85.128:6379
-2024-06-27 11:09:55.823  INFO 20536 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /192.168.85.128:6379
-2024-06-27 11:10:19.741  INFO 20536 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
-2024-06-27 11:10:20.170  INFO 20536 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-06-27 11:10:38.378  INFO 20536 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
-2024-06-27 11:10:38.450  INFO 20536 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-2024-06-27 11:10:38.451  INFO 20536 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-2024-06-27 11:10:38.960  INFO 21160 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
-2024-06-27 11:10:39.280  INFO 21160 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10aa1cfb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6743c203, org.springframework.security.web.context.SecurityContextPersistenceFilter@7502847c, org.springframework.security.web.header.HeaderWriterFilter@7b4a0797, org.springframework.security.web.authentication.logout.LogoutFilter@615d8048, com.yc.xiaomi.filters.JwtRequestFilter@6d7ea697, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@347d8f6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@783e2b6d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dfc8ecf, org.springframework.security.web.session.SessionManagementFilter@598f0812, org.springframework.security.web.access.ExceptionTranslationFilter@2a8efdda, org.springframework.security.web.access.intercept.AuthorizationFilter@4edf2f80]
-2024-06-27 11:10:50.568  WARN 21160 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'enableRedisKeyspaceNotificationsInitializer' defined in org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
-2024-06-27 11:10:50.704  INFO 21160 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-2024-06-27 11:10:50.713  INFO 21160 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2024-06-27 11:10:50.720  INFO 21160 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-27 11:10:50.749  INFO 21160 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2024-06-27 11:10:50.789 ERROR 21160 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'enableRedisKeyspaceNotificationsInitializer' defined in org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
-	at com.yc.xiaomi.SecurityApp.main(SecurityApp.java:19) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.0.jar:2.7.0]
-Caused by: org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1689) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1597) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1383) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1366) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:1093) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:421) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration$EnableRedisKeyspaceNotificationsInitializer.afterPropertiesSet(RedisHttpSessionConfiguration.java:331) ~[spring-session-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.20.jar:5.3.20]
-	... 21 common frames omitted
-Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379
-	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78) ~[lettuce-core-6.1.8.RELEASE.jar:6.1.8.RELEASE]
-	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56) ~[lettuce-core-6.1.8.RELEASE.jar:6.1.8.RELEASE]
-	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330) ~[lettuce-core-6.1.8.RELEASE.jar:6.1.8.RELEASE]
-	at io.lettuce.core.RedisClient.connect(RedisClient.java:216) ~[lettuce-core-6.1.8.RELEASE.jar:6.1.8.RELEASE]
-	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at java.base/java.util.Optional.orElseGet(Optional.java:369) ~[na:na]
-	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1595) ~[spring-data-redis-2.7.0.jar:2.7.0]
-	... 28 common frames omitted
-Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: /127.0.0.1:6379
-Caused by: java.net.ConnectException: Connection refused: no further information
-	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779) ~[na:na]
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:995) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-
-2024-06-27 11:10:56.328 ERROR 20536 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, xiaomi-cart register failed...NacosRegistration{nacosDiscoveryProperties=NacosDiscoveryProperties{serverAddr='localhost:8848', username='nacos', password='nacos', endpoint='', namespace='', watchDelay=30000, logName='', service='xiaomi-cart', weight=1.0, clusterName='DEFAULT', group='DEFAULT_GROUP', namingLoadCacheAtStart='false', metadata={IPv6=null, preserved.register.source=SPRING_CLOUD}, registerEnabled=true, ip='192.168.85.1', networkInterface='', port=6001, secure=false, accessKey='', secretKey='', heartBeatInterval=null, heartBeatTimeout=null, ipDeleteTimeout=null, instanceEnabled=true, ephemeral=true, failureToleranceEnabled=false}, ipDeleteTimeout=null, failFast=true}},
-
-com.alibaba.nacos.api.exception.NacosException: Client not connected, current status:STARTING
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:639) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:619) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:356) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.doRegisterService(NamingGrpcClientProxy.java:209) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.registerService(NamingGrpcClientProxy.java:123) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate.registerService(NamingClientProxyDelegate.java:98) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:152) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:75) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:232) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:78) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:133) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:98) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:86) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:46) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.20.jar:5.3.20]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
-	at com.yc.CartApp.main(CartApp.java:17) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.0.jar:2.7.0]
-
-2024-06-27 11:10:56.329  WARN 20536 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
-2024-06-27 11:10:56.520  INFO 20536 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-2024-06-27 11:10:56.529  INFO 20536 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2024-06-27 11:11:05.671  INFO 20536 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-27 11:11:05.700  INFO 20536 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2024-06-27 11:11:05.727 ERROR 20536 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.20.jar:5.3.20]
-	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
-	at com.yc.CartApp.main(CartApp.java:17) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.0.jar:2.7.0]
-Caused by: java.lang.reflect.UndeclaredThrowableException: null
-	at org.springframework.util.ReflectionUtils.rethrowRuntimeException(ReflectionUtils.java:147) ~[spring-core-5.3.20.jar:5.3.20]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:83) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:232) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:78) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:133) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:98) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:86) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47) ~[spring-cloud-commons-3.1.6.jar:3.1.6]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:46) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.20.jar:5.3.20]
-	... 19 common frames omitted
-Caused by: com.alibaba.nacos.api.exception.NacosException: Client not connected, current status:STARTING
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:639) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:619) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:356) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.doRegisterService(NamingGrpcClientProxy.java:209) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.registerService(NamingGrpcClientProxy.java:123) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate.registerService(NamingClientProxyDelegate.java:98) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:152) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:75) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	... 32 common frames omitted
-
-2024-06-27 11:11:05.731  WARN 20536 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-2024-06-27 11:11:05.731  WARN 20536 --- [Thread-14] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-2024-06-27 11:11:05.732  WARN 20536 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-2024-06-27 11:11:05.733  WARN 20536 --- [Thread-14] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-2024-06-27 11:12:00.255  INFO 27180 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-2024-06-27 11:12:00.386  INFO 27180 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 27180 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
-2024-06-27 11:12:00.387  INFO 27180 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
-2024-06-27 11:12:00.432  INFO 27180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-27 11:12:00.432  INFO 27180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-27 11:12:01.845  INFO 27180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2024-06-27 11:12:01.848  INFO 27180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2024-06-27 11:12:01.875  INFO 27180 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
-2024-06-27 11:12:02.151  INFO 27180 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f7414ede-9675-36cd-ab60-e4e0be6a6850
-2024-06-27 11:12:02.737  INFO 27180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
-2024-06-27 11:12:02.747  INFO 27180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-27 11:12:02.747  INFO 27180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
-2024-06-27 11:12:02.867  INFO 27180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-27 11:12:02.868  INFO 27180 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2435 ms
-2024-06-27 11:12:03.067  INFO 27180 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2024-06-27 11:12:03.730  INFO 27180 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2024-06-27 11:12:10.769  INFO 27180 --- [restartedMain] org.redisson.Version                     : Redisson 3.13.0
-2024-06-27 11:12:30.529  WARN 27180 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderBizImpl': Unsatisfied dependency expressed through field 'redissonClient'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/yc/config/RedissonConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: /192.168.85.128:6379
-2024-06-27 11:12:30.529  INFO 27180 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-2024-06-27 11:12:30.538  INFO 27180 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2024-06-27 11:12:30.542  INFO 27180 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-27 11:12:30.575  INFO 27180 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2024-06-27 11:12:30.628 ERROR 27180 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderBizImpl': Unsatisfied dependency expressed through field 'redissonClient'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/yc/config/RedissonConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: /192.168.85.128:6379
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:659) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:639) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.20.jar:5.3.20]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
-	at com.yc.CartApp.main(CartApp.java:17) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.0.jar:2.7.0]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [com/yc/config/RedissonConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: /192.168.85.128:6379
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:656) ~[spring-beans-5.3.20.jar:5.3.20]
-	... 25 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: Unable to connect to Redis server: /192.168.85.128:6379
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.20.jar:5.3.20]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.20.jar:5.3.20]
-	... 38 common frames omitted
-Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: /192.168.85.128:6379
-	at org.redisson.connection.pool.ConnectionPool$1.lambda$run$0(ConnectionPool.java:159) ~[redisson-3.13.0.jar:3.13.0]
-	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183) ~[redisson-3.13.0.jar:3.13.0]
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:552) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96) ~[redisson-3.13.0.jar:3.13.0]
-	at org.redisson.connection.pool.ConnectionPool.promiseFailure(ConnectionPool.java:329) ~[redisson-3.13.0.jar:3.13.0]
-	at org.redisson.connection.pool.ConnectionPool.lambda$createConnection$1(ConnectionPool.java:295) ~[redisson-3.13.0.jar:3.13.0]
-	at org.redisson.misc.RedissonPromise.lambda$onComplete$0(RedissonPromise.java:183) ~[redisson-3.13.0.jar:3.13.0]
-	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:571) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:550) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at org.redisson.misc.RedissonPromise.tryFailure(RedissonPromise.java:96) ~[redisson-3.13.0.jar:3.13.0]
-	at org.redisson.client.RedisClient$2$2.run(RedisClient.java:248) ~[redisson-3.13.0.jar:3.13.0]
-	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:995) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.85.128:6379
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261) ~[netty-transport-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170) ~[netty-common-4.1.77.Final.jar:4.1.77.Final]
-	... 8 common frames omitted
-
+2025-02-21 17:20:30.820  INFO 28296 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2025-02-21 17:20:30.947  INFO 28296 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 28296 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2025-02-21 17:20:30.947  INFO 28296 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
+2025-02-21 17:20:30.988  INFO 28296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-21 17:20:30.988  INFO 28296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-21 17:20:32.255  INFO 28296 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2025-02-21 17:20:32.258  INFO 28296 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-21 17:20:32.282  INFO 28296 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-02-21 17:20:32.502  INFO 28296 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=efd95f19-01fc-3c08-8685-4179e86a81b1
+2025-02-21 17:20:32.958  INFO 28296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
+2025-02-21 17:20:32.967  INFO 28296 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-21 17:20:32.967  INFO 28296 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2025-02-21 17:20:33.061  INFO 28296 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-21 17:20:33.061  INFO 28296 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2072 ms
+2025-02-21 17:20:33.254  INFO 28296 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2025-02-21 17:20:33.614  INFO 28296 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-02-21 17:20:36.121  INFO 28296 --- [restartedMain] org.redisson.Version                     : Redisson 3.13.0
+2025-02-21 17:20:39.702  INFO 28296 --- [redisson-netty-2-10] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /192.168.85.128:6379
+2025-02-21 17:20:40.700  INFO 28296 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /192.168.85.128:6379
+2025-02-21 17:20:41.106  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:20:41.106  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:20:45.269  INFO 28296 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2025-02-21 17:20:45.509  INFO 28296 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-21 17:20:48.456  INFO 28296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
+2025-02-21 17:20:48.475  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:20:48.476  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:20:53.911  INFO 28296 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-cart 192.168.1.6:6001 register finished
+2025-02-21 17:20:55.785  INFO 28296 --- [restartedMain] com.yc.CartApp                           : Started CartApp in 27.328 seconds (JVM running for 29.637)
+2025-02-21 17:20:55.811  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:20:55.812  INFO 28296 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:20:55.877  INFO 28296 --- [RMI TCP Connection(3)-192.168.1.6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-21 17:20:55.877  INFO 28296 --- [RMI TCP Connection(3)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-21 17:20:55.879  INFO 28296 --- [RMI TCP Connection(3)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-02-21 17:30:41.100  WARN 28296 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2025-02-21 17:30:41.100  WARN 28296 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2025-02-21 17:30:41.101  WARN 28296 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2025-02-21 17:30:41.102  WARN 28296 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2025-02-21 17:30:42.605  INFO 28296 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2025-02-21 17:30:42.610  INFO 28296 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2025-02-21 17:30:42.666  INFO 28296 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-02-21 17:30:42.674  INFO 28296 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-02-21 17:30:50.448  INFO 28676 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2025-02-21 17:30:50.558  INFO 28676 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 28676 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2025-02-21 17:30:50.559  INFO 28676 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
+2025-02-21 17:30:50.596  INFO 28676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-21 17:30:50.596  INFO 28676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-21 17:30:51.777  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2025-02-21 17:30:51.779  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-21 17:30:51.801  INFO 28676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-02-21 17:30:52.013  INFO 28676 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=efd95f19-01fc-3c08-8685-4179e86a81b1
+2025-02-21 17:30:52.431  INFO 28676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
+2025-02-21 17:30:52.440  INFO 28676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-21 17:30:52.440  INFO 28676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2025-02-21 17:30:52.534  INFO 28676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-21 17:30:52.534  INFO 28676 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1938 ms
+2025-02-21 17:30:52.722  INFO 28676 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2025-02-21 17:30:53.120  INFO 28676 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-02-21 17:30:55.638  INFO 28676 --- [restartedMain] org.redisson.Version                     : Redisson 3.13.0
+2025-02-21 17:30:59.225  INFO 28676 --- [redisson-netty-2-28] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /192.168.85.128:6379
+2025-02-21 17:30:59.226  INFO 28676 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /192.168.85.128:6379
+2025-02-21 17:30:59.644  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:30:59.644  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:31:03.054  INFO 28676 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2025-02-21 17:31:03.257  INFO 28676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-21 17:31:05.218  INFO 28676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
+2025-02-21 17:31:05.236  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:31:05.236  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:31:09.895  INFO 28676 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-cart 192.168.1.6:6001 register finished
+2025-02-21 17:31:11.681  INFO 28676 --- [restartedMain] com.yc.CartApp                           : Started CartApp in 23.526 seconds (JVM running for 25.775)
+2025-02-21 17:31:11.703  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:31:11.704  INFO 28676 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:31:13.515  INFO 28676 --- [RMI TCP Connection(1)-192.168.1.6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-21 17:31:13.515  INFO 28676 --- [RMI TCP Connection(1)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-21 17:31:13.519  INFO 28676 --- [RMI TCP Connection(1)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-02-21 17:33:18.312  WARN 28676 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2025-02-21 17:33:18.312  WARN 28676 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2025-02-21 17:33:18.312  WARN 28676 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2025-02-21 17:33:18.313  WARN 28676 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2025-02-21 17:33:19.486  INFO 28676 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2025-02-21 17:33:19.489  INFO 28676 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2025-02-21 17:33:19.533  INFO 28676 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-02-21 17:33:19.539  INFO 28676 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2025-02-21 17:33:27.348  INFO 16456 --- [restartedMain] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+2025-02-21 17:33:27.454  INFO 16456 --- [restartedMain] com.yc.CartApp                           : Starting CartApp using Java 11.0.18 on LAPTOP-QQH0P0QJ with PID 16456 (D:\javacloudlx\xiaomi\xiaomi-cart\target\classes started by 12547 in D:\javacloudlx\xiaomi)
+2025-02-21 17:33:27.454  INFO 16456 --- [restartedMain] com.yc.CartApp                           : No active profile set, falling back to 1 default profile: "default"
+2025-02-21 17:33:27.494  INFO 16456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-21 17:33:27.494  INFO 16456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-21 17:33:28.803  INFO 16456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2025-02-21 17:33:28.805  INFO 16456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-02-21 17:33:28.827  INFO 16456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2025-02-21 17:33:29.059  INFO 16456 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=efd95f19-01fc-3c08-8685-4179e86a81b1
+2025-02-21 17:33:29.584  INFO 16456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 6001 (http)
+2025-02-21 17:33:29.594  INFO 16456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-21 17:33:29.594  INFO 16456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2025-02-21 17:33:29.689  INFO 16456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-21 17:33:29.689  INFO 16456 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2195 ms
+2025-02-21 17:33:29.849  INFO 16456 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2025-02-21 17:33:30.164  INFO 16456 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2025-02-21 17:33:32.711  INFO 16456 --- [restartedMain] org.redisson.Version                     : Redisson 3.13.0
+2025-02-21 17:33:36.392  INFO 16456 --- [redisson-netty-2-6] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for /192.168.85.128:6379
+2025-02-21 17:33:36.392  INFO 16456 --- [redisson-netty-2-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for /192.168.85.128:6379
+2025-02-21 17:33:36.776  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:33:36.776  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:33:40.302  INFO 16456 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2025-02-21 17:33:40.547  INFO 16456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-21 17:33:42.985  INFO 16456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 6001 (http) with context path ''
+2025-02-21 17:33:43.007  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:33:43.007  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:33:48.010  INFO 16456 --- [restartedMain] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP xiaomi-cart 192.168.1.6:6001 register finished
+2025-02-21 17:33:49.879  INFO 16456 --- [restartedMain] com.yc.CartApp                           : Started CartApp in 24.972 seconds (JVM running for 27.169)
+2025-02-21 17:33:49.902  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-02-21 17:33:49.902  INFO 16456 --- [restartedMain] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-02-21 17:33:51.482  INFO 16456 --- [RMI TCP Connection(4)-192.168.1.6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-21 17:33:51.483  INFO 16456 --- [RMI TCP Connection(4)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-21 17:33:51.487  INFO 16456 --- [RMI TCP Connection(4)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-02-21 19:13:44.996  WARN 16456 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+2025-02-21 19:13:44.996  WARN 16456 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+2025-02-21 19:13:45.006  WARN 16456 --- [Thread-16] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+2025-02-21 19:13:45.006  WARN 16456 --- [Thread-6] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+2025-02-21 19:13:46.302  INFO 16456 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2025-02-21 19:13:46.312  INFO 16456 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2025-02-21 19:13:46.383  INFO 16456 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-02-21 19:13:46.404  INFO 16456 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

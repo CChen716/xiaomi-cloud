@@ -8,4 +8,9 @@ public interface CartBiz {
 
     //测试方法
     public String TestRpc(String userID,String id);
+
+    //
+    default String TestMock(){
+        return "1";
+    }
 }

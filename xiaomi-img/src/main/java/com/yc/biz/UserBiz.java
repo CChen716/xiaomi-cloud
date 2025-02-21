@@ -11,4 +11,6 @@ public interface UserBiz {
     public List<User> findUser();
 
     public void deleteUser(Integer id);
+
+    void testRPC(); //测试框架
 }

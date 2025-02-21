@@ -2,12 +2,10 @@ package com.yc.biz;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.yc.bean.Phone;
+import com.rpc.annotation.RpcReference;
 import com.yc.bean.User;
 import com.yc.dao.UserDao;
-import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -24,8 +22,14 @@ import java.util.Map;
         isolation = Isolation.DEFAULT,timeout = 2000,
         readOnly = true,rollbackFor = RuntimeException.class)
 public class UserBizImpl implements UserBiz {
+
     @Autowired
     private UserDao userDao;
+
+    @RpcReference //测试rpc
+    private CartBiz cartBiz;
+
+
     @Override
     public Map<String,Object> UserCountByRegDate() {
         Map<String,Object> result=new HashMap<>();
@@ -55,4 +59,12 @@ public class UserBizImpl implements UserBiz {
     public void deleteUser(Integer id) {
         this.userDao.deleteById(id);
     }
+
+
+    //rpc测试 开放接口注解
+    public void testRPC(){
+       System.out.println(cartBiz.TestRpc("66", "8"));
+    }
+
+
 }

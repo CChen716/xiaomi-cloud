@@ -1,5 +1,6 @@
 package com.yc;
 
+import com.rpc.annotation.RpcSubscribe;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
@@ -15,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 @EnableSwagger2
 @EnableOpenApi
+@RpcSubscribe //RPC框架
 public class ImgApp {
     public static void main(String[] args) {
         SpringApplication.run(ImgApp.class,args);

@@ -66,5 +66,9 @@ public class UseController {
         return map;
     }
 
+    @RequestMapping(value = "testRpc",method = {RequestMethod.GET})
+    public void testRpc(){
+        userBiz.testRPC();
+    }
 
 }

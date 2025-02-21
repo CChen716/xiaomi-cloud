@@ -1,11 +1,12 @@
 package com.yc.biz;
 
+
+import annotation.EnableRpc;
 import com.yc.bean.CartInfo;
 import com.yc.bean.OrderItemInfo;
 import com.yc.bean.PhoneInfo;
 import com.yc.beanVO.CartShowInfo;
 import com.yc.dao.CartDao;
-import com.yc.dao.OrderDao;
 import com.yc.dao.OrderIteminfoDAO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -77,9 +77,13 @@ public class CartBizImpl implements CartBiz{
         return this.cartDao.findByUno(uno);
     }
 
+
+    @EnableRpc
     public String TestRpc(String userID,String id) {
         System.out.println("RPC测试方法"+userID+id);
         return "RPC测试方法"+userID+id;
     }
+
+
 
 }
